@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRIULCOIN - Difesa Patrimoniale Legale per Famiglie Friulane</title>
+    <meta name="description" content="Sistema di protezione patrimoniale basato su sentenze CEDU contro abusi fiscali. Tecnologia blockchain per tutelare le famiglie friulane.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .hero .cta-button:hover {
+            background: #ff8555;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            padding: 60px 20px;
+        }
+        
+        .section-dark {
+            background: #f5f5f5;
+        }
+        
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1e3c72;
+        }
+        
+        .problem-box {
+            background: #fff3cd;
+            border-left: 5px solid #ff6b35;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .problem-box h3 {
+            color: #d9534f;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            font-size: 1.1em;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .cedu-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        
+        .cedu-highlight h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .cedu-highlight p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .button-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .stats-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>🛡️ Proteggi la Tua Famiglia dagli Abusi Fiscali</h1>
+            <p class="subtitle">Sistema di Difesa Patrimoniale Basato su Sentenze della Corte Europea dei Diritti dell'Uomo</p>
+            <p style="font-size: 1.1em; margin: 20px 0;">L'Italia è stata condannata dalla CEDU per violazioni sistematiche dei diritti dei contribuenti.<br>Ora puoi proteggere il tuo patrimonio in modo legale e sicuro.</p>
+            <a href="#inizia" class="cta-button">Scopri Come Proteggerti →</a>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <div class="section">
+        <div class="container">
+            <h2>Il Problema che FRIULCOIN Risolve</h2>
+            
+            <div class="problem-box">
+                <h3>⚠️ Abusi Fiscali Condannati dall'Europa</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    La Corte Europea dei Diritti dell'Uomo ha <strong>condannato l'Italia</strong> per:
+                </p>
+                <ul style="font-size: 1.1em; margin: 15px 0 15px 30px; line-height: 2;">
+                    <li><strong>Ispezioni fiscali senza garanzie</strong> (Sentenza Italgomme, febbraio 2025)</li>
+                    <li><strong>Discrezionalità illimitata</strong> di Agenzia Entrate e Guardia di Finanza (Sentenza Agrisud, dicembre 2025)</li>
+                    <li><strong>Violazione del diritto al domicilio</strong> (Art. 8 CEDU)</li>
+                    <li><strong>Mancanza di controllo giudiziario</strong> preventivo</li>
+                    <li><strong>Ritardi nei rimborsi fiscali</strong> che danneggiano le imprese (Sentenza Buffalo)</li>
+                </ul>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">13+</div>
+                    <div class="label">Sentenze CEDU contro l'Italia in materia fiscale</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">68.6%</div>
+                    <div class="label">Pressione fiscale su PMI italiane (prima in Europa)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">€3.200</div>
+                    <div class="label">Risarcimento medio per violazioni CEDU</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CEDU Highlight -->
+    <div class="cedu-highlight">
+        <div class="container">
+            <h3>📜 Sentenze CEDU Recenti</h3>
+            <p>
+                <strong>Sentenza Italgomme (6 febbraio 2025):</strong> L'Italia viola sistematicamente l'Art. 8 CEDU nelle ispezioni fiscali.<br>
+                <strong>Sentenza Agrisud (11 dicembre 2025):</strong> Condanna per poteri discrezionali illimitati del fisco.
+            </p>
+            <a href="sentenze-cedu.html" class="button-secondary">Leggi Tutte le Sentenze →</a>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <div class="section section-dark">
+        <div class="container">
+            <h2>Come FRIULCOIN Ti Protegge</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🔒 Disintermediazione Bancaria</h3>
+                    <p>Elimina gli intermediari finanziari tradizionali. Il tuo patrimonio non passa più attraverso canali facilmente pignorabili o bloccabili.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>⚖️ Base Legale Europea</h3>
+                    <p>Sistema basato su sentenze CEDU che hanno già condannato l'Italia per abusi. Protezione legittima riconosciuta a livello europeo.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🛡️ Controllo Diretto</h3>
+                    <p>Tu sei l'unico proprietario delle tue chiavi private. Nessuno può accedere ai tuoi fondi senza il tuo consenso esplicito.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🌐 Tecnologia Blockchain</h3>
+                    <p>Sistema decentralizzato basato su crittografia avanzata. Trasparenza totale e sicurezza matematica.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>💶 Totalmente Legale</h3>
+                    <p>Le criptovalute sono legali in Italia. Non richiedi autorizzazioni per possedere e usare FRIULCOIN.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🏔️ Progetto Friulano</h3>
+                    <p>Sviluppato in Friuli per le famiglie friulane. Radicato nel territorio e nella comunità locale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="section" id="inizia">
+        <div class="container">
+            <h2>Come Iniziare in 3 Semplici Passi</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
+                    <h3>1️⃣ Scarica il Wallet</h3>
+                    <p>Installa il portafoglio FRIULCOIN sul tuo computer. È gratuito, open source e non richiede registrazioni.</p>
+                    <a href="inizia-ora.html" style="color: #1e3c72; font-weight: 600;">Vai al Download →</a>
+                </div>
+                
+                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
+                    <h3>2️⃣ Crea il Tuo Account</h3>
+                    <p>Il wallet genera automaticamente le tue chiavi private. Salvale in modo sicuro: sono l'unica via di accesso ai tuoi fondi.</p>
+                    <a href="come-funziona.html" style="color: #1e3c72; font-weight: 600;">Guida Completa →</a>
+                </div>
+                
+                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
+                    <h3>3️⃣ Inizia a Proteggere</h3>
+                    <p>Trasferisci gradualmente parte del tuo patrimonio in FRIULCOIN. Puoi iniziare anche con piccole somme per fare pratica.</p>
+                    <a href="come-funziona.html#mining" style="color: #1e3c72; font-weight: 600;">Mining e Acquisizione →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="inizia-ora.html" class="cta-button">Inizia Ora Gratuitamente →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="section section-dark">
+        <div class="container">
+            <h2>Perché Scegliere FRIULCOIN</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.2em; line-height: 1.8; text-align: center; color: #555;">
+                    "Le sentenze CEDU hanno dimostrato che il sistema fiscale italiano viola sistematicamente i diritti fondamentali dei contribuenti. 
+                    FRIULCOIN offre una <strong>protezione legale e tecnologica</strong> basata proprio su queste sentenze. 
+                    Non è evasione, è <strong>difesa patrimoniale legittima</strong>."
+                </p>
+                <p style="text-align: center; margin-top: 20px; font-weight: 600; color: #1e3c72;">
+                    — Progetto FRIULCOIN
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Final -->
+    <div class="section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; margin-bottom: 20px;">Pronto a Proteggere il Tuo Patrimonio?</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Unisciti alle famiglie friulane che hanno già scelto la sicurezza di FRIULCOIN
+            </p>
+            <a href="inizia-ora.html" class="cta-button">Scarica il Wallet Ora →</a>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                100% Gratuito • 100% Open Source • 100% Legale
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="sentenze-cedu.html">Sentenze CEDU</a>
+                <a href="come-funziona.html">Come Funziona</a>
+                <a href="inizia-ora.html">Inizia Ora</a>
+            </div>
+            <p>&copy; 2025 FRIULCOIN - Progetto Open Source per la Difesa Patrimoniale</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Basato su sentenze della Corte Europea dei Diritti dell'Uomo</p>
+        </div>
+    </footer>
+	
+	<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/632458c254f06e12d895159c/1gd2vleet';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+	
+	
+</body>
+</html>

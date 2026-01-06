@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analytics FRIULCOIN - Tracking ROI e Conversioni</title>
+    <meta name="description" content="Dashboard analytics per monitorare traffico, conversioni e ROI del progetto FRIULCOIN.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f6f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .metric-card .label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .metric-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .metric-card .change {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .metric-card .change.positive {
+            color: #28a745;
+        }
+        
+        .metric-card .change.negative {
+            color: #dc3545;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            transition: width 0.3s;
+        }
+        
+        .chart-placeholder {
+            background: #f8f9fa;
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        
+        .funnel-stage {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .funnel-stage h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .funnel-stage .stats {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .funnel-stage .stat-item {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .funnel-stage .stat-item .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .funnel-stage .stat-item .stat-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+        
+        .utm-tag {
+            display: inline-block;
+            background: #e7f3ff;
+            color: #0066cc;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 3px;
+        }
+        
+        .conversion-rate {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .conversion-rate.excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .conversion-rate.good {
+            background: #cfe2ff;
+            color: #084298;
+        }
+        
+        .conversion-rate.fair {
+            background: #fff3cd;
+            color: #664d03;
+        }
+        
+        .conversion-rate.poor {
+            background: #f8d7da;
+            color: #842029;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .info-box h4 {
+            color: #004085;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📊 Dashboard Analytics FRIULCOIN</h1>
+            <p>Monitoraggio Traffico, Conversioni e ROI</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Torna alla Home</a>
+        
+        <!-- METRICHE PRINCIPALI -->
+        <h2 style="color: #1e3c72; margin-bottom: 20px;">📈 Metriche Principali</h2>
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <div class="label">Visitatori Totali</div>
+                <div class="value" id="totalVisitors">0</div>
+                <div class="change positive">↑ --% vs scorsa settimana</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="label">Registrazioni</div>
+                <div class="value" id="totalRegistrations">0</div>
+                <div class="change positive">↑ --% conversione</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="label">Download Wallet</div>
+                <div class="value" id="totalDownloads">0</div>
+                <div class="change positive">↑ --% completati</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="label">Tasso Conversione</div>
+                <div class="value" id="conversionRate">--%</div>
+                <div class="change">Visitatore → Registrato</div>
+            </div>
+        </div>
+
+        <!-- FUNNEL CONVERSIONE -->
+        <div class="section">
+            <h2>🔄 Funnel di Conversione</h2>
+            
+            <div class="info-box">
+                <h4>💡 Come Funziona il Funnel</h4>
+                <p>
+                    Il funnel traccia il percorso dell'utente: dalla prima visita fino al download del wallet. 
+                    Ogni fase mostra quanti utenti proseguono e dove ci sono drop-off da ottimizzare.
+                </p>
+            </div>
+            
+            <div class="funnel-stage">
+                <h4>1️⃣ AWARENESS - Consapevolezza</h4>
+                <p>Visitatori che arrivano al sito per la prima volta</p>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Visitatori Unici</div>
+                        <div class="stat-value">1,247</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Nuovi Visitatori</div>
+                        <div class="stat-value">892</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Tempo Medio</div>
+                        <div class="stat-value">2:34</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="funnel-stage">
+                <h4>2️⃣ INTEREST - Interesse</h4>
+                <p>Visitatori che leggono le sentenze CEDU o "Come Funziona"</p>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 68%;"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Utenti Interessati</div>
+                        <div class="stat-value">848</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Tasso Drop-off</div>
+                        <div class="stat-value">32%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Pagine Viste</div>
+                        <div class="stat-value">2.4</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="funnel-stage">
+                <h4>3️⃣ DECISION - Decisione</h4>
+                <p>Visitatori che vanno su "Inizia Ora" o cliccano download</p>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 42%;"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Click "Inizia Ora"</div>
+                        <div class="stat-value">524</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Tasso Drop-off</div>
+                        <div class="stat-value">38%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Intent to Convert</div>
+                        <div class="stat-value">62%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="funnel-stage">
+                <h4>4️⃣ ACTION - Azione</h4>
+                <p>Utenti che completano registrazione o download wallet</p>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 23%;"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Registrazioni</div>
+                        <div class="stat-value">187</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Download Wallet</div>
+                        <div class="stat-value">142</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Conversion Rate</div>
+                        <div class="stat-value">15%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FONTI TRAFFICO -->
+        <div class="section">
+            <h2>🌐 Fonti di Traffico</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active">Tutte</button>
+                <button class="filter-btn">Ultima Settimana</button>
+                <button class="filter-btn">Ultimo Mese</button>
+                <button class="filter-btn">Ultimo Anno</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fonte / Campagna</th>
+                            <th>Visitatori</th>
+                            <th>Registrazioni</th>
+                            <th>Conversione</th>
+                            <th>ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Messaggero Veneto - PR Gennaio</strong><br>
+                                <span class="utm-tag">messaggeroveneto</span>
+                                <span class="utm-tag">pr_gennaio</span>
+                            </td>
+                            <td>342</td>
+                            <td>58</td>
+                            <td><span class="conversion-rate excellent">16.9%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (Gratis)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Il Friuli - Articolo Blockchain</strong><br>
+                                <span class="utm-tag">ilfriuli</span>
+                                <span class="utm-tag">articolo_blockchain</span>
+                            </td>
+                            <td>289</td>
+                            <td>41</td>
+                            <td><span class="conversion-rate excellent">14.2%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (Gratis)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Ricerca Google Organica</strong><br>
+                                <span class="utm-tag">google</span>
+                                <span class="utm-tag">organic</span>
+                            </td>
+                            <td>234</td>
+                            <td>29</td>
+                            <td><span class="conversion-rate good">12.4%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (SEO)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Gruppo Telegram Friuli</strong><br>
+                                <span class="utm-tag">telegram</span>
+                                <span class="utm-tag">gruppo_friuli</span>
+                            </td>
+                            <td>198</td>
+                            <td>34</td>
+                            <td><span class="conversion-rate excellent">17.2%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (Community)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Forum FriuliForum</strong><br>
+                                <span class="utm-tag">friuliforum</span>
+                                <span class="utm-tag">thread_crypto</span>
+                            </td>
+                            <td>156</td>
+                            <td>18</td>
+                            <td><span class="conversion-rate good">11.5%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (Gratis)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Passaparola Diretto</strong><br>
+                                <span class="utm-tag">direct</span>
+                                <span class="utm-tag">referral</span>
+                            </td>
+                            <td>28</td>
+                            <td>7</td>
+                            <td><span class="conversion-rate excellent">25.0%</span></td>
+                            <td style="color: #28a745; font-weight: 600;">∞ (Virale)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ROI ANALYSIS -->
+        <div class="section">
+            <h2>💰 Analisi ROI</h2>
+            
+            <div class="dashboard-grid" style="margin-top: 25px;">
+                <div class="metric-card">
+                    <div class="label">Costo Totale Acquisizione</div>
+                    <div class="value" style="color: #28a745;">€0</div>
+                    <div class="change">Strategia 100% Gratuita</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="label">CAC (Costo per Utente)</div>
+                    <div class="value" style="color: #28a745;">€0</div>
+                    <div class="change">vs €50-150 media industry</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="label">ROI Totale</div>
+                    <div class="value" style="color: #28a745;">∞</div>
+                    <div class="change positive">187 utenti a costo zero</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="label">Valore Risparmiato</div>
+                    <div class="value" style="color: #28a745;">€9,350</div>
+                    <div class="change">vs campagne a pagamento</div>
+                </div>
+            </div>
+            
+            <div class="info-box" style="margin-top: 30px;">
+                <h4>📊 Conclusioni ROI</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">
+                    La strategia di acquisizione organica (news locali, SEO, community) sta funzionando eccellentemente. 
+                    Con <strong>187 registrazioni a costo zero</strong>, abbiamo risparmiato circa €9.350 rispetto a 
+                    campagne Facebook Ads tradizionali (CAC medio €50/utente). 
+                    <br><br>
+                    <strong>Fonte più performante:</strong> Passaparola diretto (25% conversione) e Telegram (17.2%).
+                    <br>
+                    <strong>Raccomandazione:</strong> Intensificare presenza su Telegram e incentivare referral naturali.
+                </p>
+            </div>
+        </div>
+
+        <!-- ANDAMENTO TEMPORALE -->
+        <div class="section">
+            <h2>📅 Andamento Temporale</h2>
+            <div class="chart-placeholder">
+                📈 Grafico Traffico Settimanale<br>
+                (Integrazione con Chart.js o D3.js)
+            </div>
+        </div>
+
+        <!-- PAGINE PIÙ VISITATE -->
+        <div class="section">
+            <h2>📄 Pagine Più Visitate</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pagina</th>
+                            <th>Visualizzazioni</th>
+                            <th>Tempo Medio</th>
+                            <th>Bounce Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home</strong></td>
+                            <td>1,247</td>
+                            <td>2:34</td>
+                            <td>28%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sentenze CEDU</strong></td>
+                            <td>892</td>
+                            <td>5:12</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Come Funziona</strong></td>
+                            <td>678</td>
+                            <td>4:45</td>
+                            <td>22%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inizia Ora</strong></td>
+                            <td>524</td>
+                            <td>3:18</td>
+                            <td>35%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TRACKING UTM -->
+        <div class="section">
+            <h2>🔗 Guida Parametri UTM</h2>
+            
+            <p style="font-size: 1.05em; margin-bottom: 20px;">
+                Usa questi parametri UTM per tracciare le diverse fonti di traffico:
+            </p>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h4 style="color: #1e3c72; margin-bottom: 15px;">Formato URL con UTM:</h4>
+                <code style="display: block; background: white; padding: 15px; border-radius: 5px; overflow-x: auto;">
+                    https://tuosito.com/?utm_source=<span style="color: #d63384;">FONTE</span>&utm_campaign=<span style="color: #d63384;">CAMPAGNA</span>
+                </code>
+            </div>
+            
+            <h4 style="color: #1e3c72; margin-top: 25px; margin-bottom: 15px;">Esempi Pratici:</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fonte</th>
+                        <th>URL con UTM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Messaggero Veneto</td>
+                        <td><code>?utm_source=messaggeroveneto&utm_campaign=pr_gennaio</code></td>
+                    </tr>
+                    <tr>
+                        <td>Il Friuli</td>
+                        <td><code>?utm_source=ilfriuli&utm_campaign=articolo_cedu</code></td>
+                    </tr>
+                    <tr>
+                        <td>Telegram</td>
+                        <td><code>?utm_source=telegram&utm_campaign=gruppo_friuli</code></td>
+                    </tr>
+                    <tr>
+                        <td>Forum</td>
+                        <td><code>?utm_source=friuliforum&utm_campaign=thread_crypto</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SCRIPT TRACKING -->
+        <div class="section">
+            <h2>🔧 Implementazione Tracking</h2>
+            
+            <div class="info-box">
+                <h4>💻 Come Implementare il Tracking</h4>
+                <p style="line-height: 1.8;">
+                    Questo dashboard è una simulazione. Per implementare il tracking reale:
+                </p>
+                <ol style="margin: 15px 0 0 25px; line-height: 2;">
+                    <li><strong>Google Analytics:</strong> Imposta GA4 e traccia eventi personalizzati</li>
+                    <li><strong>Database Locale:</strong> Crea tabella PostgreSQL/MySQL per salvare registrazioni</li>
+                    <li><strong>Script PHP:</strong> Cattura parametri UTM e salva in database</li>
+                    <li><strong>Dashboard:</strong> Usa Chart.js o D3.js per visualizzazioni</li>
+                    <li><strong>Privacy:</strong> Implementa cookie consent GDPR-compliant</li>
+                </ol>
+            </div>
+            
+            <div style="margin-top: 25px; background: #f4f4f4; padding: 20px; border-radius: 8px;">
+                <h4 style="margin-bottom: 15px;">📝 Script Base per Catturare UTM:</h4>
+                <pre style="overflow-x: auto; line-height: 1.6;">
+<code>&lt;script&gt;
+// Cattura parametri UTM
+function getUTMParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        source: urlParams.get('utm_source') || 'direct',
+        campaign: urlParams.get('utm_campaign') || 'none',
+        timestamp: new Date().toISOString()
+    };
+}
+
+// Salva in localStorage
+localStorage.setItem('utm_data', JSON.stringify(getUTMParams()));
+
+// Invia a backend quando l'utente si registra
+function trackRegistration(email) {
+    const utmData = JSON.parse(localStorage.getItem('utm_data'));
+    fetch('/api/track-registration', {
+        method: 'POST',
+        body: JSON.stringify({ email, ...utmData })
+    });
+}
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="sentenze-cedu.html">Sentenze CEDU</a>
+                <a href="come-funziona.html">Come Funziona</a>
+                <a href="inizia-ora.html">Inizia Ora</a>
+            </div>
+            <p>&copy; 2025 FRIULCOIN - Dashboard Analytics</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Tracking organico zero-budget per massimizzare ROI</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulazione dati real-time
+        function updateMetrics() {
+            document.getElementById('totalVisitors').textContent = '1,247';
+            document.getElementById('totalRegistrations').textContent = '187';
+            document.getElementById('totalDownloads').textContent = '142';
+            document.getElementById('conversionRate').textContent = '15%';
+        }
+        
+        // Inizializza al caricamento
+        window.addEventListener('load', updateMetrics);
+        
+        // Gestione filtri
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // TODO: Filtra dati tabella
+            });
+        });
+    </script>
+</body>
+</html>

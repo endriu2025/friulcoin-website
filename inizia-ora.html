@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inizia Ora con FRIULCOIN - Download Wallet e Guida</title>
+    <meta name="description" content="Scarica il wallet FRIULCOIN e inizia a proteggere il tuo patrimonio. Guida completa passo-passo per iniziare.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #1e3c72;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .download-section {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .download-section h2 {
+            color: #1e3c72;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .download-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 220px;
+        }
+        
+        .download-btn:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 60, 114, 0.3);
+        }
+        
+        .download-btn.primary {
+            background: #28a745;
+        }
+        
+        .download-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .download-btn .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid #0066cc;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #1e3c72;
+            font-size: 1.5em;
+            margin: 30px 0 15px;
+        }
+        
+        .steps-timeline {
+            position: relative;
+            padding-left: 50px;
+            margin: 40px 0;
+        }
+        
+        .steps-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #28a745;
+        }
+        
+        .step-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+        }
+        
+        .step-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: #28a745;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .step-item .step-number {
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .step-item h4 {
+            color: #1e3c72;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .step-item p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .step-item code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .checklist h4 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 12px 0;
+            font-size: 1.1em;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 1.3em;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .resource-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #1e3c72;
+        }
+        
+        .resource-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .resource-card a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .register-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        
+        .register-form h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .register-form p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #28a745;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #218838;
+        }
+        
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .download-section {
+                padding: 30px 20px;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .steps-timeline {
+                padding-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Inizia Ora con FRIULCOIN</h1>
+            <p>Proteggi il tuo patrimonio in 3 semplici passi</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Torna alla Home</a>
+        
+        <!-- DOWNLOAD SECTION -->
+        <div class="download-section">
+            <h2>📥 Scarica il Wallet FRIULCOIN</h2>
+            <p>Scegli la versione per il tuo sistema operativo</p>
+            
+            <div class="download-buttons">
+                <a href="#" class="download-btn primary">
+                    <span class="icon">🪟</span> Windows
+                </a>
+                <a href="#" class="download-btn">
+                    <span class="icon">🐧</span> Linux
+                </a>
+                <a href="#" class="download-btn">
+                    <span class="icon">🍎</span> macOS
+                </a>
+            </div>
+            
+            <div class="info-box">
+                <p style="margin: 0; font-size: 1em;">
+                    <strong>💡 Nota:</strong> I link di download saranno disponibili una volta completato il rilascio pubblico. 
+                    Per ora, puoi compilare il wallet dal codice sorgente su GitHub.
+                </p>
+            </div>
+            
+            <p style="margin-top: 30px; color: #666;">
+                <strong>Requisiti:</strong> 2GB RAM • 10GB spazio disco • Connessione internet
+            </p>
+        </div>
+
+        <!-- GUIDA INSTALLAZIONE -->
+        <div class="section">
+            <h2>📖 Guida Installazione e Primo Avvio</h2>
+            
+            <div class="steps-timeline">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h4>Scarica e Installa</h4>
+                    <p>
+                        Scarica il file di installazione per il tuo sistema operativo e segui la procedura guidata. 
+                        Su Windows fai doppio click sul file <code>.exe</code>, su Linux usa <code>sudo dpkg -i friulcoin.deb</code>.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h4>Primo Avvio e Sincronizzazione</h4>
+                    <p>
+                        Al primo avvio, il wallet inizierà a scaricare la blockchain. Questo processo può richiedere 
+                        alcune ore a seconda della velocità della tua connessione. Il wallet è utilizzabile 
+                        anche durante la sincronizzazione.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <h4>Cripta il Wallet</h4>
+                    <p>
+                        <strong>IMPORTANTE:</strong> Vai su <code>Impostazioni > Cripta Wallet</code> e scegli una password 
+                        forte (minimo 20 caratteri, maiuscole, minuscole, numeri, simboli). 
+                        <strong>Scrivi la password in un luogo sicuro!</strong>
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">4</span>
+                    <h4>Backup delle Chiavi</h4>
+                    <p>
+                        Vai su <code>File > Backup Wallet</code> e salva il file <code>wallet.dat</code> in almeno 
+                        3 luoghi sicuri: chiavetta USB, hard disk esterno, cloud criptato. 
+                        <strong>Senza backup, perdi i tuoi fondi!</strong>
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">5</span>
+                    <h4>Ricevi il Tuo Primo Indirizzo</h4>
+                    <p>
+                        Vai su <code>Ricevi</code> per visualizzare il tuo primo indirizzo FRIULCOIN. 
+                        Puoi condividere questo indirizzo per ricevere FLC da altri utenti o per fare mining.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SICUREZZA -->
+        <div class="section">
+            <h2>🔒 Checklist Sicurezza Essenziale</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ ATTENZIONE - Leggi Prima di Continuare</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">
+                    Con FRIULCOIN <strong>tu sei la tua banca</strong>. Nessuno può recuperare i tuoi fondi se perdi 
+                    le chiavi private. Non esistono "reset password" o "supporto clienti" che possano aiutarti. 
+                    <strong>La sicurezza è TOTALMENTE nelle tue mani.</strong>
+                </p>
+            </div>
+            
+            <div class="checklist">
+                <h4>✓ Prima di Trasferire Fondi Significativi:</h4>
+                <ul>
+                    <li>Ho criptato il wallet con una password FORTE</li>
+                    <li>Ho salvato il backup wallet.dat in almeno 3 luoghi diversi</li>
+                    <li>Ho testato il backup ripristinandolo su un'altra installazione</li>
+                    <li>Ho scritto la password in un luogo sicuro (non digitale)</li>
+                    <li>Ho annotato il seed/recovery phrase se disponibile</li>
+                    <li>Il mio computer è protetto da antivirus aggiornato</li>
+                    <li>Ho fatto un test inviando prima una piccola somma</li>
+                    <li>Non ho mai condiviso chiavi private o password con nessuno</li>
+                </ul>
+            </div>
+            
+            <div class="success-box">
+                <h4>✅ Migliori Pratiche di Sicurezza</h4>
+                <ul style="margin-top: 15px; line-height: 2;">
+                    <li><strong>Cold Storage:</strong> Per importi elevati, usa un computer offline</li>
+                    <li><strong>Multi-backup:</strong> USB + Cloud criptato + carta fisica</li>
+                    <li><strong>Password unique:</strong> Non riutilizzare password di altri servizi</li>
+                    <li><strong>Verifica sempre:</strong> Controlla due volte gli indirizzi prima di inviare</li>
+                    <li><strong>Aggiornamenti:</strong> Tieni il wallet sempre aggiornato all'ultima versione</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MINING -->
+        <div class="section">
+            <h2>⛏️ Come Iniziare a Minare FRIULCOIN</h2>
+            
+            <p style="font-size: 1.1em; margin-bottom: 25px;">
+                Il mining è il modo più diretto per ottenere FRIULCOIN. Con l'algoritmo Scrypt, 
+                anche computer normali possono partecipare.
+            </p>
+            
+            <h3>Opzione 1: Mining Solo (Individuale)</h3>
+            <div class="steps-timeline">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h4>Configura il Wallet</h4>
+                    <p>
+                        Nel file di configurazione <code>friulcoin.conf</code> aggiungi:
+                    </p>
+                    <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; margin-top: 10px;">
+server=1
+rpcuser=tuo_username
+rpcpassword=tua_password_sicura
+rpcport=9334
+gen=1
+genproclimit=4
+                    </pre>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h4>Avvia il Mining</h4>
+                    <p>
+                        Riavvia il wallet. Il mining inizierà automaticamente. 
+                        Regola <code>genproclimit</code> in base ai core del tuo processore.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Opzione 2: Mining Pool (Consigliato)</h3>
+            <p>
+                Le mining pool combinano la potenza di calcolo di molti miners per aumentare 
+                le probabilità di trovare blocchi. Le ricompense vengono distribuite proporzionalmente.
+            </p>
+            
+            <div class="info-box">
+                <p style="margin: 0;">
+                    <strong>💡 Pool FRIULCOIN:</strong> I dettagli delle pool ufficiali saranno pubblicati 
+                    nella community Telegram e sul forum ufficiale dopo il lancio pubblico.
+                </p>
+            </div>
+            
+            <h3>Hardware Consigliato</h3>
+            <ul style="margin: 20px 0 20px 40px; font-size: 1.1em; line-height: 2;">
+                <li><strong>CPU Mining:</strong> Processori moderni multi-core (AMD Ryzen, Intel i7/i9)</li>
+                <li><strong>GPU Mining:</strong> Schede video AMD o NVIDIA con 4GB+ VRAM</li>
+                <li><strong>Nota:</strong> Più potente è l'hardware, più FLC puoi minare</li>
+            </ul>
+        </div>
+
+        <!-- COME USARE -->
+        <div class="section">
+            <h2>💸 Come Usare i Tuoi FRIULCOIN</h2>
+            
+            <h3>Inviare FLC</h3>
+            <div class="steps-timeline">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h4>Vai su "Invia"</h4>
+                    <p>Clicca sulla tab "Invia" nel wallet.</p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h4>Inserisci l'Indirizzo</h4>
+                    <p>
+                        Incolla l'indirizzo FRIULCOIN del destinatario. 
+                        <strong>CONTROLLA SEMPRE DUE VOLTE!</strong> Le transazioni sono irreversibili.
+                    </p>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <h4>Importo e Conferma</h4>
+                    <p>
+                        Inserisci l'importo in FLC, controlla la commissione (minima), 
+                        inserisci la password del wallet e clicca "Invia".
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Ricevere FLC</h3>
+            <p style="font-size: 1.1em; margin: 20px 0;">
+                Vai su "Ricevi", copia il tuo indirizzo e condividilo con chi deve inviarti FLC. 
+                Puoi creare più indirizzi per organizzare meglio i tuoi fondi.
+            </p>
+        </div>
+
+        <!-- RISORSE -->
+        <div class="section">
+            <h2>📚 Risorse Utili</h2>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>📖 Documentazione</h4>
+                    <p>Guide complete e FAQ</p>
+                    <a href="#">Vai alla documentazione →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>💬 Community Telegram</h4>
+                    <p>Supporto e discussioni</p>
+                    <a href="#">Unisciti al gruppo →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>🔍 Block Explorer</h4>
+                    <p>Esplora la blockchain</p>
+                    <a href="#">Vai all'explorer →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>💻 Codice Sorgente</h4>
+                    <p>Repository GitHub</p>
+                    <a href="#">Visualizza su GitHub →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>📊 Mining Stats</h4>
+                    <p>Statistiche network</p>
+                    <a href="#">Visualizza stats →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>🎓 Video Tutorial</h4>
+                    <p>Guide video passo-passo</p>
+                    <a href="#">Guarda i video →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM REGISTRAZIONE -->
+        <div class="register-form">
+            <h3>📋 Registra il Tuo Interesse</h3>
+            <p>
+                Vuoi essere avvisato quando lanceremo ufficialmente? Lascia i tuoi contatti per ricevere:
+                <br>• Link di download wallet
+                <br>• Aggiornamenti sul progetto
+                <br>• Inviti eventi community Friuli
+            </p>
+            
+            <form id="registerForm" onsubmit="return submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Nome e Cognome *</label>
+                    <input type="text" id="name" name="name" required placeholder="Es: Mario Rossi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="tua@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">Città (Friuli)</label>
+                    <input type="text" id="city" name="city" placeholder="Es: Udine, Pordenone...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest">Come pensi di usare FRIULCOIN?</label>
+                    <textarea id="interest" name="interest" placeholder="Mining, investimento, protezione patrimoniale..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Registra il Mio Interesse →</button>
+            </form>
+            
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8; text-align: center;">
+                I tuoi dati saranno usati solo per comunicazioni FRIULCOIN. Privacy garantita.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="sentenze-cedu.html">Sentenze CEDU</a>
+                <a href="come-funziona.html">Come Funziona</a>
+                <a href="inizia-ora.html">Inizia Ora</a>
+            </div>
+            <p>&copy; 2025 FRIULCOIN - Progetto Open Source per la Difesa Patrimoniale</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Basato su sentenze CEDU e tecnologia blockchain</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                city: document.getElementById('city').value,
+                interest: document.getElementById('interest').value,
+                timestamp: new Date().toISOString(),
+                source: 'inizia-ora',
+                utm_source: getUrlParameter('utm_source') || 'direct',
+                utm_campaign: getUrlParameter('utm_campaign') || 'none'
+            };
+            
+            // TODO: Inviare a backend o servizio (es. Google Forms, Airtable, etc)
+            console.log('Form Data:', formData);
+            
+            alert('✅ Grazie per il tuo interesse! Ti contatteremo presto via email.');
+            document.getElementById('registerForm').reset();
+            
+            return false;
+        }
+        
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+    </script>
+</body>
+</html>
