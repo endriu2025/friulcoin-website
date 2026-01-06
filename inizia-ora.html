@@ -450,57 +450,23 @@
 
         <!-- GUIDA INSTALLAZIONE -->
         <div class="section">
-            <h2>📖 Guida Installazione e Primo Avvio</h2>
-            
-            <div class="steps-timeline">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <h4>Scarica e Installa</h4>
-                    <p>
-                        Scarica il file di installazione per il tuo sistema operativo e segui la procedura guidata. 
-                        Su Windows fai doppio click sul file <code>.exe</code>, su Linux usa <code>sudo dpkg -i friulcoin.deb</code>.
-                    </p>
+            <div class="info-box">
+                <h3 style="color: #1e3c72; margin-bottom: 20px;">📍 Setup e Configurazione</h3>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    Per istruzioni complete su download, installazione e utilizzo di FRIULCOIN, 
+                    visita il sito ufficiale:
+                </p>
+                <div style="text-align: center; margin: 30px 0;">
+                    <a href="https://www.friuli.info" target="_blank" style="display: inline-block; background: #1e3c72; color: white; padding: 20px 50px; text-decoration: none; border-radius: 10px; font-size: 1.3em; font-weight: 600;">
+                        🌐 Vai a www.friuli.info
+                    </a>
                 </div>
-                
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <h4>Primo Avvio e Sincronizzazione</h4>
-                    <p>
-                        Al primo avvio, il wallet inizierà a scaricare la blockchain. Questo processo può richiedere 
-                        alcune ore a seconda della velocità della tua connessione. Il wallet è utilizzabile 
-                        anche durante la sincronizzazione.
-                    </p>
-                </div>
-                
-                <div class="step-item">
-                    <span class="step-number">3</span>
-                    <h4>Cripta il Wallet</h4>
-                    <p>
-                        <strong>IMPORTANTE:</strong> Vai su <code>Impostazioni > Cripta Wallet</code> e scegli una password 
-                        forte (minimo 20 caratteri, maiuscole, minuscole, numeri, simboli). 
-                        <strong>Scrivi la password in un luogo sicuro!</strong>
-                    </p>
-                </div>
-                
-                <div class="step-item">
-                    <span class="step-number">4</span>
-                    <h4>Backup delle Chiavi</h4>
-                    <p>
-                        Vai su <code>File > Backup Wallet</code> e salva il file <code>wallet.dat</code> in almeno 
-                        3 luoghi sicuri: chiavetta USB, hard disk esterno, cloud criptato. 
-                        <strong>Senza backup, perdi i tuoi fondi!</strong>
-                    </p>
-                </div>
-                
-                <div class="step-item">
-                    <span class="step-number">5</span>
-                    <h4>Ricevi il Tuo Primo Indirizzo</h4>
-                    <p>
-                        Vai su <code>Ricevi</code> per visualizzare il tuo primo indirizzo FRIULCOIN. 
-                        Puoi condividere questo indirizzo per ricevere FLC da altri utenti o per fare mining.
-                    </p>
-                </div>
+                <p style="margin-top: 20px; font-size: 1.05em; color: #666;">
+                    Troverai guide dettagliate su wallet, sicurezza, acquisizione e utilizzo di FRIULCOIN.
+                </p>
             </div>
+        </div>
+    </div>
         </div>
 
         <!-- SICUREZZA -->
@@ -540,64 +506,6 @@
                     <li><strong>Aggiornamenti:</strong> Tieni il wallet sempre aggiornato all'ultima versione</li>
                 </ul>
             </div>
-        </div>
-
-        <!-- MINING -->
-        <div class="section">
-            <h2>⛏️ Come Iniziare a Minare FRIULCOIN</h2>
-            
-            <p style="font-size: 1.1em; margin-bottom: 25px;">
-                Il mining è il modo più diretto per ottenere FRIULCOIN. Con l'algoritmo Scrypt, 
-                anche computer normali possono partecipare.
-            </p>
-            
-            <h3>Opzione 1: Mining Solo (Individuale)</h3>
-            <div class="steps-timeline">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <h4>Configura il Wallet</h4>
-                    <p>
-                        Nel file di configurazione <code>friulcoin.conf</code> aggiungi:
-                    </p>
-                    <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; margin-top: 10px;">
-server=1
-rpcuser=tuo_username
-rpcpassword=tua_password_sicura
-rpcport=9334
-gen=1
-genproclimit=4
-                    </pre>
-                </div>
-                
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <h4>Avvia il Mining</h4>
-                    <p>
-                        Riavvia il wallet. Il mining inizierà automaticamente. 
-                        Regola <code>genproclimit</code> in base ai core del tuo processore.
-                    </p>
-                </div>
-            </div>
-            
-            <h3>Opzione 2: Mining Pool (Consigliato)</h3>
-            <p>
-                Le mining pool combinano la potenza di calcolo di molti miners per aumentare 
-                le probabilità di trovare blocchi. Le ricompense vengono distribuite proporzionalmente.
-            </p>
-            
-            <div class="info-box">
-                <p style="margin: 0;">
-                    <strong>💡 Pool FRIULCOIN:</strong> I dettagli delle pool ufficiali saranno pubblicati 
-                    nella community Telegram e sul forum ufficiale dopo il lancio pubblico.
-                </p>
-            </div>
-            
-            <h3>Hardware Consigliato</h3>
-            <ul style="margin: 20px 0 20px 40px; font-size: 1.1em; line-height: 2;">
-                <li><strong>CPU Mining:</strong> Processori moderni multi-core (AMD Ryzen, Intel i7/i9)</li>
-                <li><strong>GPU Mining:</strong> Schede video AMD o NVIDIA con 4GB+ VRAM</li>
-                <li><strong>Nota:</strong> Più potente è l'hardware, più FLC puoi minare</li>
-            </ul>
         </div>
 
         <!-- COME USARE -->
@@ -668,7 +576,7 @@ genproclimit=4
                 </div>
                 
                 <div class="resource-card">
-                    <h4>📊 Mining Stats</h4>
+                    <h4>📊 Network Stats</h4>
                     <p>Statistiche network</p>
                     <a href="#">Visualizza stats →</a>
                 </div>
@@ -709,7 +617,7 @@ genproclimit=4
                 
                 <div class="form-group">
                     <label for="interest">Come pensi di usare FRIULCOIN?</label>
-                    <textarea id="interest" name="interest" placeholder="Mining, investimento, protezione patrimoniale..."></textarea>
+                    <textarea id="interest" name="interest" placeholder="Investimento, protezione patrimoniale, scambio P2P..."></textarea>
                 </div>
                 
                 <button type="submit" class="submit-btn">Registra il Mio Interesse →</button>
