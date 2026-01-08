@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIULCOIN - Difesa Patrimoniale Legale per Famiglie Friulane</title>
-    <meta name="description" content="Sistema di protezione patrimoniale basato su sentenze CEDU contro abusi fiscali. Tecnologia blockchain per tutelare le famiglie friulane.">
+    <title>FRIULCOIN - Sistema di Economia Solidale Friulana</title>
+    <meta name="description" content="Comunità economica indipendente basata su blockchain. Scambi di beni e servizi tra friulani senza intermediari bancari. Sistema legittimo garantito dalle sentenze CEDU.">
     <style>
         * {
             margin: 0;
@@ -209,15 +209,8 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
 
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Chat Widget Styling */
         #chat-widget {
             position: fixed;
             bottom: 20px;
@@ -226,105 +219,111 @@
             height: 80px;
             cursor: pointer;
             z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-radius: 50%;
+            overflow: hidden;
         }
 
         #chat-widget img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-
-        #chat-widget img:hover {
-            transform: scale(1.05);
+            object-fit: cover;
         }
 
         #close-btn {
             position: absolute;
-            top: -5px;
-            left: -5px;
-            width: 25px;
-            height: 25px;
-            background-color: #ff4444;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: white;
             border-radius: 50%;
-            display: none;
+            cursor: pointer;
+            display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
             z-index: 1001;
         }
 
-        #close-btn::before,
-        #close-btn::after {
-            content: '';
-            position: absolute;
-            width: 14px;
-            height: 2px;
-            background-color: white;
-        }
-
         #close-btn::before {
-            transform: rotate(45deg);
+            content: "×";
+            color: #1e3c72;
+            font-size: 18px;
         }
 
-        #close-btn::after {
-            transform: rotate(-45deg);
+        .principle-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        #close-btn:hover {
-            background-color: #cc0000;
+        .principle-box strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 15px;
         }
-
-        #chat-widget:hover #close-btn {
-            display: flex;
-        }
-        </style>
+    </style>
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
-            <h1>🛡️ Proteggi la Tua Famiglia dagli Abusi Fiscali</h1>
-            <p class="subtitle">Sistema di Difesa Patrimoniale Basato su Sentenze della Corte Europea dei Diritti dell'Uomo</p>
-            <p style="font-size: 1.1em; margin: 20px 0;">L'Italia è stata condannata dalla CEDU per violazioni sistematiche dei diritti dei contribuenti.<br>Ora puoi proteggere il 
-			tuo patrimonio in modo legale, sicuro con assistenza e tutta la piattaforma GRATUITA 100% perche' la difesa e' un TUO DIRITTO !!!</p><BR>NESSUNO DEVE SOTTRARSI AL FISCO E NON PAGARE LE TASSE MA NESSUNO DEVE ESSERE OBBLIGATO AD USARE UN SISTEMA BANCARIO PRIVATO. <BR> FRIULCOIN E' UNA COMUNITA' INDIPENDENTE CHE MAI UTILIZZA EURO !!!<BR>
-            <a href="#inizia" class="cta-button">Scopri Come Proteggerti →</a>
+            <h1>🏔️ FRIULCOIN - Economia Friulana Indipendente</h1>
+            <p class="subtitle">Una Comunità che Scambia Beni e Servizi Senza Euro né Banche</p>
+            
+            <p style="font-size: 1.2em; margin: 20px auto; max-width: 900px;">
+                Le sentenze della Corte Europea dei Diritti dell'Uomo hanno riconosciuto che i cittadini hanno il diritto di organizzarsi economicamente in modo autonomo, senza essere soggetti a controlli arbitrari.
+            </p>
+            
+            <div class="principle-box" style="max-width: 900px; margin: 30px auto;">
+                <strong>⚖️ Principio Fondamentale</strong>
+                <p style="margin: 0;">Nessuno deve sottrarsi al fisco e non pagare le tasse, MA nessuno deve essere obbligato ad usare un sistema bancario privato.<br><br>
+                <strong>FRIULCOIN è una comunità indipendente che MAI utilizza euro!</strong></p>
+            </div>
+            
+            <a href="#inizia" class="cta-button">Scopri Come Funziona →</a>
         </div>
     </div>
 
     <!-- Problem Section -->
     <div class="section">
         <div class="container">
-            <h2>Il Problema che FRIULCOIN Risolve</h2>
+            <h2>Perché Nasce FRIULCOIN</h2>
             
             <div class="problem-box">
-                <h3>⚠️ Abusi Fiscali Condannati dall'Europa</h3>
+                <h3>⚠️ Il Diritto all'Autonomia Economica</h3>
                 <p style="font-size: 1.1em; line-height: 1.8;">
-                    La Corte Europea dei Diritti dell'Uomo ha <strong>condannato l'Italia</strong> per:
+                    La Corte Europea dei Diritti dell'Uomo ha <strong>condannato l'Italia</strong> per pratiche che violano i diritti fondamentali dei cittadini:
                 </p>
                 <ul style="font-size: 1.1em; margin: 15px 0 15px 30px; line-height: 2;">
                     <li><strong>Ispezioni fiscali senza garanzie</strong> (Sentenza Italgomme, febbraio 2025)</li>
                     <li><strong>Discrezionalità illimitata</strong> di Agenzia Entrate e Guardia di Finanza (Sentenza Agrisud, dicembre 2025)</li>
                     <li><strong>Violazione del diritto al domicilio</strong> (Art. 8 CEDU)</li>
                     <li><strong>Mancanza di controllo giudiziario</strong> preventivo</li>
-                    <li><strong>Ritardi nei rimborsi fiscali</strong> che danneggiano le imprese (Sentenza Buffalo)</li>
                 </ul>
+                <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px; background: white; padding: 15px; border-radius: 5px;">
+                    <strong>💡 Cosa significa per te:</strong> Queste sentenze dimostrano che i cittadini hanno diritto di organizzarsi economicamente senza interferenze arbitrarie. FRIULCOIN si basa su questo diritto fondamentale.
+                </p>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="number">13+</div>
-                    <div class="label">Sentenze CEDU contro l'Italia in materia fiscale</div>
+                    <div class="label">Sentenze CEDU a favore dei contribuenti</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">68.6%</div>
-                    <div class="label">Pressione fiscale su PMI italiane (prima in Europa)</div>
+                    <div class="number">100%</div>
+                    <div class="label">Economia senza intermediari bancari</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">€3.200</div>
-                    <div class="label">Risarcimento medio per violazioni CEDU</div>
+                    <div class="number">0€</div>
+                    <div class="label">Euro utilizzati nella comunità</div>
                 </div>
             </div>
         </div>
@@ -333,10 +332,13 @@
     <!-- CEDU Highlight -->
     <div class="cedu-highlight">
         <div class="container">
-            <h3>📜 Sentenze CEDU Recenti</h3>
+            <h3>📜 Base Legale: Sentenze CEDU</h3>
             <p>
                 <strong>Sentenza Italgomme (6 febbraio 2025):</strong> L'Italia viola sistematicamente l'Art. 8 CEDU nelle ispezioni fiscali.<br>
                 <strong>Sentenza Agrisud (11 dicembre 2025):</strong> Condanna per poteri discrezionali illimitati del fisco.
+            </p>
+            <p style="font-size: 1em; margin-top: 20px;">
+                Queste sentenze riconoscono il diritto dei cittadini di organizzarsi economicamente in modo autonomo, liberi da controlli arbitrari.
             </p>
             <a href="sentenze-cedu.html" class="button-secondary">Leggi Tutte le Sentenze →</a>
         </div>
@@ -345,37 +347,37 @@
     <!-- Solution Section -->
     <div class="section section-dark">
         <div class="container">
-            <h2>Come FRIULCOIN Ti Protegge</h2>
+            <h2>Come Funziona FRIULCOIN</h2>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>🔒 Disintermediazione Bancaria</h3>
-                    <p>Elimina gli intermediari finanziari tradizionali. Il tuo patrimonio non passa più attraverso canali facilmente pignorabili o bloccabili.</p>
+                    <h3>🤝 Economia Solidale Locale</h3>
+                    <p>Una comunità di persone e imprese friulane che scambiano beni e servizi utilizzando FRIULCOIN invece dell'euro. Un sistema di reciprocità basato sulla fiducia.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔒 Nessun Intermediario Bancario</h3>
+                    <p>Gli scambi avvengono direttamente tra membri della comunità, senza passare attraverso banche o istituti finanziari. Tu controlli direttamente i tuoi FRIULCOIN.</p>
                 </div>
                 
                 <div class="feature-card">
                     <h3>⚖️ Base Legale Europea</h3>
-                    <p>Sistema basato su sentenze CEDU che hanno già condannato l'Italia per abusi. Protezione legittima riconosciuta a livello europeo.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>🛡️ Controllo Diretto</h3>
-                    <p>Tu sei l'unico proprietario delle tue chiavi private. Nessuno può accedere ai tuoi fondi senza il tuo consenso esplicito.</p>
+                    <p>Sistema fondato sul diritto riconosciuto dalle sentenze CEDU: i cittadini possono organizzarsi economicamente in modo autonomo, senza interferenze arbitrarie.</p>
                 </div>
                 
                 <div class="feature-card">
                     <h3>🌐 Tecnologia Blockchain</h3>
-                    <p>Sistema decentralizzato basato su crittografia avanzata. Trasparenza totale e sicurezza matematica.</p>
+                    <p>Sistema decentralizzato basato su crittografia avanzata. Trasparenza totale degli scambi e sicurezza matematica. Open source e verificabile.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <h3>💶 Totalmente Legale</h3>
-                    <p>Le criptovalute sono legali in Italia. Non richiedi autorizzazioni per possedere e usare FRIULCOIN.</p>
+                    <h3>💶 Completamente Legale</h3>
+                    <p>In Italia è legale creare sistemi di scambio complementari. Rispettiamo tutti gli obblighi fiscali dichiarando il valore degli scambi effettuati.</p>
                 </div>
                 
                 <div class="feature-card">
                     <h3>🏔️ Progetto Friulano <img border="0" src="https://www.hbb.it/aquila_friuli.png" width="69" height="72"></h3>
-                    <p>Sviluppato in Friuli per le famiglie friulane. Radicato nel territorio e nella comunità locale.</p>
+                    <p>Sviluppato in Friuli per le famiglie friulane. Radicato nel territorio e nella comunità locale. Per rafforzare l'economia del nostro territorio.</p>
                 </div>
             </div>
         </div>
@@ -384,30 +386,30 @@
     <!-- How It Works Section -->
     <div class="section" id="inizia">
         <div class="container">
-            <h2>Come Iniziare in 3 Semplici Passi</h2>
+            <h2>Come Aderire alla Comunità FRIULCOIN</h2>
             
             <div class="features-grid">
                 <div class="feature-card" style="border-top: 4px solid #1e3c72;">
                     <h3>1️⃣ Informati</h3>
-                    <p>Comprendi le sentenze CEDU e come FRIULCOIN ti protegge legalmente dagli abusi fiscali condannati dall'Europa.</p>
+                    <p>Comprendi le sentenze CEDU che garantiscono il diritto all'autonomia economica e come FRIULCOIN realizza questo principio attraverso un'economia solidale senza euro.</p>
                     <a href="sentenze-cedu.html" style="color: #1e3c72; font-weight: 600;">Leggi le Sentenze →</a>
                 </div>
                 
                 <div class="feature-card" style="border-top: 4px solid #1e3c72;">
                     <h3>2️⃣ Comprendi la Tecnologia</h3>
-                    <p>Scopri come funziona la blockchain, la disintermediazione bancaria e perché il controllo diretto è fondamentale.</p>
+                    <p>Scopri come funziona la blockchain, come si effettuano scambi peer-to-peer e perché l'economia diretta tra membri è fondamentale.</p>
                     <a href="come-funziona.html" style="color: #1e3c72; font-weight: 600;">Guida Completa →</a>
                 </div>
                 
                 <div class="feature-card" style="border-top: 4px solid #1e3c72;">
-                    <h3>3️⃣ Setup e Configurazione</h3>
-                    <p>Visita <strong>www.friuli.info</strong> per istruzioni dettagliate su setup, configurazione e utilizzo di FRIULCOIN.</p>
+                    <h3>3️⃣ Unisciti alla Comunità</h3>
+                    <p>Visita <strong>www.friuli.info</strong> per istruzioni dettagliate su come aderire, configurare il wallet e iniziare a scambiare con altri membri friulani.</p>
                     <a href="https://www.friuli.info" target="_blank" style="color: #1e3c72; font-weight: 600;">Vai a www.friuli.info →</a>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 50px;">
-                <a href="https://www.friuli.info" target="_blank" class="cta-button">Setup su www.friuli.info →</a>
+                <a href="https://www.friuli.info" target="_blank" class="cta-button">Aderisci su www.friuli.info →</a>
             </div>
         </div>
     </div>
@@ -415,13 +417,13 @@
     <!-- Testimonial Section -->
     <div class="section section-dark">
         <div class="container">
-            <h2>Perché Scegliere FRIULCOIN</h2>
+            <h2>I Valori di FRIULCOIN</h2>
             
             <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <p style="font-size: 1.2em; line-height: 1.8; text-align: center; color: #555;">
-                    "Le sentenze CEDU hanno dimostrato che il sistema fiscale italiano viola sistematicamente i diritti fondamentali dei contribuenti. 
-                    FRIULCOIN offre una <strong>protezione legale e tecnologica</strong> basata proprio su queste sentenze. 
-                    Non è evasione, è <strong>difesa patrimoniale legittima</strong>."
+                    "Le sentenze CEDU hanno dimostrato che i cittadini hanno diritto di organizzarsi economicamente in modo autonomo. 
+                    FRIULCOIN realizza questo diritto attraverso <strong>un'economia solidale locale</strong>, dove friulani scambiano beni e servizi senza dipendere da euro o banche. 
+                    Non è evasione, è <strong>autonomia economica legittima</strong>."
                 </p>
                 <p style="text-align: center; margin-top: 20px; font-weight: 600; color: #1e3c72;">
                     — Progetto FRIULCOIN
@@ -433,13 +435,13 @@
     <!-- CTA Final -->
     <div class="section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;">
         <div class="container" style="text-align: center;">
-            <h2 style="color: white; margin-bottom: 20px;">Pronto a Proteggere il Tuo Patrimonio?</h2>
+            <h2 style="color: white; margin-bottom: 20px;">Pronto a Unirti alla Comunità?</h2>
             <p style="font-size: 1.2em; margin-bottom: 30px;">
-                Unisciti alle famiglie friulane che hanno già scelto la sicurezza di FRIULCOIN
+                Unisciti alle famiglie e imprese friulane che hanno scelto l'autonomia economica di FRIULCOIN
             </p>
             <a href="https://www.friuli.info" target="_blank" class="cta-button">Vai a www.friuli.info →</a>
             <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
-                100% Legale • Basato su Sentenze CEDU • Progetto Friulano
+                100% Legale • Basato su Sentenze CEDU • Economia Solidale Friulana
             </p>
         </div>
     </div>
@@ -451,14 +453,12 @@
                 <a href="index.html">Home</a>
                 <a href="sentenze-cedu.html">Sentenze CEDU</a>
                 <a href="come-funziona.html">Come Funziona</a>
-                <a href="https://www.friuli.info" target="_blank">Setup (friuli.info)</a>
+                <a href="https://www.friuli.info" target="_blank">Aderisci (friuli.info)</a>
             </div>
-            <p>&copy; 2026 FRIULCOIN - Progetto Open Source per la Difesa Patrimoniale</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Basato su sentenze della Corte Europea dei Diritti dell'Uomo</p>
+            <p>&copy; 2026 FRIULCOIN - Progetto Open Source per l'Economia Solidale Friulana</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Sistema di scambio autonomo basato su sentenze della Corte Europea dei Diritti dell'Uomo</p>
         </div>
     </footer>
-
-
 
     <div id="chat-widget">
         <div id="close-btn"></div>
@@ -470,34 +470,14 @@
         const closeBtn = document.getElementById('close-btn');
         const chatImg = chatWidget.querySelector('img');
 
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
         chatImg.addEventListener('click', function(e) {
             window.location.href = 'chat.htm';
         });
 
-        // Quando si clicca sulla X, nasconde il widget
         closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
+            e.stopPropagation();
             chatWidget.style.display = 'none';
         });
     </script>
-
-    <script>
-
-        const chatWidget = document.getElementById('chat-widget');
-        const closeBtn = document.getElementById('close-btn');
-        const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
-        </script>
 </body>
 </html>

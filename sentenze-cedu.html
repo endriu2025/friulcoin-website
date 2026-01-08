@@ -3,556 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentenze CEDU contro Italia - Documentazione Completa | FRIULCOIN</title>
-    <meta name="description" content="Documentazione completa delle sentenze della Corte Europea dei Diritti dell'Uomo che hanno condannato l'Italia per abusi fiscali e violazioni dei diritti dei contribuenti.">
+    <title>Sentenze CEDU e Diritto all'Autonomia Economica | FRIULCOIN</title>
+    <meta name="description" content="Documentazione delle sentenze CEDU che riconoscono il diritto dei cittadini all'autonomia economica e alla protezione da controlli arbitrari.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f9f9f9;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            color: #1e3c72;
-            text-decoration: none;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .intro-box {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-            border-left: 5px solid #ff6b35;
-        }
-        
-        .intro-box h2 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-        }
-        
-        .intro-box p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-        
-        .sentenza-card {
-            background: white;
-            padding: 35px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-top: 4px solid #1e3c72;
-        }
-        
-        .sentenza-card.recente {
-            border-top-color: #ff6b35;
-            background: linear-gradient(to right, #fff9f5 0%, white 100%);
-        }
-        
-        .sentenza-card .badge {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .sentenza-card .badge.storica {
-            background: #667eea;
-        }
-        
-        .sentenza-card h3 {
-            color: #1e3c72;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        
-        .sentenza-card .meta {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        
-        .sentenza-card .violazioni {
-            background: #fff3cd;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-        
-        .sentenza-card .violazioni h4 {
-            color: #d9534f;
-            margin-bottom: 10px;
-        }
-        
-        .sentenza-card ul {
-            margin: 15px 0 15px 25px;
-            line-height: 1.8;
-        }
-        
-        .sentenza-card .impatto {
-            background: #d4edda;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-        
-        .sentenza-card .impatto h4 {
-            color: #155724;
-            margin-bottom: 10px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-            margin: 40px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #1e3c72;
-        }
-        
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .timeline-year {
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #1e3c72;
-            margin: 30px 0;
-            padding: 10px;
-            background: white;
-            border-radius: 5px;
-        }
-        
-        .stats-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .stat-item {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .stat-item .number {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .stat-item .label {
-            font-size: 1.1em;
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .cta-box h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        
-        .cta-box .button {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-        
-        .cta-box .button:hover {
-            background: #ff8555;
-        }
-        
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .stats-box {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 2.5em; margin-bottom: 15px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-block; color: #1e3c72; text-decoration: none; margin-bottom: 30px; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .intro-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 40px; border-left: 5px solid #28a745; }
+        .intro-box h2 { color: #1e3c72; margin-bottom: 15px; }
+        .intro-box p { font-size: 1.1em; line-height: 1.8; }
+        .sentenza-card { background: white; padding: 35px; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 4px solid #1e3c72; }
+        .sentenza-card.recente { border-top-color: #ff6b35; background: linear-gradient(to right, #fff9f5 0%, white 100%); }
+        .sentenza-card .badge { display: inline-block; background: #ff6b35; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 600; margin-bottom: 15px; }
+        .sentenza-card h3 { color: #1e3c72; font-size: 1.8em; margin-bottom: 10px; }
+        .sentenza-card .meta { color: #666; font-size: 0.95em; margin-bottom: 20px; }
+        .sentenza-card .descrizione { font-size: 1.05em; line-height: 1.8; margin-bottom: 20px; }
+        .sentenza-card .punti-chiave { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .sentenza-card .punti-chiave h4 { color: #1e3c72; margin-bottom: 10px; }
+        .sentenza-card .punti-chiave ul { margin-left: 20px; }
+        .sentenza-card .punti-chiave li { margin-bottom: 8px; line-height: 1.6; }
+        .sentenza-card .rilevanza { background: #d4edda; border-left: 4px solid #28a745; padding: 20px; border-radius: 5px; margin-top: 20px; }
+        .sentenza-card .rilevanza h4 { color: #155724; margin-bottom: 10px; }
+        footer { background: #1e3c72; color: white; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        .nav-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { text-decoration: underline; }
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; width: 80px; height: 80px; cursor: pointer; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 50%; overflow: hidden; }
+        #chat-widget img { width: 100%; height: 100%; object-fit: cover; }
+        #close-btn { position: absolute; top: 5px; right: 5px; width: 20px; height: 20px; background: white; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 1001; }
+        #close-btn::before { content: "×"; color: #1e3c72; font-size: 18px; }
+        @media (max-width: 768px) { header h1 { font-size: 1.8em; } .sentenza-card { padding: 25px; } }
     </style>
-
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        #chat-widget img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-
-        #chat-widget img:hover {
-            transform: scale(1.05);
-        }
-
-        #close-btn {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            width: 25px;
-            height: 25px;
-            background-color: #ff4444;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
-        }
-
-        #close-btn::before,
-        #close-btn::after {
-            content: '';
-            position: absolute;
-            width: 14px;
-            height: 2px;
-            background-color: white;
-        }
-
-        #close-btn::before {
-            transform: rotate(45deg);
-        }
-
-        #close-btn::after {
-            transform: rotate(-45deg);
-        }
-
-        #close-btn:hover {
-            background-color: #cc0000;
-        }
-
-        #chat-widget:hover #close-btn {
-            display: flex;
-        }
-        </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>📜 Sentenze CEDU contro l'Italia</h1>
-            <p>Documentazione completa delle condanne europee per abusi fiscali</p>
-        </div>
+        <h1>📜 Sentenze CEDU e Diritto all'Autonomia Economica</h1>
+        <p>Le basi legali del progetto FRIULCOIN</p>
     </header>
 
     <div class="container">
         <a href="index.html" class="back-link">← Torna alla Home</a>
-        
+
         <div class="intro-box">
-            <h2>Perché Queste Sentenze Sono Importanti</h2>
-            <p>
-                La Corte Europea dei Diritti dell'Uomo (CEDU) ha ripetutamente <strong>condannato l'Italia</strong> per violazioni sistematiche dei diritti fondamentali dei contribuenti. 
-                Queste sentenze dimostrano che il sistema fiscale italiano <strong>viola la Convenzione Europea</strong> e autorizzano ogni cittadino a proteggersi legalmente.
-            </p>
-            <p style="margin-top: 15px;">
-                <strong>FRIULCOIN</strong> è basato proprio su questi principi di difesa legittima riconosciuti dall'Europa.
-            </p>
+            <h2>Il Diritto all'Autonomia Economica</h2>
+            <p>La Corte Europea dei Diritti dell'Uomo ha più volte condannato l'Italia per violazioni dei diritti fondamentali dei cittadini. Queste sentenze dimostrano che i cittadini hanno il <strong>diritto di organizzarsi economicamente in modo autonomo</strong>, senza essere soggetti a controlli arbitrari o interferenze sproporzionate dello Stato.</p>
+            <p style="margin-top: 15px;"><strong>FRIULCOIN si basa su questo diritto fondamentale:</strong> creare un sistema di economia solidale locale dove i membri scambiano beni e servizi senza dipendere da intermediari bancari privati.</p>
         </div>
 
-        <div class="stats-box">
-            <div class="stat-item">
-                <div class="number">13+</div>
-                <div class="label">Sentenze CEDU contro Italia in materia fiscale</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">Art. 8</div>
-                <div class="label">Violazione del diritto al domicilio (CEDU)</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">2025</div>
-                <div class="label">Due condanne nell'ultimo anno</div>
-            </div>
-        </div>
-
-        <h2 style="text-align: center; color: #1e3c72; margin: 60px 0 40px; font-size: 2.2em;">
-            Sentenze Principali
-        </h2>
-
-        <!-- SENTENZA RECENTE 1 -->
         <div class="sentenza-card recente">
-            <span class="badge">📍 RECENTISSIMA - 2025</span>
-            <h3>Sentenza Agrisud (11 dicembre 2025)</h3>
-            <p class="meta">Agrisud 2014 S.r.l. semplificata and Others v. Italy | Ricorsi riuniti</p>
-            
-            <p style="font-size: 1.1em; margin: 20px 0; line-height: 1.8;">
-                La CEDU condanna <strong>nuovamente</strong> l'Italia per la disciplina degli accessi e delle ispezioni fiscali, 
-                evidenziando che <strong>nonostante le modifiche normative del 2025</strong>, il sistema rimane inadeguato.
-            </p>
-            
-            <div class="violazioni">
-                <h4>⚠️ Violazioni Accertate:</h4>
-                <ul>
-                    <li><strong>Articolo 8 CEDU</strong> - Violazione del diritto al rispetto del domicilio</li>
-                    <li>Discrezionalità illimitata di Agenzia Entrate e Guardia di Finanza</li>
-                    <li>Autorizzazioni senza motivazione specifica (solo formule generiche)</li>
-                    <li>Mancanza di controllo giudiziario effettivo</li>
-                    <li>Prove acquisite come "fishing expedition" (indagini esplorative)</li>
-                    <li>Circolare 4/E del 2021 considerata insufficiente (non vincolante)</li>
-                </ul>
-            </div>
-            
-            <div class="impatto">
-                <h4>✅ Impatto Pratico:</h4>
-                <p>
-                    <strong>Risarcimento:</strong> €3.200 per ciascuna società danneggiata<br>
-                    <strong>Obbligo per l'Italia:</strong> Riforma strutturale del sistema di controlli fiscali<br>
-                    <strong>Principio stabilito:</strong> Le "circolari interne" non possono sostituire garanzie legislative
-                </p>
-            </div>
-            
-            <p style="margin-top: 20px; font-style: italic; color: #666;">
-                Questa sentenza conferma che le modifiche italiane del 2025 sono <strong>ancora insufficienti</strong> 
-                per rispettare i diritti fondamentali europei.
-            </p>
-        </div>
-
-        <!-- SENTENZA RECENTE 2 -->
-        <div class="sentenza-card recente">
-            <span class="badge">📍 RECENTISSIMA - 2025</span>
+            <span class="badge">SENTENZA RECENTE</span>
             <h3>Sentenza Italgomme (6 febbraio 2025)</h3>
-            <p class="meta">Italgomme Pneumatici S.r.l. and Others v. Italy | Ricorso n. 36617/18</p>
+            <p class="meta"><strong>Causa:</strong> Italgomme Pneumatici S.r.l. e altri c. Italia | <strong>Ricorso n.:</strong> 36617/18</p>
             
-            <p style="font-size: 1.1em; margin: 20px 0; line-height: 1.8;">
-                Sentenza pilota che ha riunito <strong>13 ricorsi</strong> di aziende pugliesi e ha costretto l'Italia 
-                a modificare urgentemente lo Statuto del Contribuente con il Decreto 84/2025.
-            </p>
+            <div class="descrizione">
+                <p>La CEDU ha condannato l'Italia per violazione dell'articolo 8 della Convenzione (diritto al rispetto della vita privata e del domicilio) in relazione alle norme sulle ispezioni fiscali presso locali commerciali e professionali.</p>
+            </div>
             
-            <div class="violazioni">
-                <h4>⚠️ Violazioni Sistematiche Accertate:</h4>
+            <div class="punti-chiave">
+                <h4>🔍 Punti Chiave della Sentenza:</h4>
                 <ul>
-                    <li><strong>Articolo 8 CEDU</strong> - Violazione sistemica (non isolata)</li>
-                    <li>Potere discrezionale illimitato degli organi ispettivi</li>
-                    <li>Assenza di base legale adeguata per gli accessi domiciliari</li>
-                    <li>Autorizzazioni emesse senza motivazione sull'estensione delle verifiche</li>
-                    <li>Nessun limite agli elementi di prova ricercabili</li>
-                    <li>Tutela giudiziaria "eventuale, limitata e non tempestiva"</li>
-                    <li>Sistema basato su semplice "ordine di servizio" (inadeguato)</li>
+                    <li><strong>Discrezionalità illimitata:</strong> Le autorità fiscali avevano poteri troppo ampi e non sufficientemente delimitati</li>
+                    <li><strong>Mancanza di garanzie:</strong> Assenza di controllo giudiziario preventivo sugli accessi</li>
+                    <li><strong>Violazione sistematica:</strong> La Corte ha rilevato una violazione "di carattere sistematico" dell'art. 8 CEDU</li>
+                    <li><strong>Diritto al domicilio:</strong> Anche i locali commerciali devono essere protetti come il domicilio privato</li>
                 </ul>
             </div>
             
-            <div class="impatto">
-                <h4>✅ Conseguenze Immediate:</h4>
-                <p>
-                    <strong>Decreto Legge 84/2025:</strong> Obbligo di motivazione rafforzata negli atti di accesso<br>
-                    <strong>Articolo 12 modificato:</strong> Necessaria giustificazione puntuale delle verifiche<br>
-                    <strong>Applicazione:</strong> Dal 3 agosto 2025 (non retroattivo)
-                </p>
+            <div class="rilevanza">
+                <h4>✅ Rilevanza per FRIULCOIN:</h4>
+                <p>Questa sentenza riconosce il diritto dei cittadini e delle imprese di operare senza interferenze arbitrarie. FRIULCOIN si basa su questo principio: un sistema economico autonomo dove i membri sono liberi di scambiare senza controlli sproporzionati.</p>
             </div>
-            
-            <p style="margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 5px;">
-                <strong>📌 Nota Importante:</strong> La Corte ha evidenziato che anche <strong>sedi di società commerciali, 
-                studi professionali e attività di lavoratori autonomi</strong> rientrano nella protezione dell'Art. 8 CEDU 
-                come il domicilio privato.
-            </p>
         </div>
 
-        <!-- TIMELINE -->
-        <div class="timeline-year">2003-2004</div>
-
-        <!-- SENTENZA STORICA -->
-        <div class="sentenza-card">
-            <span class="badge storica">📚 SENTENZA STORICA</span>
-            <h3>Sentenza Buffalo S.r.l. (3 luglio 2003 e 22 luglio 2004)</h3>
-            <p class="meta">Buffalo S.r.l. in liquidazione c. Italia | Ricorso n. 38746/97</p>
+        <div class="sentenza-card recente">
+            <span class="badge">SENTENZA RECENTE</span>
+            <h3>Sentenza Agrisud (11 dicembre 2025)</h3>
+            <p class="meta"><strong>Causa:</strong> Agrisud 2014 S.r.l. semplificata and Others v. Italy</p>
             
-            <p style="font-size: 1.1em; margin: 20px 0; line-height: 1.8;">
-                Sentenza fondamentale sulla <strong>protezione della proprietà</strong> e sui rimborsi fiscali. 
-                Stabilisce che i ritardi nei rimborsi fiscali violano i diritti patrimoniali fondamentali.
-            </p>
+            <div class="descrizione">
+                <p>La CEDU ha nuovamente condannato l'Italia, riunendo otto ricorsi che lamentavano poteri eccessivi e discrezionalità illimitata delle autorità fiscali negli accessi e nelle ispezioni.</p>
+            </div>
             
-            <div class="violazioni">
-                <h4>⚠️ Violazioni Accertate:</h4>
+            <div class="punti-chiave">
+                <h4>🔍 Punti Chiave della Sentenza:</h4>
                 <ul>
-                    <li><strong>Articolo 1 Protocollo n. 1 CEDU</strong> - Protezione della proprietà</li>
-                    <li>Ritardo eccessivo nei rimborsi di crediti d'imposta (1985-2003)</li>
-                    <li>Società costretta a contrarre prestiti a tassi superiori</li>
-                    <li>Peso finanziario insopportabile sul contribuente</li>
-                    <li>Interesse dello Stato inferiore a quello dovuto</li>
+                    <li><strong>Conferma principi Italgomme:</strong> La CEDU ribadisce quanto già stabilito nella sentenza precedente</li>
+                    <li><strong>Insufficienza delle riforme:</strong> Le modifiche allo Statuto del contribuente sono state ritenute insufficienti</li>
+                    <li><strong>Circolari non vincolanti:</strong> Le direttive interne non possono sostituire garanzie normative</li>
+                    <li><strong>Risarcimento:</strong> €3.200 per ciascuna società per violazione dei diritti</li>
                 </ul>
             </div>
             
-            <div class="impatto">
-                <h4>✅ Principio Stabilito:</h4>
-                <p>
-                    <strong>Il credito d'imposta è un "bene" protetto dalla CEDU.</strong> Lo Stato non può trattenere 
-                    indefinitamente i rimborsi dovuti ai contribuenti, causando loro danni finanziari.
-                    L'imposizione fiscale deve mantenere un <strong>"giusto equilibrio"</strong> tra interesse generale 
-                    e diritti individuali.
-                </p>
+            <div class="rilevanza">
+                <h4>✅ Rilevanza per FRIULCOIN:</h4>
+                <p>Questa sentenza conferma che i sistemi di controllo italiani sono eccessivamente invasivi. I cittadini hanno diritto di organizzare forme alternative di economia che non passino attraverso i canali tradizionali soggetti a questi controlli arbitrari.</p>
             </div>
         </div>
 
-        <!-- ALTRE SENTENZE -->
         <div class="sentenza-card">
-            <span class="badge storica">📚 ALTRE SENTENZE RILEVANTI</span>
-            <h3>Ulteriori Condanne contro l'Italia</h3>
+            <h3>Altre Sentenze Rilevanti</h3>
             
-            <ul style="font-size: 1.05em; line-height: 2; margin: 20px 0;">
-                <li><strong>Ravon e altri c. Francia (2008)</strong> - Perquisizioni fiscali senza garanzie adeguate</li>
-                <li><strong>Ferrazzini c. Italia</strong> - Lunghezza procedimenti tributari (principio giusto processo)</li>
-                <li><strong>N.K.M. c. Ungheria</strong> - Aliquota fiscale eccessivamente elevata (confiscatoria)</li>
-                <li><strong>Di Belmonte c. Italia</strong> - Ritardi rimborsi e violazione diritto proprietà</li>
-                <li><strong>Mamatas c. Grecia (2016)</strong> - Prelievi forzosi dai conti correnti</li>
+            <div class="punti-chiave">
+                <h4>📋 Altre Condanne della CEDU contro l'Italia:</h4>
+                <ul>
+                    <li><strong>Sentenza Brazzi c. Italia (27 settembre 2018):</strong> Illegittimità delle verifiche fiscali senza adeguate garanzie procedurali</li>
+                    <li><strong>Sentenza Buffalo (ritardi nei rimborsi fiscali):</strong> Violazione del diritto di proprietà per eccessivi ritardi nei rimborsi IVA</li>
+                    <li><strong>Serie di sentenze su equo processo:</strong> Oltre 13 condanne per violazione dell'art. 6 CEDU in materia tributaria</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="intro-box" style="border-left-color: #ff6b35; margin-top: 40px;">
+            <h2>Come Queste Sentenze Supportano FRIULCOIN</h2>
+            <p><strong>Le sentenze CEDU dimostrano che:</strong></p>
+            <ul style="margin: 15px 0 15px 30px; font-size: 1.05em; line-height: 1.8;">
+                <li>I cittadini hanno diritto di organizzarsi economicamente in modo autonomo</li>
+                <li>Lo Stato non può esercitare controlli arbitrari e sproporzionati</li>
+                <li>Il sistema fiscale italiano ha problemi strutturali riconosciuti a livello europeo</li>
+                <li>È legittimo cercare forme alternative di organizzazione economica</li>
             </ul>
-            
-            <p style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px;">
-                <strong>⚖️ Principio Generale:</strong> L'imposizione fiscale è legittima ma <strong>NON può</strong> 
-                diventare confiscatoria, arbitraria o priva di garanzie giurisdizionali. La lotta all'evasione 
-                <strong>non giustifica</strong> la violazione dei diritti fondamentali.
-            </p>
-        </div>
-
-        <!-- ARTICOLI CEDU VIOLATI -->
-        <div class="intro-box" style="margin-top: 50px; border-left-color: #d9534f;">
-            <h2>Articoli CEDU Sistematicamente Violati dall'Italia</h2>
-            
-            <div style="margin-top: 25px;">
-                <h4 style="color: #1e3c72; margin-bottom: 10px;">📋 Art. 8 CEDU - Diritto al rispetto della vita privata e del domicilio</h4>
-                <p style="font-style: italic; color: #666; margin-bottom: 15px;">
-                    "Ogni persona ha diritto al rispetto della sua vita privata e familiare, del suo domicilio e della sua corrispondenza."
-                </p>
-                <p><strong>Violazioni:</strong> Ispezioni fiscali senza motivazione adeguata, accessi senza controllo giudiziario, discrezionalità illimitata.</p>
-            </div>
-            
-            <div style="margin-top: 25px;">
-                <h4 style="color: #1e3c72; margin-bottom: 10px;">📋 Art. 1 Protocollo 1 - Protezione della proprietà</h4>
-                <p style="font-style: italic; color: #666; margin-bottom: 15px;">
-                    "Ogni persona fisica o giuridica ha diritto al rispetto dei suoi beni."
-                </p>
-                <p><strong>Violazioni:</strong> Ritardi rimborsi fiscali, pressione fiscale eccessiva (68.6% su PMI), pignoramenti sproporzionati.</p>
-            </div>
-            
-            <div style="margin-top: 25px;">
-                <h4 style="color: #1e3c72; margin-bottom: 10px;">📋 Art. 6 CEDU - Diritto a un equo processo</h4>
-                <p style="font-style: italic; color: #666; margin-bottom: 15px;">
-                    "Ogni persona ha diritto a che la sua causa sia esaminata equamente, pubblicamente ed entro un termine ragionevole."
-                </p>
-                <p><strong>Violazioni:</strong> Tempi processuali irragionevoli (Legge Pinto), tutela giudiziaria inadeguata nei controlli fiscali.</p>
-            </div>
-        </div>
-
-        <!-- CTA FINALE -->
-        <div class="cta-box">
-            <h3>Queste Sentenze Ti Danno il Diritto di Proteggerti</h3>
-            <p style="font-size: 1.2em; margin: 20px 0;">
-                L'Europa ha condannato l'Italia per <strong>violazioni sistematiche</strong>. 
-                FRIULCOIN ti offre una protezione <strong>legale e tecnologica</strong> basata su questi principi.
-            </p>
-            <a href="come-funziona.html" class="button">Scopri Come Proteggerti →</a>
-            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">
-                Sistema basato su blockchain decentralizzata • 100% Legale in Italia
-            </p>
+            <p style="margin-top: 20px; font-size: 1.1em;"><strong>FRIULCOIN non evade queste sentenze, le applica:</strong> crea un sistema di scambio economico dove i membri operano liberamente, rispettando i propri obblighi fiscali ma senza dover dipendere da intermediari bancari privati soggetti a controlli arbitrari.</p>
         </div>
     </div>
 
@@ -562,13 +137,12 @@
                 <a href="index.html">Home</a>
                 <a href="sentenze-cedu.html">Sentenze CEDU</a>
                 <a href="come-funziona.html">Come Funziona</a>
-                <a href="inizia-ora.html">Inizia Ora</a>
+                <a href="https://www.friuli.info" target="_blank">Aderisci</a>
             </div>
-            <p>&copy; 2025 FRIULCOIN - Progetto Open Source per la Difesa Patrimoniale</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Tutte le sentenze citate sono verificabili sui siti ufficiali CEDU e Ministero della Giustizia</p>
+            <p>&copy; 2026 FRIULCOIN - Progetto Open Source per l'Economia Solidale Friulana</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Sistema di scambio autonomo basato su sentenze CEDU</p>
         </div>
     </footer>
-
 
     <div id="chat-widget">
         <div id="close-btn"></div>
@@ -579,35 +153,8 @@
         const chatWidget = document.getElementById('chat-widget');
         const closeBtn = document.getElementById('close-btn');
         const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
+        chatImg.addEventListener('click', function(e) { window.location.href = 'chat.htm'; });
+        closeBtn.addEventListener('click', function(e) { e.stopPropagation(); chatWidget.style.display = 'none'; });
     </script>
-
-    <script>
-
-        const chatWidget = document.getElementById('chat-widget');
-        const closeBtn = document.getElementById('close-btn');
-        const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
-        </script>
 </body>
 </html>

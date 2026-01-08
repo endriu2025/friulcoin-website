@@ -3,533 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Come Funziona FRIULCOIN - Sistema di Difesa Patrimoniale</title>
-    <meta name="description" content="Scopri come FRIULCOIN protegge il tuo patrimonio utilizzando blockchain e disintermediazione bancaria basata su sentenze CEDU.">
+    <title>Come Funziona FRIULCOIN - Sistema di Economia Solidale</title>
+    <meta name="description" content="Scopri come FRIULCOIN permette scambi diretti di beni e servizi tra friulani senza euro né banche, utilizzando blockchain e tecnologia peer-to-peer.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f9f9f9;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            color: #1e3c72;
-            text-decoration: none;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .section {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .section h2 {
-            color: #1e3c72;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ff6b35;
-            padding-bottom: 10px;
-        }
-        
-        .section h3 {
-            color: #1e3c72;
-            font-size: 1.5em;
-            margin: 30px 0 15px;
-        }
-        
-        .section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-        
-        .highlight-box h3 {
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .step-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid #1e3c72;
-        }
-        
-        .step-card .number {
-            display: inline-block;
-            background: #1e3c72;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .step-card h4 {
-            color: #1e3c72;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            overflow-x: auto;
-            display: block;
-        }
-        
-        .comparison-table table {
-            width: 100%;
-            min-width: 600px;
-        }
-        
-        .comparison-table th, .comparison-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .comparison-table th {
-            background: #1e3c72;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .comparison-table .pro {
-            color: #28a745;
-            font-weight: 600;
-        }
-        
-        .comparison-table .con {
-            color: #dc3545;
-            font-weight: 600;
-        }
-        
-        .warning-box {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 5px;
-        }
-        
-        .warning-box h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .success-box {
-            background: #d4edda;
-            border-left: 5px solid #28a745;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 5px;
-        }
-        
-        .success-box h4 {
-            color: #155724;
-            margin-bottom: 10px;
-        }
-        
-        .tech-specs {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-        
-        .tech-specs ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .tech-specs li {
-            padding: 10px 0;
-            border-bottom: 1px solid #dee2e6;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .tech-specs li:last-child {
-            border-bottom: none;
-        }
-        
-        .tech-specs .label {
-            font-weight: 600;
-            color: #1e3c72;
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .cta-box h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: white;
-        }
-        
-        .cta-box .button {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-        
-        .cta-box .button:hover {
-            background: #ff8555;
-        }
-        
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .section {
-                padding: 25px;
-            }
-            
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 2.5em; margin-bottom: 15px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-block; color: #1e3c72; text-decoration: none; margin-bottom: 30px; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .section { background: white; padding: 40px; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .section h2 { color: #1e3c72; font-size: 2em; margin-bottom: 20px; border-bottom: 3px solid #ff6b35; padding-bottom: 10px; }
+        .section h3 { color: #1e3c72; font-size: 1.5em; margin: 30px 0 15px; }
+        .section p { font-size: 1.1em; line-height: 1.8; margin-bottom: 15px; }
+        .highlight-box { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 30px; border-radius: 10px; margin: 30px 0; }
+        .highlight-box h3 { color: white; margin-bottom: 15px; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .step-card { background: #f8f9fa; padding: 30px; border-radius: 10px; border-left: 5px solid #1e3c72; }
+        .step-card .number { display: inline-block; background: #1e3c72; color: white; width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-size: 1.5em; font-weight: 700; margin-bottom: 15px; }
+        .step-card h4 { color: #1e3c72; font-size: 1.3em; margin-bottom: 10px; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; overflow-x: auto; display: block; }
+        .comparison-table table { width: 100%; min-width: 600px; }
+        .comparison-table th, .comparison-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .comparison-table th { background: #1e3c72; color: white; font-weight: 600; }
+        .comparison-table tr:nth-child(even) { background: #f8f9fa; }
+        .comparison-table .pro { color: #28a745; font-weight: 600; }
+        .comparison-table .con { color: #dc3545; font-weight: 600; }
+        .warning-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 25px; margin: 30px 0; border-radius: 5px; }
+        .warning-box h4 { color: #856404; margin-bottom: 10px; }
+        .success-box { background: #d4edda; border-left: 5px solid #28a745; padding: 25px; margin: 30px 0; border-radius: 5px; }
+        .success-box h4 { color: #155724; margin-bottom: 10px; }
+        .tech-specs { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0; }
+        .tech-specs ul { list-style: none; padding: 0; }
+        .tech-specs li { padding: 10px 0; border-bottom: 1px solid #dee2e6; display: flex; justify-content: space-between; }
+        .tech-specs li:last-child { border-bottom: none; }
+        .tech-specs .label { font-weight: 600; color: #1e3c72; }
+        .cta-box { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px; border-radius: 10px; text-align: center; margin-top: 50px; }
+        .cta-box h3 { font-size: 2em; margin-bottom: 15px; }
+        .button { display: inline-block; background: #ff6b35; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: 600; transition: background 0.3s; }
+        .button:hover { background: #ff8555; }
+        footer { background: #1e3c72; color: white; text-align: center; padding: 30px 20px; margin-top: 60px; }
+        .nav-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { text-decoration: underline; }
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; width: 80px; height: 80px; cursor: pointer; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 50%; overflow: hidden; }
+        #chat-widget img { width: 100%; height: 100%; object-fit: cover; }
+        #close-btn { position: absolute; top: 5px; right: 5px; width: 20px; height: 20px; background: white; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 1001; }
+        #close-btn::before { content: "×"; color: #1e3c72; font-size: 18px; }
+        @media (max-width: 768px) { header h1 { font-size: 1.8em; } .section { padding: 25px; } }
     </style>
-
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        #chat-widget img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-
-        #chat-widget img:hover {
-            transform: scale(1.05);
-        }
-
-        #close-btn {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            width: 25px;
-            height: 25px;
-            background-color: #ff4444;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
-        }
-
-        #close-btn::before,
-        #close-btn::after {
-            content: '';
-            position: absolute;
-            width: 14px;
-            height: 2px;
-            background-color: white;
-        }
-
-        #close-btn::before {
-            transform: rotate(45deg);
-        }
-
-        #close-btn::after {
-            transform: rotate(-45deg);
-        }
-
-        #close-btn:hover {
-            background-color: #cc0000;
-        }
-
-        #chat-widget:hover #close-btn {
-            display: flex;
-        }
-        </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>🔧 Come Funziona FRIULCOIN</h1>
-            <p>Sistema di Difesa Patrimoniale basato su Blockchain e Sentenze CEDU</p>
-        </div>
+        <h1>🔧 Come Funziona FRIULCOIN</h1>
+        <p>Sistema di Economia Solidale Basato su Blockchain e Diritto all'Autonomia Economica</p>
     </header>
 
     <div class="container">
         <a href="index.html" class="back-link">← Torna alla Home</a>
-        
-        <!-- INTRODUZIONE -->
+
         <div class="section">
             <h2>📚 Il Concetto Fondamentale</h2>
-            <p>
-                FRIULCOIN non è solo una criptovaluta: è un <strong>sistema di difesa patrimoniale legale</strong> 
-                che si basa su tre pilastri fondamentali:
-            </p>
+            <p>FRIULCOIN non è una criptovaluta per speculare o per convertire euro: è un <strong>sistema di economia solidale</strong> che permette ai membri della comunità friulana di scambiare beni e servizi <strong>senza mai utilizzare euro</strong>.</p>
             
-            <div class="steps-grid" style="margin-top: 30px;">
+            <div class="highlight-box">
+                <h3>⚖️ Principio Fondamentale</h3>
+                <p style="font-size: 1.2em;">Nessuno deve sottrarsi al fisco e non pagare le tasse, MA nessuno deve essere obbligato ad usare un sistema bancario privato.</p>
+                <p style="font-size: 1.3em; margin-top: 15px;"><strong>FRIULCOIN è una comunità indipendente che MAI utilizza euro!</strong></p>
+            </div>
+
+            <div class="steps-grid">
                 <div class="step-card">
                     <div class="number">1</div>
                     <h4>Base Legale Europea</h4>
-                    <p>Fondato sulle sentenze CEDU che hanno condannato l'Italia per abusi fiscali sistematici.</p>
+                    <p>Le sentenze CEDU riconoscono il diritto dei cittadini di organizzarsi economicamente in modo autonomo, senza interferenze arbitrarie dello Stato.</p>
                 </div>
                 
                 <div class="step-card">
                     <div class="number">2</div>
-                    <h4>Disintermediazione</h4>
-                    <p>Elimina le banche e gli intermediari finanziari come punti di vulnerabilità patrimoniale.</p>
+                    <h4>Economia Peer-to-Peer</h4>
+                    <p>Scambi diretti tra membri della comunità, senza intermediari bancari. Tu produci beni o servizi e li scambi con altri membri usando FLC.</p>
                 </div>
                 
                 <div class="step-card">
                     <div class="number">3</div>
                     <h4>Tecnologia Blockchain</h4>
-                    <p>Sicurezza crittografica matematica che garantisce il controllo esclusivo sui tuoi fondi.</p>
+                    <p>Sistema sicuro, trasparente e decentralizzato che registra tutti gli scambi in modo permanente. Tu controlli le tue chiavi private.</p>
                 </div>
             </div>
         </div>
 
-        <!-- DISINTERMEDIAZIONE -->
         <div class="section">
-            <h2>🏦 Perché Disintermediare?</h2>
+            <h2>🤝 Come Funzionano gli Scambi</h2>
             
-            <h3>Il Problema del Sistema Bancario Tradizionale</h3>
-            <p>
-                Nel sistema finanziario classico, le banche sono <strong>intermediari obbligati</strong> che:
-            </p>
+            <h3>Esempio Pratico</h3>
+            <p><strong>Scenario:</strong> Mario è un agricoltore, Lucia è una meccanica, Giovanni è un insegnante di musica.</p>
+            
             <ul style="margin: 20px 0 20px 40px; font-size: 1.1em; line-height: 2;">
-                <li>Detengono fisicamente i tuoi soldi</li>
-                <li>Possono bloccare conti su ordine dell'autorità</li>
-                <li>Applicano pignoramenti automatici</li>
-                <li>Traggono profitto dai tuoi depositi prestandoli ad altri</li>
-                <li>Hanno accesso completo ai tuoi movimenti finanziari</li>
+                <li>Mario fornisce verdure fresche a Lucia → riceve 50 FLC</li>
+                <li>Lucia ripara l'auto di Giovanni → riceve 150 FLC</li>
+                <li>Giovanni dà lezioni di chitarra al figlio di Mario → riceve 100 FLC</li>
             </ul>
             
-            <div class="warning-box">
-                <h4>⚠️ Punto Critico</h4>
-                <p>
-                    Le sentenze CEDU dimostrano che il fisco italiano ha <strong>poteri eccessivi e incontrollati</strong>. 
-                    Se i tuoi soldi sono in banca, sono facilmente raggiungibili da fermi amministrativi, 
-                    pignoramenti e ispezioni senza adeguate garanzie giudiziarie.
-                </p>
-            </div>
-            
-            <h3>La Soluzione: Controllo Diretto</h3>
-            <p>
-                Con FRIULCOIN tu sei <strong>l'unica banca di te stesso</strong>:
+            <p style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin-top: 20px;">
+                <strong>💡 Chiave del sistema:</strong> Nessun euro è mai stato utilizzato. Tutti gli scambi avvengono in FLC, che circola solo all'interno della comunità friulana. È un sistema di reciprocità e fiducia.
             </p>
-            <ul style="margin: 20px 0 20px 40px; font-size: 1.1em; line-height: 2;">
-                <li>Possiedi direttamente le chiavi crittografiche dei tuoi fondi</li>
-                <li>Nessun intermediario può bloccare o sequestrare senza le tue chiavi</li>
-                <li>Transazioni dirette peer-to-peer (da persona a persona)</li>
-                <li>Privacy delle operazioni (non pubblicate su registri accessibili al fisco)</li>
-                <li>Resistenza a confische arbitrarie</li>
+
+            <h3>Nessuna Intermediazione Bancaria</h3>
+            <p>Nel sistema tradizionale:</p>
+            <ul style="margin: 20px 0 20px 40px; font-size: 1.05em; line-height: 2;">
+                <li>Le banche controllano i tuoi soldi</li>
+                <li>Possono bloccare il tuo conto</li>
+                <li>Applicano commissioni su ogni operazione</li>
+                <li>Tracciano ogni tuo movimento</li>
+                <li>Prestano i tuoi soldi ad altri traendone profitto</li>
+            </ul>
+
+            <p>Con FRIULCOIN:</p>
+            <ul style="margin: 20px 0 20px 40px; font-size: 1.05em; line-height: 2;">
+                <li><strong>Tu controlli</strong> le tue chiavi private</li>
+                <li><strong>Nessuno può bloccare</strong> i tuoi FLC senza le tue chiavi</li>
+                <li><strong>Scambi diretti</strong> peer-to-peer tra membri</li>
+                <li><strong>Privacy</strong> nelle transazioni</li>
+                <li><strong>Commissioni minime</strong> o nulle</li>
             </ul>
         </div>
 
-        <!-- TECNOLOGIA BLOCKCHAIN -->
         <div class="section">
-            <h2>⛓️ Come Funziona la Blockchain</h2>
+            <h2>⛓️ Tecnologia Blockchain</h2>
             
-            <p>
-                La blockchain è un <strong>registro distribuito</strong> che registra tutte le transazioni 
-                in modo permanente e verificabile, senza bisogno di autorità centrali.
-            </p>
+            <p>La blockchain è un <strong>registro distribuito</strong> che registra tutte le transazioni in modo permanente e verificabile, senza bisogno di autorità centrali.</p>
             
             <h3>Caratteristiche Tecniche FRIULCOIN</h3>
             <div class="tech-specs">
                 <ul>
-                    <li>
-                        <span class="label">Algoritmo:</span>
-                        <span>Scrypt (algoritmo di consenso) su base authority</span>
-                    </li>
-                    <li>
-                        <span class="label">Supply Totale:</span>
-                        <span>3 casseforti da 1000 milioni FLC</span>
-                    </li>
-                    <li>
-                        <span class="label">Block Reward:</span>
-                        <span>NESSUNA COMMISSIONE</span>
-                    </li>
-                    <li>
-                        <span class="label">Tempo Blocco:</span>
-                        <span>1 secondo a richiesta</span>
-                    </li>
-                    <li>
-                        <span class="label">Network:</span>
-                        <span>Peer-to-peer decentralizzato</span>
-                    </li>
-                    <li>
-                        <span class="label">Crittografia:</span>
-                        <span>ECDSA + SHA-256</span>
-                    </li>
-                    <li>
-                        <span class="label">Codice:</span>
-                        <span>Open Source (fork Litecoin)</span>
-                    </li>
+                    <li><span class="label">Algoritmo:</span><span>Scrypt (fork Litecoin)</span></li>
+                    <li><span class="label">Supply Totale:</span><span>3.000 milioni FLC (emissione controllata)</span></li>
+                    <li><span class="label">Block Reward:</span><span>Nessuna commissione tra membri</span></li>
+                    <li><span class="label">Tempo Blocco:</span><span>Veloce (1 secondo)</span></li>
+                    <li><span class="label">Network:</span><span>Peer-to-peer decentralizzato</span></li>
+                    <li><span class="label">Crittografia:</span><span>ECDSA + SHA-256</span></li>
+                    <li><span class="label">Codice:</span><span>Open Source</span></li>
                 </ul>
             </div>
             
             <div class="highlight-box">
                 <h3>🔐 Sicurezza Matematica</h3>
-                <p style="font-size: 1.1em; line-height: 1.8;">
-                    Le chiavi private FRIULCOIN utilizzano crittografia a curva ellittica (ECDSA). 
-                    Violare una chiave privata richiederebbe <strong>miliardi di anni</strong> con i computer attuali. 
-                    Finché conservi le tue chiavi in modo sicuro, <strong>nessuno</strong> può accedere ai tuoi fondi.
-                </p>
+                <p style="font-size: 1.1em;">Le chiavi private FRIULCOIN utilizzano crittografia a curva ellittica (ECDSA). Violare una chiave privata richiederebbe miliardi di anni con i computer attuali. Finché conservi le tue chiavi in modo sicuro, nessuno può accedere ai tuoi FLC.</p>
             </div>
         </div>
 
-        <!-- CONFRONTO -->
         <div class="section">
-            <h2>⚖️ FRIULCOIN vs Sistema Bancario</h2>
+            <h2>⚖️ FRIULCOIN vs Sistema Bancario Euro</h2>
             
             <div class="comparison-table">
                 <table>
                     <thead>
                         <tr>
                             <th>Caratteristica</th>
-                            <th>Sistema Bancario</th>
+                            <th>Sistema Bancario + Euro</th>
                             <th>FRIULCOIN</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Controllo Fondi</strong></td>
-                            <td class="con">❌ La banca controlla</td>
+                            <td><strong>Controllo</strong></td>
+                            <td class="con">❌ La banca controlla i tuoi soldi</td>
                             <td class="pro">✅ Tu controlli (chiavi private)</td>
                         </tr>
                         <tr>
-                            <td><strong>Blocco Conti</strong></td>
-                            <td class="con">❌ Possibile su ordine fisco</td>
-                            <td class="pro">✅ Impossibile senza chiavi</td>
+                            <td><strong>Intermediari</strong></td>
+                            <td class="con">❌ Necessari (banche)</td>
+                            <td class="pro">✅ Zero intermediari</td>
                         </tr>
                         <tr>
-                            <td><strong>Pignoramenti</strong></td>
-                            <td class="con">❌ Automatici</td>
-                            <td class="pro">✅ Richiedono chiavi private</td>
+                            <td><strong>Scambi</strong></td>
+                            <td class="con">❌ Attraverso banca</td>
+                            <td class="pro">✅ Diretti peer-to-peer</td>
                         </tr>
                         <tr>
-                            <td><strong>Privacy</strong></td>
-                            <td class="con">❌ Banca traccia tutto</td>
-                            <td class="pro">✅ Transazioni pseudonime</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Costi</strong></td>
-                            <td class="con">❌ Commissioni alte</td>
-                            <td class="pro">✅ Commissioni minime</td>
+                            <td><strong>Commissioni</strong></td>
+                            <td class="con">❌ Alte</td>
+                            <td class="pro">✅ Minime/nulle</td>
                         </tr>
                         <tr>
                             <td><strong>Orari</strong></td>
@@ -537,64 +194,59 @@
                             <td class="pro">✅ 24/7/365</td>
                         </tr>
                         <tr>
-                            <td><strong>Confisca Arbitraria</strong></td>
-                            <td class="con">❌ Vulnerabile (CEDU lo conferma)</td>
-                            <td class="pro">✅ Protetto crittograficamente</td>
+                            <td><strong>Privacy</strong></td>
+                            <td class="con">❌ Banca traccia tutto</td>
+                            <td class="pro">✅ Transazioni tra membri</td>
                         </tr>
                         <tr>
-                            <td><strong>Intermediari</strong></td>
-                            <td class="con">❌ Necessari</td>
-                            <td class="pro">✅ Zero intermediari</td>
+                            <td><strong>Dipendenza</strong></td>
+                            <td class="con">❌ Da sistema finanziario</td>
+                            <td class="pro">✅ Autonomia economica</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comunità</strong></td>
+                            <td class="con">❌ Sistema globale impersonale</td>
+                            <td class="pro">✅ Economia locale solidale</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- MINING -->
-        <!-- LEGALITÀ -->
         <div class="section">
-            <h2>⚖️ Legalità e Conformità</h2>
+            <h2>⚖️ Legalità e Obblighi Fiscali</h2>
             
             <div class="success-box">
-                <h4>✅ FRIULCOIN è Completamente Legale in Italia</h4>
-                <p style="font-size: 1.05em; line-height: 1.8;">
-                    <strong>Possedere, scambiare e usare criptovalute è legale in Italia.</strong> 
-                    Non servono autorizzazioni speciali per privati cittadini. 
-                    La regolamentazione riguarda solo exchange professionali e prestatori di servizi.
-                </p>
+                <h4>✅ Sistema Completamente Legale</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">In Italia è legale creare sistemi di scambio economico complementari. FRIULCOIN si basa sul diritto riconosciuto dalle sentenze CEDU: i cittadini possono organizzarsi economicamente in modo autonomo.</p>
             </div>
             
-            <h3>Obblighi Fiscali</h3>
-            <p>
-                Le criptovalute sono considerate valute estere ai fini fiscali:
-            </p>
+            <h3>Obblighi Fiscali dei Membri</h3>
+            <p>Anche se FRIULCOIN non usa euro, gli scambi hanno un valore economico che va dichiarato:</p>
+            
             <ul style="margin: 20px 0 20px 40px; font-size: 1.05em; line-height: 2;">
-                <li><strong>Monitoraggio fiscale:</strong> Se possiedi più di €15.000 in crypto al 31/12, devi dichiararlo nel quadro RW</li>
-                <li><strong>Plusvalenze:</strong> Se vendi con profitto e superi €2.000 di giacenza per almeno 7 giorni, tassa 26%</li>
-                <li><strong>Nessuna tassa:</strong> Su possesso o transazioni sotto soglie</li>
+                <li><strong>Dichiarazione degli scambi:</strong> Il valore degli scambi effettuati va dichiarato nella dichiarazione dei redditi</li>
+                <li><strong>IVA:</strong> Se gli scambi superano €65.000/anno, potrebbero esserci obblighi IVA</li>
+                <li><strong>Registro transazioni:</strong> I membri devono tenere traccia degli scambi per dichiarazioni fiscali</li>
             </ul>
             
             <div class="warning-box">
-                <h4>💡 Nota Importante</h4>
-                <p>
-                    FRIULCOIN ti protegge da <strong>abusi</strong> e <strong>confische arbitrarie</strong> (quelle condannate dalla CEDU), 
-                    non dall'obbligo di dichiarare legittimamente quanto possiedi. La difesa patrimoniale è legale, 
-                    l'evasione fiscale no.
+                <h4>💡 Chiarimento Fondamentale</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">
+                    <strong>FRIULCOIN non serve per evadere le tasse.</strong> Serve per liberarsi dall'obbligo di usare banche private per gli scambi economici. 
+                    Gli obblighi fiscali rimangono: chi scambia beni e servizi deve dichiarare il valore degli scambi, proprio come farebbe con l'euro.
+                </p>
+                <p style="font-size: 1.05em; line-height: 1.8; margin-top: 15px;">
+                    La differenza è che gli scambi avvengono senza intermediari bancari, in un sistema di economia solidale locale.
                 </p>
             </div>
         </div>
 
-        <!-- CTA FINALE -->
         <div class="cta-box">
-            <h3>Pronto a Iniziare la Tua Difesa Patrimoniale?</h3>
-            <p style="font-size: 1.2em; margin: 20px 0;">
-                Scarica il wallet FRIULCOIN e prendi il controllo del tuo patrimonio
-            </p>
-            <a href="inizia-ora.html" class="button">Scarica il Wallet →</a>
-            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">
-                Open Source • Gratuito • Sicuro
-            </p>
+            <h3>Pronto a Unirti alla Comunità FRIULCOIN?</h3>
+            <p style="font-size: 1.2em; margin: 20px 0;">Scopri come aderire e iniziare a scambiare con altri friulani</p>
+            <a href="https://www.friuli.info" target="_blank" class="button">Vai a www.friuli.info →</a>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">Open Source • Gratuito • Economia Solidale</p>
         </div>
     </div>
 
@@ -604,13 +256,12 @@
                 <a href="index.html">Home</a>
                 <a href="sentenze-cedu.html">Sentenze CEDU</a>
                 <a href="come-funziona.html">Come Funziona</a>
-                <a href="inizia-ora.html">Inizia Ora</a>
+                <a href="https://www.friuli.info" target="_blank">Aderisci</a>
             </div>
-            <p>&copy; 2025 FRIULCOIN - Progetto Open Source per la Difesa Patrimoniale</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Sistema basato su sentenze CEDU e tecnologia blockchain</p>
+            <p>&copy; 2026 FRIULCOIN - Progetto Open Source per l'Economia Solidale Friulana</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Sistema di scambio autonomo basato su sentenze CEDU</p>
         </div>
     </footer>
-
 
     <div id="chat-widget">
         <div id="close-btn"></div>
@@ -621,35 +272,8 @@
         const chatWidget = document.getElementById('chat-widget');
         const closeBtn = document.getElementById('close-btn');
         const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
+        chatImg.addEventListener('click', function(e) { window.location.href = 'chat.htm'; });
+        closeBtn.addEventListener('click', function(e) { e.stopPropagation(); chatWidget.style.display = 'none'; });
     </script>
-
-    <script>
-
-        const chatWidget = document.getElementById('chat-widget');
-        const closeBtn = document.getElementById('close-btn');
-        const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
-        </script>
 </body>
 </html>
