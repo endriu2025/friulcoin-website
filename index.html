@@ -2,490 +2,233 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <title>FRIULCOIN – Economia Friulana Indipendente</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIULCOIN - Sistema di Economia Solidale Friulana</title>
-    <meta name="description" content="Comunità economica indipendente basata su blockchain. Scambi di beni e servizi tra friulani senza intermediari bancari. Sistema legittimo garantito dalle sentenze CEDU.">
+    <meta name="description" content="FRIULCOIN è una comunità economica friulana che scambia beni e servizi senza euro e senza banche, nel rispetto della legge e dei principi affermati dalla Corte Europea dei Diritti dell'Uomo.">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #222;
+            background: #ffffff;
         }
-        
-        .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 80px 20px;
+            padding: 70px 20px;
             text-align: center;
         }
-        
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
+
+        header h1 {
+            font-size: 2.4em;
+            margin-bottom: 15px;
         }
-        
-        .hero .subtitle {
-            font-size: 1.4em;
-            margin-bottom: 30px;
-            font-weight: 300;
+
+        header p {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto 30px;
         }
-        
-        .hero .cta-button {
+
+        .cta {
             display: inline-block;
             background: #ff6b35;
             color: white;
-            padding: 15px 40px;
+            padding: 14px 36px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
             font-weight: 600;
-            transition: background 0.3s;
-            margin-top: 20px;
+            border-radius: 6px;
         }
-        
-        .hero .cta-button:hover {
-            background: #ff8555;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .section {
+
+        section {
+            max-width: 1100px;
+            margin: auto;
             padding: 60px 20px;
         }
-        
-        .section-dark {
-            background: #f5f5f5;
-        }
-        
-        .section h2 {
-            font-size: 2.2em;
-            margin-bottom: 30px;
+
+        section h2 {
             text-align: center;
-            color: #1e3c72;
-        }
-        
-        .problem-box {
-            background: #fff3cd;
-            border-left: 5px solid #ff6b35;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 5px;
-        }
-        
-        .problem-box h3 {
-            color: #d9534f;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .stat-card .number {
-            font-size: 3em;
-            font-weight: 700;
-            color: #1e3c72;
-            margin-bottom: 10px;
-        }
-        
-        .stat-card .label {
-            font-size: 1.1em;
-            color: #666;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .feature-card h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-        
-        .cedu-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            margin: 40px 0;
-            border-radius: 10px;
-        }
-        
-        .cedu-highlight h3 {
             font-size: 2em;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            color: #1e3c72;
         }
-        
-        .cedu-highlight p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 30px;
+
+        .box {
+            background: #f5f7fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
-        
-        .button-secondary {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s;
+
+        .principle {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 35px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.15em;
         }
-        
-        .button-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-        
+
         footer {
             background: #1e3c72;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 35px 20px;
         }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-        
-        .nav-links a {
+
+        footer a {
             color: white;
             text-decoration: none;
+            margin: 0 15px;
             font-weight: 500;
         }
-        
-        .nav-links a:hover {
+
+        footer a:hover {
             text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8em;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.1em;
-            }
-            
-            .stats-grid, .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Chat Widget Styling */
-        #chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        #chat-widget img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        #close-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            z-index: 1001;
-        }
-
-        #close-btn::before {
-            content: "×";
-            color: #1e3c72;
-            font-size: 18px;
-        }
-
-        .principle-box {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .principle-box strong {
-            font-size: 1.3em;
-            display: block;
-            margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
-    <!-- Logo Centered -->
-    
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="container">
-            <h1>   <div align="center">
-        <img src="ico.png" alt="FRIULCOIN Logo" style="width: 100px; height: 100px;"></div>🏔️ FRIULCOIN - Economia Friulana Indipendente</h1>
-            <p class="subtitle">Una Comunità che Scambia Beni e Servizi Senza Euro né Banche</p>
-            
-            <p style="font-size: 1.2em; margin: 20px auto; max-width: 900px;">La Corte Europea dei Diritti dell’Uomo con ha stabilito 
-<span style="background-color: #FFFF00"><a target="_blank" href="cedu_.pdf">
-&nbsp;(CEDU, sez. I, sent. 8 gennaio 2026, ric. n. 40607/19 e 34583/20)</a></span> che l’Italia deve rivedere le norme che consentono all’Agenzia delle Entrate di accedere ai dati bancari dei contribuenti. 
-			Con una <a href="sentenza_.pdf" target="_blank" style="color: #1e3c72; font-weight: 600;"><span style="background-color: #FFFF00">sentenza pubblicata</a></SPAN> <b>l’8 gennaio 2026</b>, incentrata sul ricorso di due cittadini italiani, i giudici di Strasburgo hanno infatti rilevato una violazione del diritto alla vita privata, sancito dall’articolo 8 della Convenzione. La condanna non mette in discussione la legittimità della lotta all’evasione, ma critica aspramente il sistema italiano, giudicato carente di garanzie chiare e di controlli effettivi contro l’arbitrarietà, con il risultato di lasciare alle autorità un margine di discrezionalità troppo ampio.
-                Le sentenze della Corte Europea dei Diritti dell'Uomo hanno riconosciuto che i cittadini hanno il diritto di organizzarsi economicamente in modo autonomo, senza essere soggetti a controlli arbitrari.
-            </p>
-            
-            <div class="principle-box" style="max-width: 900px; margin: 30px auto;">
-                <strong>⚖️ Principio Fondamentale</strong>
-                <p style="margin: 0;">Nessuno deve sottrarsi al fisco e non pagare le tasse, MA nessuno deve essere obbligato ad usare un sistema bancario privato.<br><br>
-                <strong>FRIULCOIN è una comunità indipendente che MAI utilizza euro!</strong></p>
-            </div>
-            
-            <a href="#inizia" class="cta-button">Scopri Come Funziona →</a>
-        </div>
-    </div>
 
-    <!-- Problem Section -->
-    <div class="section">
-        <div class="container">
-            <h2>Perché Nasce FRIULCOIN</h2>
-            
-            <div class="problem-box">
-                <h3>⚠️ Il Diritto all'Autonomia Economica</h3>
-                <p style="font-size: 1.1em; line-height: 1.8;">
-                    La Corte Europea dei Diritti dell'Uomo ha <strong>condannato l'Italia</strong> per pratiche che violano i diritti fondamentali dei cittadini:
-                </p>
-                <ul style="font-size: 1.1em; margin: 15px 0 15px 30px; line-height: 2;">
-                    <li><strong>Ispezioni fiscali senza garanzie</strong> (Sentenza Italgomme, febbraio 2025)</li>
-                    <li><strong>Discrezionalità illimitata</strong> di Agenzia Entrate e Guardia di Finanza (Sentenza Agrisud, dicembre 2025)</li>
-                    <li><strong>Violazione del diritto al domicilio</strong> (Art. 8 CEDU)</li>
-                    <li><strong>Mancanza di controllo giudiziario</strong> preventivo</li>
-                </ul>
-                <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px; background: white; padding: 15px; border-radius: 5px;">
-                    <strong>💡 Cosa significa per te:</strong> Queste sentenze dimostrano che i cittadini hanno diritto di organizzarsi economicamente senza interferenze arbitrarie. FRIULCOIN si basa su questo diritto fondamentale.
-                </p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">13+</div>
-                    <div class="label">Sentenze CEDU a favore dei contribuenti</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">100%</div>
-                    <div class="label">Economia senza intermediari bancari</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">0€</div>
-                    <div class="label">Euro utilizzati nella comunità</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<header>
+       <h1>   <div align="center">
+        <img src="ico.png" alt="FRIULCOIN Logo" style="width: 100px; height: 100px;"></div>🏔️ FRIULCOIN – Economia Friulana Indipendente</h1>
+    <p>
+        Una comunità economica che sceglie liberamente di scambiare beni e servizi
+        <strong>senza euro e senza dipendenza dal sistema bancario privato</strong>,
+        nel rispetto della legge e dei diritti fondamentali.
+    </p>
+    <a class="cta" href="#come-funziona">Scopri come funziona →</a>
+</header>
 
-    <!-- CEDU Highlight -->
-    <div class="cedu-highlight">
-        <div class="container">
-            <h3>📜 Base Legale: Sentenze CEDU</h3>
+<section>
+    <h2>⚖️ Contesto Europeo</h2>
+    <div class="box">
+        <p>
+            La Corte Europea dei Diritti dell’Uomo ha più volte condannato l’Italia
+            per pratiche di controllo fiscale prive di adeguate garanzie,
+            riconoscendo violazioni del diritto alla vita privata e alla proporzionalità dei controlli
+            (art. 8 della Convenzione).
+        </p>
+        <p>
+            Le sentenze CEDU non eliminano il dovere fiscale,
+            ma affermano un principio fondamentale:
+            <strong>lo Stato non può imporre controlli arbitrari né costringere i cittadini
+            a un unico modello economico o finanziario</strong>.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="principle">
+        <strong>Principio Fondamentale</strong><br><br>
+        Tutti devono contribuire al bene comune secondo la legge.<br>
+        Nessuno deve essere obbligato a utilizzare un sistema bancario privato.<br><br>
+        <strong>FRIULCOIN è una scelta economica libera e consapevole.</strong>
+    </div>
+</section>
+
+<section>
+    <h2>Perché nasce FRIULCOIN</h2>
+    <div class="box">
+        <p>
+            Il sistema economico attuale concentra il controllo,
+            espone indiscriminatamente i dati personali
+            e impoverisce le economie locali.
+        </p>
+        <p>
+            Friulcoin nasce dalla convinzione che
+            <strong>continuare a dipendere esclusivamente da euro e banche
+            sia una soluzione perdente per il territorio</strong>.
+        </p>
+    </div>
+</section>
+
+<section id="come-funziona">
+    <h2>Come funziona FRIULCOIN</h2>
+    <div class="grid">
+        <div class="box">
+            <h3>🤝 Comunità Locale</h3>
             <p>
-                <strong>Sentenza Italgomme (6 febbraio 2025):</strong> L'Italia viola sistematicamente l'Art. 8 CEDU nelle ispezioni fiscali.<br>
-                <strong>Sentenza Agrisud (11 dicembre 2025):</strong> Condanna per poteri discrezionali illimitati del fisco.
+                Persone e imprese friulane scambiano beni e servizi
+                all’interno di una rete basata su reciprocità e fiducia.
             </p>
-            <p style="font-size: 1em; margin-top: 20px;">
-                Queste sentenze riconoscono il diritto dei cittadini di organizzarsi economicamente in modo autonomo, liberi da controlli arbitrari.
+        </div>
+        <div class="box">
+            <h3>🚫 Nessuna Banca</h3>
+            <p>
+                Gli scambi avvengono direttamente tra i membri,
+                senza intermediari bancari privati.
             </p>
-            <a href="sentenze-cedu.html" class="button-secondary">Leggi Tutte le Sentenze →</a>
         </div>
-    </div>
-
-    <!-- Solution Section -->
-    <div class="section section-dark">
-        <div class="container">
-            <h2>Come Funziona FRIULCOIN</h2>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>🤝 Economia Solidale Locale</h3>
-                    <p>Una comunità di persone e imprese friulane che scambiano beni e servizi utilizzando FRIULCOIN invece dell'euro. Un sistema di reciprocità basato sulla fiducia.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>🔒 Nessun Intermediario Bancario</h3>
-                    <p>Gli scambi avvengono direttamente tra membri della comunità, senza passare attraverso banche o istituti finanziari. Tu controlli direttamente i tuoi FRIULCOIN.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>⚖️ Base Legale Europea</h3>
-                    <p>Sistema fondato sul diritto riconosciuto dalle sentenze CEDU: i cittadini possono organizzarsi economicamente in modo autonomo, senza interferenze arbitrarie.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>🌐 Tecnologia Blockchain</h3>
-                    <p>Sistema decentralizzato basato su crittografia avanzata. Trasparenza totale degli scambi e sicurezza matematica. Open source e verificabile.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>💶 Completamente Legale</h3>
-                    <p>In Italia è legale creare sistemi di scambio complementari. Rispettiamo tutti gli obblighi fiscali dichiarando il valore degli scambi effettuati.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>🏔️ Progetto Friulano <img border="0" src="https://www.hbb.it/aquila_friuli.png" width="69" height="72"></h3>
-                    <p>Sviluppato in Friuli per le famiglie friulane. Radicato nel territorio e nella comunità locale. Per rafforzare l'economia del nostro territorio.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- How It Works Section -->
-    <div class="section" id="inizia">
-        <div class="container">
-            <h2>Come Aderire alla Comunità FRIULCOIN<br> <img border="0" src="https://www.hbb.it/hp.jpg" width="100" height="172"></h2>
-            
-            <div class="features-grid">
-                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
-                    <h3>1️⃣ Informati</h3>
-                    <p>Comprendi le sentenze CEDU che garantiscono il diritto all'autonomia economica e come FRIULCOIN realizza questo principio attraverso un'economia solidale senza euro.</p>
-                    <a href="sentenze-cedu.html" style="color: #1e3c72; font-weight: 600;">Leggi le Sentenze →</a>
-                </div>
-                
-                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
-                    <h3>2️⃣ Comprendi la Tecnologia</h3>
-                    <p>Scopri come funziona la blockchain, come si effettuano scambi peer-to-peer e perché l'economia diretta tra membri è fondamentale.</p>
-                    <a href="come-funziona.html" style="color: #1e3c72; font-weight: 600;">Guida Completa →</a>
-                </div>
-                
-                <div class="feature-card" style="border-top: 4px solid #1e3c72;">
-                    <h3>3️⃣ Unisciti alla Comunità</h3>
-                    <p>Visita <strong>www.friuli.info</strong> per istruzioni dettagliate su come aderire, configurare il wallet e iniziare a scambiare con altri membri friulani.</p>
-                    <a href="https://www.friuli.info" target="_blank" style="color: #1e3c72; font-weight: 600;">Vai a www.friuli.info →</a>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="https://www.friuli.info" target="_blank" class="cta-button">Aderisci su www.friuli.info →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonial Section -->
-    <div class="section section-dark">
-        <div class="container">
-            <h2>I Valori di FRIULCOIN</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.2em; line-height: 1.8; text-align: center; color: #555;">
-                    "Le sentenze CEDU hanno dimostrato che i cittadini hanno diritto di organizzarsi economicamente in modo autonomo. 
-                    FRIULCOIN realizza questo diritto attraverso <strong>un'economia solidale locale</strong>, dove friulani scambiano beni e servizi senza dipendere da euro o banche. 
-                    Non è evasione, è <strong>autonomia economica legittima</strong>."
-                </p>
-                <p style="text-align: center; margin-top: 20px; font-weight: 600; color: #1e3c72;">
-                    — Progetto FRIULCOIN
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- CTA Final -->
-    <div class="section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: white; margin-bottom: 20px;">Pronto a Unirti alla Comunità?</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">
-                Unisciti alle famiglie e imprese friulane che hanno scelto l'autonomia economica di FRIULCOIN
+        <div class="box">
+            <h3>🔒 Privacy</h3>
+            <p>
+                Riduzione dell’intermediazione non necessaria
+                per limitare l’esposizione dei dati personali.
             </p>
-            <a href="https://www.friuli.info" target="_blank" class="cta-button">Vai a www.friuli.info →</a>
-            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
-                100% Legale • Basato su Sentenze CEDU • Economia Solidale Friulana
+        </div>
+        <div class="box">
+            <h3>⚖️ Legalità</h3>
+            <p>
+                Sistema di scambio tra privati,
+                compatibile con gli obblighi fiscali e normativi vigenti.
+            </p>
+        </div>
+        <div class="box">
+            <h3>🌐 Tecnologia</h3>
+            <p>
+                Strumenti digitali open source per registrare gli scambi.
+                La tecnologia è un mezzo, non un fine.
+            </p>
+        </div>
+        <div class="box">
+            <h3>🏔️ Friuli</h3>
+            <p>
+                Progetto nato e radicato in Friuli,
+                per rafforzare l’economia del territorio.
             </p>
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="nav-links">
-                <span style="background-color: #FFFF00">
-                <a href="index.html"><font color="#000000">Home</font></a>
-                <a href="sentenze-cedu.html"><font color="#000000">Sentenze CEDU</font></a>
-                <a href="come-funziona.html"><font color="#000000">Come Funziona</font></a>
-                <a href="inizia-ora.html"><font color="#000000">Inizia Ora</font></a>
-            </span>
-            </div>
-            <p>&copy; 2013-2026 FRIULCOIN - Progetto Open Source per l'Economia Solidale Friulana</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Sistema di scambio autonomo basato su sentenze della Corte Europea dei Diritti dell'Uomo</p>
-        </div>
-    </footer>
-
-    <div id="chat-widget">
-        <div id="close-btn"></div>
-        <img src="zangi-logo.png" alt="Chat">
+<section>
+    <h2>Una scelta, non un’imposizione</h2>
+    <div class="box">
+        <p>
+            Friulcoin non promette guadagni,
+            non chiede fiducia cieca,
+            non impone adesioni.
+        </p>
+        <p>
+            È una <strong>scelta economica volontaria</strong>,
+            esercitata da cittadini consapevoli.
+        </p>
     </div>
+</section>
 
-    <script>
-        const chatWidget = document.getElementById('chat-widget');
-        const closeBtn = document.getElementById('close-btn');
-        const chatImg = chatWidget.querySelector('img');
+<footer>
+    <p><strong>FRIULCOIN – Progetto Open Source per l’Economia Friulana Indipendente</strong></p>
+    <p>
+        <a href="index.html">Home</a>
+        <a href="sentenze-cedu.html">Sentenze CEDU</a>
+        <a href="come-funziona.html">Come Funziona</a>
+        <a href="inizia-ora.html">Inizia Ora</a>
+    </p>
+    <p style="font-size: 0.9em; margin-top: 15px;">
+        © 2013–2026 FRIULCOIN – Sistema di scambio autonomo fondato sui principi di libertà economica e tutela della privacy
+    </p>
+</footer>
 
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            chatWidget.style.display = 'none';
-        });
-    </script>
 </body>
 </html>
