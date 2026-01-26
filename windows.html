@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libars - Installazione Windows</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.3em;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .btn-download {
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 120, 212, 0.4);
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 120, 212, 0.6);
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .instructions h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        .step {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #0078d4;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .step-content {
+            display: inline-block;
+            width: calc(100% - 60px);
+            vertical-align: top;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .code {
+            background: #012456;
+            color: #00bcf2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 14px;
+            margin-top: 10px;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code::before {
+            content: "📋";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+        
+        .code:hover::before {
+            opacity: 1;
+        }
+        
+        .highlight {
+            background: #ffeaa7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .link {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .link:hover {
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .note {
+            background: #d1ecf1;
+            border: 1px solid #0c5460;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .note-title {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 5px;
+        }
+        
+        .file-info {
+            background: #e7f3ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <a href="https://www.friul.info">
+            <img src="logoverde.png" alt="Libars Logo" class="logo" width="155" height="161"></a>
+        </div>
+        
+        <h1>🪟 Windows</h1>
+        <p class="subtitle">Installazione e configurazione per sistemi Windows.</p>
+		<p class="subtitle"><b>Utilizzare browser Microsoft Edge.</b></p>
+        
+        <div class="download-section">
+            <a class="btn-download" target="_blank" href="https://www.hbb.it/email/download_backup_disk2.php">⬇️ SCARICA CLONE CHIAVETTA 128gb</a>
+			<a class="btn-download" target="_blank" href="TUTORIAL-x-NVME.pdf">⬇️ SCARICA il TUTORIAL pdf</a>
+        </div>
+        
+                <div class="download-section">
+            &nbsp;</div>
+        
+        <div class="instructions">
+            <h2>Istruzioni di installazione</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <div class="step-title">Scarica ed estrai il file</div>
+                    <div>Scarica il file backup_diskxx.adi</div>
+                    <div class="file-info">
+                        📁 procurati <b>
+						<a target="_blank" href="https://www.aomeitech.com/download.html">AOMEI Backupper Free</a></b> - Contiene i file di 
+						backup su supporto
+						<a target="_blank" href="nvme128.htm">NVME da almeno 128gb</a></div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <div class="step-title">Esegui lo AOMEI:</div>
+                    <div class="note">
+                        📄 installa ed avvia AOMEI ... procedi con backup zippato estratto backup_diskxx.adi.</div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <div class="step-title">Sincronizza la blockchain:</div>
+                    <div>Apri il Terminale (lo trovi nelle app in basso a 
+						sinistra) e scrivi cd <b>flc-vip</b>, poi <strong>./litecoind</strong> e aspetta il termine della sincronizzazione.</div>
+                    <div class="file-info">
+                        ⏰ La sincronizzazione può richiedere diverse ore.<br>
+                        💾 <i>Assicurati di avere almeno 40GB di spazio libero.
+						</i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <div class="step-title">Crea il tuo portafoglio</div>
+                    <div>Successivamente, sempre nel Terminale, digita <strong>
+						./litecoin-qt</strong> e crea il tuo nuovo portafoglio.</div>
+                    <div class="file-info">
+                        🔐 Ricorda di salvare in modo sicuro la tua chiave privata 
+						(in console: dumpprivkey indirizzo).<br>
+                        <font size="3">📝 Copia ed incolla la frase privata in un luogo sicuro
+                    	e ti aiuto con
+						</font><b>
+						<a target="_blank" href="http://www.hbb.it/z">
+						<font size="3">www.hbb.it/z</font></a></b></div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <div class="note-title">💡 Suggerimento:</div>
+                <div>È fortemente consigliabile spegnere UBUNTU (in alto a 
+					destra) per eseguire l'operazione di <b>uscita dal sistema</b>, 
+					altrimenti per ripristinare la personale cassaforte, si deve 
+					procedere ricominciando dall'inizio di questa pagina e 
+					recuperando con i qr-code.<p><i><b>
+					<a target="_blank" href="nvme128.htm">Desideri un 
+					dispositivo professionale gia' pronto ?</a></b> 
+					70 euro + 10 euro 
+					per spedizione + 10 euro costi vari ...chiedi in chat app 
+					zangi 10-6320-9323</i></div>
+            </div>
+        </div>
+        
+        <div class="back-button">
+            <a href="index.html" class="btn-back">← Torna alla Home</a>
+        	<p>&nbsp;</p>
+				<p><i>2013-2026 protezione, contro chi ruba le idee, tramite blockchain waves, 
+				<b>Andrea Segato</b> fondatore</i></p> <div align="center" id="friulcoin"></div>
+
+    <script>
+        const parola = "FRIULCOIN";
+        const container = document.getElementById("friulcoin");
+        
+        // Crea una span per ogni lettera
+        for (let i = 0; i < parola.length; i++) {
+            const span = document.createElement("span");
+            span.textContent = parola[i];
+            span.style.color = "#00ff00"; // verde fluo
+            span.id = "lettera" + i;
+            container.appendChild(span);
+        }
+        
+        let indice = 0;
+        
+        // Funzione per animare le lettere
+        function animaLettera() {
+            const lettera = document.getElementById("lettera" + indice);
+            
+            // Diventa gialla e grassetto
+            lettera.style.color = "yellow";
+            lettera.style.fontWeight = "bold";
+            
+            // Dopo 500ms torna verde fluo normale
+            setTimeout(() => {
+                lettera.style.color = "#00ff00";
+                lettera.style.fontWeight = "normal";
+                
+                // Passa alla lettera successiva
+                indice++;
+                if (indice < parola.length) {
+                    animaLettera();
+                } else {
+                    // Ricomincia dall'inizio
+                    indice = 0;
+                    setTimeout(animaLettera, 500);
+                }
+            }, 500);
+        }
+        
+        // Avvia l'animazione
+        animaLettera();
+    </script>
+			
+			
+			
+			
+			</i><p align="center">&nbsp;<p>&nbsp;</div>
+    </div>
+</body>
+</html>
