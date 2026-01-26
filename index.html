@@ -1,237 +1,164 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- Favicon -->
-<link rel="icon" href="ico.ico" type="image/x-icon">
-
-    <meta charset="UTF-8">
-    <title>FRIULCOIN – Economia Friulana Indipendente</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FRIULCOIN è una comunità economica friulana che scambia beni e servizi senza euro e senza banche, nel rispetto della legge e dei principi affermati dalla Corte Europea dei Diritti dell'Uomo.">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #ffffff;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.4em;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 1.2em;
-            max-width: 900px;
-            margin: 0 auto 30px;
-        }
-
-        .cta {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 14px 36px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 6px;
-        }
-
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #1e3c72;
-        }
-
-        .box {
-            background: #f5f7fa;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .principle {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 35px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.15em;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friulcoin – Scambio locale tra persone</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      color: #1f2937;
+      line-height: 1.6;
+      background: #f9fafb;
+    }
+    header {
+      background: linear-gradient(135deg, #14532d, #166534);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+    }
+    .scenes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+    .scene {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .scene img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+    .scene-content {
+      padding: 24px;
+    }
+    .scene-content h3 {
+      margin-top: 0;
+      color: #14532d;
+    }
+    .cta {
+      background: #14532d;
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    .cta a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      background: white;
+      color: #14532d;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-       <h1>   <div align="center">
-        <img src="ico.png" alt="FRIULCOIN Logo" style="width: 100px; height: 100px;"></div>🏔️ FRIULCOIN – Economia Friulana Indipendente</h1>
-    <p>
-        Una comunità economica che sceglie liberamente di scambiare beni e servizi
-        <strong>senza euro e senza dipendenza dal sistema bancario privato</strong>,
-        nel rispetto della legge e dei diritti fondamentali.<br>Secondo te è ancora possibile oggi costruire uno scambio economico fuori dal circuito bancario, senza finire nella speculazione?
-    </p>
-    <a class="cta" href="#come-funziona">Scopri come funziona →</a>
+  <h1><img src="ico.png" alt="logo" width="135" height="145" /> Friulcoin</h1>
+  <p>Un semplicissimo strumento di scambio tra persone, pensato per rafforzare le comunità locali e l’economia del territorio.</p>
 </header>
 
 <section>
-    <h2>⚖️ Contesto Europeo</h2>
-    <div class="box">
+  <div class="intro">
+    <p>
+      Friulcoin non è una banca, non è speculazione e non è finanza complessa.
+      È un <strong>mezzo di scambio comunitario</strong> che permette a due persone di riconoscere valore al proprio lavoro,
+      ai propri beni e al proprio tempo, in modo semplice e diretto.
+    </p>
+  </div>
+
+  <div class="scenes">
+    <div class="scene">
+      <img src="scambio1.jpg" alt="Scambio Friulcoin tra due persone al mercato locale" />
+      <div class="scene-content">
+        <h3>Scena 1 – Lo scambio quotidiano</h3>
         <p>
-            La Corte Europea dei Diritti dell’Uomo ha più volte condannato l’Italia
-            per pratiche di controllo fiscale prive di adeguate garanzie,
-            riconoscendo violazioni del diritto alla vita privata e alla proporzionalità dei controlli
-            (art. 8 della Convenzione).
+          Maria offre un servizio o un prodotto locale. Luca lo riceve e,
+          invece di usare circuiti bancari o intermediari, lo riconosce tramite Friulcoin.
         </p>
         <p>
-            Le sentenze CEDU non eliminano il dovere fiscale,
-            ma affermano un principio fondamentale:
-            <strong>lo Stato non può imporre controlli arbitrari né costringere i cittadini
-            a un unico modello economico o finanziario</strong>.
+          Lo scambio è immediato, trasparente e basato sulla fiducia reciproca.
         </p>
+      </div>
     </div>
+
+    <div class="scene">
+      <img src="scambio2.jpg" alt="Scambio Friulcoin tra artigiano e cittadino" />
+      <div class="scene-content">
+        <h3>Scena 2 – Il valore resta nel territorio</h3>
+        <p>
+          L’artigiano utilizza i Friulcoin ricevuti per altri scambi locali:
+          beni, servizi o collaborazioni all’interno della comunità.
+        </p>
+        <p>
+          In questo modo il valore non fugge, ma <strong>circola e rafforza il territorio</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-    <div class="principle">
-        <strong>Principio Fondamentale</strong><br><br>
-        Tutti devono contribuire al bene comune secondo la legge.<br>
-        Nessuno deve essere obbligato a utilizzare un sistema bancario privato.<br><br>
-        <strong>FRIULCOIN è una scelta economica libera e consapevole.</strong>
-    </div>
-</section>
-
-<section>
-    <h2>Perché nasce FRIULCOIN</h2>
-    <div class="box">
-        <p>
-            Il sistema economico attuale concentra il controllo,
-            espone indiscriminatamente i dati personali
-            e impoverisce le economie locali.
-        </p>
-        <p>
-            Friulcoin nasce dalla convinzione che
-            <strong>continuare a dipendere esclusivamente da euro e banche
-            sia una soluzione perdente per il territorio</strong>.
-        </p>
-    </div>
-</section>
-
-<section id="come-funziona">
-    <h2>Come funziona FRIULCOIN</h2>
-    <div class="grid">
-        <div class="box">
-            <h3>🤝 Comunità Locale</h3>
-            <p>
-                Persone e imprese friulane scambiano beni e servizi
-                all’interno di una rete basata su reciprocità e fiducia.
-            </p>
-        </div>
-        <div class="box">
-            <h3>🚫 Nessuna Banca</h3>
-            <p>
-                Gli scambi avvengono direttamente tra i membri,
-                senza intermediari bancari privati.
-            </p>
-        </div>
-        <div class="box">
-            <h3>🔒 Privacy</h3>
-            <p>
-                Riduzione dell’intermediazione non necessaria
-                per limitare l’esposizione dei dati personali.
-            </p>
-        </div>
-        <div class="box">
-            <h3>⚖️ Legalità</h3>
-            <p>
-                Sistema di scambio tra privati,
-                compatibile con gli obblighi fiscali e normativi vigenti.
-            </p>
-        </div>
-        <div class="box">
-            <h3>🌐 Tecnologia</h3>
-            <p>
-                Strumenti digitali open source per registrare gli scambi.
-                La tecnologia è un mezzo, non un fine.
-            </p>
-        </div>
-        <div class="box">
-            <h3>🏔️ Friuli</h3>
-            <p>
-                Progetto nato e radicato in Friuli,
-                per rafforzare l’economia del territorio.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Una scelta, non un’imposizione</h2>
-    <div class="box">
-        <p>
-            Friulcoin non promette guadagni,
-            non chiede fiducia cieca,
-            non impone adesioni.
-        </p>
-        <p>
-            È una <strong>scelta economica volontaria</strong>,
-            esercitata da cittadini consapevoli.
-        </p>
-    </div>
+<section class="cta">
+  <h2>Vuoi capire se Friulcoin fa per te?</h2>
+  <p>
+    Informati, approfondisci e chiedi supporto.
+    Friulcoin nasce per essere compreso e usato dalle persone, non spiegato con tecnicismi.
+  </p>
+  <a href="https://www.friuli.info" target="_blank" rel="noopener">Scopri di più su Friuli.info</a>
+  <a href="https://www.libars.it" target="_blank" rel="noopener">Assistenza e supporto su Libars.it</a>
 </section>
 
 <footer>
-    <p><strong>FRIULCOIN – Progetto Open Source per l’Economia Friulana Indipendente</strong></p>
-    <p>
-        <a href="index.html">Home</a>
-        <a href="sentenze-cedu.html">Sentenze CEDU</a>
-        <a href="come-funziona.html">Come Funziona</a>
-		<a target="_blank" href="faq.pdf">Risposte alle domande piu' comuni</a>
-        <a href="inizia-ora.html">Inizia Ora</a>
-    </p>
-    <p style="font-size: 0.9em; margin-top: 15px;">
-        © 2013–2026 FRIULCOIN – Sistema di scambio autonomo fondato sui principi di libertà economica e tutela della privacy
-    </p>
+  <p>Friulcoin – Progetto comunitario per lo scambio locale</p>
 </footer>
 
 </body>
