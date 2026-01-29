@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protezione Blockchain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .banner {
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: contain;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 440px;
+            height: 300px;
+            border-radius: 15px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            object-fit: contain;
+            display: block;
+        }
+
+        .blockchain-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .blockchain-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .blockchain-button:active {
+            transform: translateY(-1px);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            width: 100%;
+            line-height: 1.6;
+        }
+
+        footer strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 15px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .main-image {
+                height: 250px;
+                max-width: 100%;
+            }
+
+            .blockchain-button {
+                padding: 15px 30px;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .main-image {
+                height: 200px;
+            }
+
+            .blockchain-button {
+                font-size: 14px;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <img src="ico.png" alt="Banner" class="banner-img">
+        </div>
+        
+        <div class="content">
+            <img src="as.jpg" alt="Immagine Principale" class="main-image">
+            
+            <button class="blockchain-button" onclick="interrogaBlockchain()">
+                🔍 Interroga Blockchain (attachment)
+            </button>
+        </div>
+        
+        <footer>
+            <strong>2013-2026</strong><br>
+            Protezione contro chi ruba le idee tramite blockchain Waves<br>
+            <strong>Andrea Segato</strong>
+        </footer>
+    </div>
+
+    <script>
+        function interrogaBlockchain() {
+            const url = 'https://wavesexplorer.com/transactions/CDDQsFnPtao27AYAYuRW9mBjxB5bq3gekhG7b6Zp5NRp';
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
