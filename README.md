@@ -1,4 +1,4 @@
 # FRIULCOIN - Sito Web per Google Sites
-## Sistema di Difesa Patrimoniale basato su Sentenze CEDU
+E' la stessa pratica offerta dalle "banche del tempo" in questo modo il valore non fugge, ma circola e rafforza il territorio.
 
 ---
