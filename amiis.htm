@@ -11,12 +11,14 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
   }
 
@@ -25,20 +27,37 @@
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 15px auto;
   }
 
-.logo {
-  width: 100px;
-  height: auto;
-  max-width: 100px;
-}
+  .logo {
+    width: 80px;
+    height: auto;
+    max-width: 80px;
+  }
 
+  .img-medium {
+    max-width: 200px;
+    width: 200px;
+  }
+
+  .img-small {
+    max-width: 120px;
+    width: 120px;
+  }
+
+  .img-icon {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+  }
 
   table {
     margin: 0 auto;
     width: 100%;
-    max-width: 900px;
+    max-width: 700px;
     border-collapse: collapse;
   }
 
@@ -47,20 +66,22 @@
   }
 
   p {
-    max-width: 800px;
-    margin: 0 auto 15px auto;
+    max-width: 700px;
+    margin: 0 auto 12px auto;
     text-align: center;
+    font-size: 15px;
   }
 
   ul {
     display: inline-block;
     text-align: left;
     padding-left: 20px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 12px auto;
   }
 
   li {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    font-size: 15px;
   }
 
   li p {
@@ -68,8 +89,41 @@
     margin: 0;
   }
 
-  h1, h2, h3 {
+  h1 {
+    font-size: 22px;
     text-align: center;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 15px 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    text-align: center;
+    margin: 15px 0 10px 0;
+  }
+
+  .highlight {
+    font-style: italic;
+  }
+
+  .bottom-section {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .bottom-section p {
+    font-size: 14px;
+  }
+
+  .cta-link {
+    font-size: 20px;
+    font-weight: bold;
   }
 </style>
 
@@ -81,171 +135,80 @@
     <img src="ico.png" alt="Logo Friulcoin" class="logo">
 
     <!-- Titolo -->
-    <table border="1" width="42%" style="border-width: 0px">
-		<tr>
-			<td style="border-style: none; border-width: medium">
-    <h1 align="center"><font size="5">COME RICEVERE FLC:</font></h1>
-
-    		<font size="4">
+    <h1>COME RICEVERE FLC:</h1>
 
     <!-- Testo istituzionale -->
-    		</font>
+    <p>Friulcoin (FLC) non e' uno strumento finanziario, non e' acquistabile e non costituisce una forma di investimento o di promessa di rendimento economico.</p>
+
+    <p>I gettoni FLC vengono distribuiti esclusivamente nell'ambito di un sistema partecipativo basato sul contributo concreto alla comunita'.</p>
+
+    <p>La ricezione di FLC e' subordinata alla partecipazione attiva e verificabile alle attivita' del progetto, quali, a titolo esemplificativo e non esaustivo, la messa a disposizione di tempo, competenze, risorse tecniche o organizzative, la collaborazione ai processi decisionali e il rispetto degli impegni assunti. I criteri di assegnazione sono pubblici, trasparenti e orientati alla continuita', all'affidabilita' e all'utilita' sociale del contributo fornito.</p>
+
+    <img src="oki.png" alt="esempio scambio flc" class="img-medium">
+
+    <h2>In cambio di cosa ricevi FLC?</h2>
+
+    <h3>1 - <strong>Tempo e presenza</strong></h3>
+    <p>FLC va a chi <strong>ci mette tempo vero</strong>, non like.</p>
+    <ul>
+      <li>partecipa a incontri (online o fisici)</li>
+      <li>segue il progetto nel tempo</li>
+      <li>aiuta a far crescere la comunita'</li>
+    </ul>
+    <p class="highlight">Il tempo e' la moneta che oggi nessuno paga. Tu si'.</p>
+    <hr>
+
+    <h3>2 - <strong>Competenze (anche minime)</strong></h3>
+    <p>Non servono geni.</p>
+    <ul>
+      <li>chi sa scrivere</li>
+      <li>chi sa parlare con la gente</li>
+      <li>chi sa usare (anche poco) un PC</li>
+      <li>chi sa (anche poco) organizzare</li>
+    </ul>
+    <p><img src="ddd.png" alt="" class="img-icon"> Ogni competenza utile alla comunita' genera FLC.</p>
+    <hr>
+
+    <h3>3 - <strong>Condivisione di risorse inutilizzate</strong></h3>
+    <p>Qui Friulcoin e' potente:</p>
+    <ul>
+      <li>PC accesi ma sprecati</li>
+      <li>spazi inutilizzati</li>
+      <li>connessioni, contatti, reti locali</li>
+    </ul>
+    <p><img src="ddd.png" alt="" class="img-icon"> Trasformi spreco in valore condiviso.</p>
+    <hr>
+
+    <h3>4 - <strong>Responsabilita' civica</strong></h3>
+    <p>FLC a chi:</p>
+    <ul>
+      <li>firma</li>
+      <li>partecipa a decisioni</li>
+      <li>vota</li>
+      <li>si prende carico di un pezzo di realta'</li>
+    </ul>
+    <p><img src="ddd.png" alt="" class="img-icon"> Non utenti. Cittadini.</p>
+    <hr>
+
+    <h3>5 - <strong>Costruzione di fiducia</strong></h3>
+    <p>La fiducia oggi non vale nulla perche' non e' misurata.<br>Con FLC <strong>diventa misurabile</strong>:</p>
+    <ul>
+      <li>chi mantiene la parola</li>
+      <li>chi non sparisce</li>
+      <li>chi costruisce invece di lamentarsi</li>
+    </ul>
+
+  </div>
+
+  <div class="bottom-section">
+    <p><strong>INIZIA DA:</strong></p>
     <p>
-      <font size="4">Friulcoin (FLC) non e' uno strumento finanziario, non e'
-		acquistabile e non costituisce una forma di investimento o di promessa
-		di rendimento economico.</font></p>
-	<p>
-      &nbsp;</p>
-	<p>
-      <font size="4">I gettoni FLC vengono distribuiti esclusivamente nell'ambito di un sistema
-      partecipativo basato sul contributo concreto alla comunita'.
-    </font>
+      <a target="_blank" href="https://amiis.byethost18.com/database.php">
+        <img src="https://amiis.byethost18.com/amici.gif" alt="amici" class="img-small">
+      </a>
     </p>
-	<p>
-      &nbsp;</p>
-	<p>
-      <font size="4">La ricezione di FLC
-		e' subordinata alla partecipazione attiva e verificabile alle attivita' del progetto,
-      quali, a titolo esemplificativo e non esaustivo, la messa a disposizione di tempo,
-      competenze, risorse tecniche o organizzative, la collaborazione ai processi
-      decisionali e il rispetto degli impegni assunti. I criteri di assegnazione sono
-      pubblici, trasparenti e orientati alla continuita', all'affidabilita' e all'utilita'
-      sociale del contributo fornito.
-    </font>
-    </p>
-			<h2 data-start="174" data-end="214" align="center">
-			<img border="0" src="oki.png" alt="esempio scambio flc"></h2>
-			<h2 data-start="174" data-end="214" align="center">In cambio di cosa
-			ricevi FLC?</h2>
-			<h3 data-start="216" data-end="244">1
-			<strong data-start="224" data-end="244">Tempo e presenza</strong></h3>
-			<p data-start="245" data-end="292"><font size="4">FLC va a chi
-			<strong data-start="258" data-end="281">ci mette tempo vero</strong>,
-			non like.</font></p>
-			<ul data-start="293" data-end="398">
-				<li data-start="293" data-end="333">
-				<p data-start="295" data-end="333"><font size="4">partecipa a
-				incontri (online o fisici)</font></li>
-				<li data-start="334" data-end="363">
-				<p data-start="336" data-end="363"><font size="4">segue il
-				progetto nel tempo</font></li>
-				<li data-start="364" data-end="398">
-				<p data-start="366" data-end="398"><font size="4">aiuta a far
-				crescere la comunita'</font></li>
-			</ul>
-			<p data-start="400" data-end="455"><font size="4">&#128073; </font>
-			<em data-start="403" data-end="455"><font size="4">Il tempo e' la 			moneta che oggi nessuno paga. Tu si'.</font></em></p>
-			<hr data-start="457" data-end="460">
-			<h3 data-start="462" data-end="499">2
-			<strong data-start="470" data-end="499">Competenze (anche minime)</strong></h3>
-			<p data-start="500" data-end="517"><font size="4">Non servono geni.</font></p>
-			<ul data-start="518" data-end="607">
-				<li data-start="518" data-end="535">
-				<p data-start="520" data-end="535"><font size="4">chi sa
-				scrivere</font></li>
-				<li data-start="536" data-end="565">
-				<p data-start="538" data-end="565"><font size="4">chi sa parlare
-				con la gente</font></li>
-				<li data-start="566" data-end="586">
-				<p data-start="568" data-end="586"><font size="4">chi sa usare (anche poco)
-				un PC</font></li>
-				<li data-start="587" data-end="607">
-				<p data-start="589" data-end="607"><font size="4">chi sa (anche poco)
-				organizzare</font></li>
-			</ul>
-			<p data-start="609" data-end="661"><font size="4">
-			<img border="0" src="ddd.png" alt="" style="display: inline; vertical-align: middle; margin: 0;"> Ogni competenza utile alla comunita' genera FLC.</font></p>
-			<hr data-start="663" data-end="666">
-			<h3 data-start="668" data-end="716">3
-			<strong data-start="676" data-end="716">Condivisione di risorse
-			inutilizzate</strong></h3>
-			<p data-start="717" data-end="741"><font size="4">Qui Friulcoin e'
-			potente:</font></p>
-			<ul data-start="742" data-end="823">
-				<li data-start="742" data-end="765">
-				<p data-start="744" data-end="765"><font size="4">PC accesi ma
-				sprecati</font></li>
-				<li data-start="766" data-end="786">
-				<p data-start="768" data-end="786"><font size="4">spazi
-				inutilizzati</font></li>
-				<li data-start="787" data-end="823">
-				<p data-start="789" data-end="823"><font size="4">connessioni,
-				contatti, reti locali</font></li>
-			</ul>
-			<p data-start="825" data-end="867"><font size="4">
-			<img border="0" src="ddd.png" alt="" style="display: inline; vertical-align: middle; margin: 0;"> </font>
-			<font size="4">Trasformi spreco
-			in valore condiviso.</font></p>
-			<hr data-start="869" data-end="872">
-			<h3 data-start="874" data-end="907">4
-			<strong data-start="882" data-end="907">Responsabilita' civica</strong></h3>
-			<p data-start="908" data-end="918"><font size="4">FLC a chi:</font></p>
-			<ul data-start="919" data-end="998">
-				<li data-start="919" data-end="926">
-				<p data-start="921" data-end="926"><font size="4">firma</font></li>
-				<li data-start="927" data-end="950">
-				<p data-start="929" data-end="950"><font size="4">partecipa a
-				decisioni</font></li>
-				<li data-start="951" data-end="957">
-				<p data-start="953" data-end="957"><font size="4">vota</font></li>
-				<li data-start="958" data-end="998">
-				<p data-start="960" data-end="998"><font size="4">si prende
-				carico di un pezzo di realta'</font></li>
-			</ul>
-			<p data-start="1000" data-end="1027"><font size="4">
-			<img border="0" src="ddd.png" alt="" style="display: inline; vertical-align: middle; margin: 0;"> </font>
-			<font size="4">Non utenti.
-			Cittadini.</font></p>
-			<hr data-start="1029" data-end="1032">
-			<h3 data-start="1034" data-end="1068">5
-			<strong data-start="1042" data-end="1068">Costruzione di fiducia</strong></h3>
-			<p data-start="1069" data-end="1156"><font size="4">La fiducia oggi
-			non vale nulla perche' non e' misurata.<br data-start="1122" data-end="1125">
-			Con FLC <strong data-start="1133" data-end="1155">diventa misurabile</strong>:</font></p>
-			<ul data-start="1157" data-end="1238">
-				<li data-start="1157" data-end="1181">
-				<p data-start="1159" data-end="1181"><font size="4">chi mantiene
-				la parola</font></li>
-				<li data-start="1182" data-end="1200">
-				<p data-start="1184" data-end="1200"><font size="4">chi non
-				sparisce</font></li>
-				<li data-start="1201" data-end="1238">
-				<p data-start="1203" data-end="1238"><font size="4">chi
-				costruisce invece di lamentarsi</font></li>
-			</ul>
-			<br><br></td>
-		</tr>
-	</table>
-  </div>  <div align="center">
-
-<table border="1" width="25%" style="border-width: 0px">
-	<tr>
-		<td style="border-style: none; border-width: medium">
-
-
-
-
-
- <div align="center">
-
-		INIZIA DA:
-
-
-
-
-
-		  </div>
-
-		<p align="center" style="text-align: center">
-		<a target="_blank" href="https://amiis.byethost18.com/database.php">
-		<img border="0" src="https://amiis.byethost18.com/amici.gif"  alt="amici"></a><br>
-		<font size="6">
-		<a target="_blank" href="https://amiis.byethost18.com/database.php">amiis</a></font><br>
-		<font size="4">Invita a casa tua i tuoi amici: dai loro lo strumento e i primi FLC per iniziare ! <br>Serve un pc portatile anche vetusto oppure un pc desktop e monitor.</font>
-
-		</td>
-	</tr>
-</table>
+    <p><a target="_blank" href="https://amiis.byethost18.com/database.php" class="cta-link">amiis</a></p>
+    <p>Invita a casa tua i tuoi amici: dai loro lo strumento e i primi FLC per iniziare!<br>Serve un pc portatile anche vetusto oppure un pc desktop e monitor.</p>
   </div>
 </body>
 </html>
