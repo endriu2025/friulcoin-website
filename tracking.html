@@ -833,25 +833,91 @@ function trackRegistration(email) {
     </footer>
 
     <script>
-        // Simulazione dati real-time
-        function updateMetrics() {
-            document.getElementById('totalVisitors').textContent = '1,247';
-            document.getElementById('totalRegistrations').textContent = '187';
-            document.getElementById('totalDownloads').textContent = '142';
-            document.getElementById('conversionRate').textContent = '15%';
+        // URL API Backend
+        const API_URL = 'https://amiis.byethost18.com/backend/api.php';
+
+        // Periodo filtro corrente
+        let currentPeriod = 'all';
+
+        // Carica statistiche da API
+        async function loadStats(period = 'all') {
+            try {
+                const response = await fetch(`${API_URL}?action=stats&period=${period}`);
+                const result = await response.json();
+
+                if (result.success) {
+                    updateDashboard(result.data);
+                }
+            } catch (err) {
+                console.log('Errore caricamento stats:', err);
+            }
         }
-        
+
+        // Aggiorna dashboard con i dati
+        function updateDashboard(data) {
+            // Metriche principali
+            document.getElementById('totalVisitors').textContent = data.uniqueVisitors.toLocaleString('it-IT');
+            document.getElementById('totalRegistrations').textContent = data.totalRegistrations.toLocaleString('it-IT');
+            document.getElementById('totalDownloads').textContent = data.totalClicks.toLocaleString('it-IT');
+            document.getElementById('conversionRate').textContent = data.conversionRate + '%';
+
+            // Tabella fonti traffico
+            updateSourcesTable(data.sources);
+        }
+
+        // Aggiorna tabella fonti traffico
+        function updateSourcesTable(sources) {
+            const tbody = document.querySelector('.table-container tbody');
+            if (!tbody) return;
+
+            if (sources.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#999;">Nessun dato disponibile</td></tr>';
+                return;
+            }
+
+            let html = '';
+            sources.forEach(s => {
+                let rateClass = 'fair';
+                if (s.conversion_rate >= 15) rateClass = 'excellent';
+                else if (s.conversion_rate >= 10) rateClass = 'good';
+                else if (s.conversion_rate < 5) rateClass = 'poor';
+
+                html += `<tr>
+                    <td>
+                        <strong>${s.source}</strong><br>
+                        <span class="utm-tag">${s.source}</span>
+                        <span class="utm-tag">${s.campaign}</span>
+                    </td>
+                    <td>${s.unique_visitors}</td>
+                    <td>${s.registrations}</td>
+                    <td><span class="conversion-rate ${rateClass}">${s.conversion_rate}%</span></td>
+                    <td style="color: #28a745; font-weight: 600;">∞ (Gratis)</td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
         // Inizializza al caricamento
-        window.addEventListener('load', updateMetrics);
-        
+        window.addEventListener('load', () => loadStats());
+
         // Gestione filtri
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                // TODO: Filtra dati tabella
+
+                const text = this.textContent.toLowerCase();
+                if (text.includes('settimana')) currentPeriod = 'week';
+                else if (text.includes('mese')) currentPeriod = 'month';
+                else if (text.includes('anno')) currentPeriod = 'year';
+                else currentPeriod = 'all';
+
+                loadStats(currentPeriod);
             });
         });
+
+        // Auto-refresh ogni 30 secondi
+        setInterval(() => loadStats(currentPeriod), 30000);
     </script>
 
 

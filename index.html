@@ -187,26 +187,66 @@
 
 <!-- SCRIPT TRACKING UTM -->
 <script>
+// URL API Backend
+const API_URL = 'https://amiis.byethost18.com/backend/api.php';
+
 // Cattura parametri UTM
 function getUTMParams() {
     const urlParams = new URLSearchParams(window.location.search);
     return {
         source: urlParams.get('utm_source') || 'direct',
         campaign: urlParams.get('utm_campaign') || 'none',
-        timestamp: new Date().toISOString()
+        page: window.location.pathname || 'index.html',
+        referrer: document.referrer || null
     };
 }
 
-// Salva in localStorage
-localStorage.setItem('utm_data', JSON.stringify(getUTMParams()));
+// Invia visita al backend
+function trackVisit() {
+    const data = getUTMParams();
+    localStorage.setItem('utm_data', JSON.stringify(data));
 
-// Invia a backend quando l'utente si registra
-function trackRegistration(email) {
-    const utmData = JSON.parse(localStorage.getItem('utm_data'));
-    fetch('/api/track-registration', {
+    fetch(API_URL + '?action=track-visit', {
         method: 'POST',
-        body: JSON.stringify({ email, ...utmData })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }).catch(err => console.log('Tracking visit error:', err));
+}
+
+// Registra la visita al caricamento
+trackVisit();
+
+// Traccia click sui link CTA
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cta a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            const utmData = JSON.parse(localStorage.getItem('utm_data') || '{}');
+            fetch(API_URL + '?action=track-click', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    link: this.href,
+                    text: this.textContent.trim(),
+                    source: utmData.source,
+                    campaign: utmData.campaign
+                })
+            }).catch(err => console.log('Tracking click error:', err));
+        });
     });
+});
+
+// Invia registrazione al backend
+function trackRegistration(email) {
+    const utmData = JSON.parse(localStorage.getItem('utm_data') || '{}');
+    fetch(API_URL + '?action=track-registration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            email: email,
+            source: utmData.source,
+            campaign: utmData.campaign
+        })
+    }).catch(err => console.log('Tracking registration error:', err));
 }
 </script>
 
