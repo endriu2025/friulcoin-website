@@ -894,5 +894,28 @@ function trackRegistration(email) {
             chatWidget.style.display = 'none';
         });
         </script>
+		<script>
+// Cattura parametri UTM
+function getUTMParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        source: urlParams.get('utm_source') || 'direct',
+        campaign: urlParams.get('utm_campaign') || 'none',
+        timestamp: new Date().toISOString()
+    };
+}
+
+// Salva in localStorage
+localStorage.setItem('utm_data', JSON.stringify(getUTMParams()));
+
+// Invia a backend quando l'utente si registra
+function trackRegistration(email) {
+    const utmData = JSON.parse(localStorage.getItem('utm_data'));
+    fetch('/api/track-registration', {
+        method: 'POST',
+        body: JSON.stringify({ email, ...utmData })
+    });
+}
+</script>
 </body>
 </html>
