@@ -313,14 +313,73 @@
             header h1 {
                 font-size: 1.6em;
             }
-            
+
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .section {
                 padding: 20px;
             }
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #e0e0e0;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Alert */
+        .error-alert {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-left: 5px solid #dc3545;
+            color: #721c24;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-alert.show {
+            display: block;
+        }
+
+        /* Success indicator */
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-dot.online {
+            background: #28a745;
+            box-shadow: 0 0 8px #28a745;
+        }
+
+        .status-dot.offline {
+            background: #dc3545;
+            box-shadow: 0 0 8px #dc3545;
+        }
+
+        .status-bar {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
         }
     </style>
 
@@ -405,32 +464,45 @@
 
     <div class="container">
         <a href="index.html" class="back-link">← Torna alla Home</a>
-        
+
+        <!-- STATUS BAR -->
+        <div class="status-bar" id="statusBar">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="statusText">Connessione al server...</span>
+            <span style="float:right; color:#666;" id="lastUpdate"></span>
+        </div>
+
+        <!-- ERROR ALERT -->
+        <div class="error-alert" id="errorAlert">
+            <strong>Errore di connessione!</strong> Impossibile raggiungere il server.
+            <br><small id="errorDetails"></small>
+        </div>
+
         <!-- METRICHE PRINCIPALI -->
         <h2 style="color: #1e3c72; margin-bottom: 20px;">📈 Metriche Principali</h2>
         <div class="dashboard-grid">
             <div class="metric-card">
                 <div class="label">Visitatori Totali</div>
-                <div class="value" id="totalVisitors">0</div>
-                <div class="change positive">↑ --% vs scorsa settimana</div>
+                <div class="value" id="totalVisitors"><span class="loading-spinner"></span></div>
+                <div class="change positive" id="visitorsChange">Caricamento...</div>
             </div>
             
             <div class="metric-card">
                 <div class="label">Registrazioni</div>
-                <div class="value" id="totalRegistrations">0</div>
-                <div class="change positive">↑ --% conversione</div>
+                <div class="value" id="totalRegistrations"><span class="loading-spinner"></span></div>
+                <div class="change positive" id="regsChange">Caricamento...</div>
             </div>
-            
+
             <div class="metric-card">
-                <div class="label">Download Wallet</div>
-                <div class="value" id="totalDownloads">0</div>
-                <div class="change positive">↑ --% completati</div>
+                <div class="label">Click CTA</div>
+                <div class="value" id="totalDownloads"><span class="loading-spinner"></span></div>
+                <div class="change positive" id="clicksChange">Caricamento...</div>
             </div>
-            
+
             <div class="metric-card">
                 <div class="label">Tasso Conversione</div>
-                <div class="value" id="conversionRate">--%</div>
-                <div class="change">Visitatore → Registrato</div>
+                <div class="value" id="conversionRate"><span class="loading-spinner"></span></div>
+                <div class="change" id="convChange">Visitatore → Registrato</div>
             </div>
         </div>
 
@@ -839,17 +911,66 @@ function trackRegistration(email) {
         // Periodo filtro corrente
         let currentPeriod = 'all';
 
+        // Elementi UI
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const lastUpdate = document.getElementById('lastUpdate');
+        const errorAlert = document.getElementById('errorAlert');
+        const errorDetails = document.getElementById('errorDetails');
+
+        // Mostra stato loading
+        function showLoading() {
+            statusDot.className = 'status-dot';
+            statusText.textContent = 'Caricamento dati...';
+        }
+
+        // Mostra stato online
+        function showOnline() {
+            statusDot.className = 'status-dot online';
+            statusText.textContent = 'Connesso al server';
+            lastUpdate.textContent = 'Ultimo aggiornamento: ' + new Date().toLocaleTimeString('it-IT');
+            errorAlert.classList.remove('show');
+        }
+
+        // Mostra stato errore
+        function showError(message) {
+            statusDot.className = 'status-dot offline';
+            statusText.textContent = 'Server non raggiungibile';
+            errorAlert.classList.add('show');
+            errorDetails.textContent = message;
+
+            // Mostra valori di fallback
+            document.getElementById('totalVisitors').textContent = '--';
+            document.getElementById('totalRegistrations').textContent = '--';
+            document.getElementById('totalDownloads').textContent = '--';
+            document.getElementById('conversionRate').textContent = '--%';
+            document.getElementById('visitorsChange').textContent = 'Errore connessione';
+            document.getElementById('regsChange').textContent = 'Errore connessione';
+            document.getElementById('clicksChange').textContent = 'Errore connessione';
+        }
+
         // Carica statistiche da API
         async function loadStats(period = 'all') {
+            showLoading();
+
             try {
                 const response = await fetch(`${API_URL}?action=stats&period=${period}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
                 const result = await response.json();
 
                 if (result.success) {
+                    showOnline();
                     updateDashboard(result.data);
+                } else {
+                    throw new Error(result.error || 'Errore sconosciuto dal server');
                 }
             } catch (err) {
-                console.log('Errore caricamento stats:', err);
+                console.error('Errore caricamento stats:', err);
+                showError(err.message);
             }
         }
 
@@ -861,6 +982,11 @@ function trackRegistration(email) {
             document.getElementById('totalDownloads').textContent = data.totalClicks.toLocaleString('it-IT');
             document.getElementById('conversionRate').textContent = data.conversionRate + '%';
 
+            // Aggiorna sottotitoli
+            document.getElementById('visitorsChange').innerHTML = '↑ Visitatori unici';
+            document.getElementById('regsChange').innerHTML = '↑ ' + data.conversionRate + '% conversione';
+            document.getElementById('clicksChange').innerHTML = '↑ Click sui CTA';
+
             // Tabella fonti traffico
             updateSourcesTable(data.sources);
         }
@@ -870,8 +996,8 @@ function trackRegistration(email) {
             const tbody = document.querySelector('.table-container tbody');
             if (!tbody) return;
 
-            if (sources.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#999;">Nessun dato disponibile</td></tr>';
+            if (!sources || sources.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#999;">Nessun dato disponibile - Attendi le prime visite</td></tr>';
                 return;
             }
 
@@ -943,45 +1069,5 @@ function trackRegistration(email) {
         });
     </script>
 
-    <script>
-
-        const chatWidget = document.getElementById('chat-widget');
-        const closeBtn = document.getElementById('close-btn');
-        const chatImg = chatWidget.querySelector('img');
-
-        // Quando si clicca sull'immagine, va alla pagina chat.htm
-        chatImg.addEventListener('click', function(e) {
-            window.location.href = 'chat.htm';
-        });
-
-        // Quando si clicca sulla X, nasconde il widget
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Previene il click sull'immagine
-            chatWidget.style.display = 'none';
-        });
-        </script>
-		<script>
-// Cattura parametri UTM
-function getUTMParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return {
-        source: urlParams.get('utm_source') || 'direct',
-        campaign: urlParams.get('utm_campaign') || 'none',
-        timestamp: new Date().toISOString()
-    };
-}
-
-// Salva in localStorage
-localStorage.setItem('utm_data', JSON.stringify(getUTMParams()));
-
-// Invia a backend quando l'utente si registra
-function trackRegistration(email) {
-    const utmData = JSON.parse(localStorage.getItem('utm_data'));
-    fetch('/api/track-registration', {
-        method: 'POST',
-        body: JSON.stringify({ email, ...utmData })
-    });
-}
-</script>
 </body>
 </html>
