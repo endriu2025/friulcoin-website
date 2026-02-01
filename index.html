@@ -175,7 +175,7 @@
     Informati, approfondisci e chiedi supporto.
     Friulcoin nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.
   </p>
-  <a href="https://www.friuli.info" target="_blank" rel="noopener">ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b></a>
+  <a href="https://www.friuli.info" target="_blank" rel="noopener" data-cta="attivati" data-funnel="friuli-info">ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b></a>
   <a href="https://www.libars.it" target="_blank" rel="noopener">Assistenza e supporto su appuntamento</a><br><br><a href="amiis.htm" target="_blank" rel="noopener"><b>RICEVI FLC</b></a>
 </section>
 
@@ -221,14 +221,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.cta a').forEach(function(link) {
         link.addEventListener('click', function() {
             const utmData = JSON.parse(localStorage.getItem('utm_data') || '{}');
+            const ctaType = this.getAttribute('data-cta') || 'generic';
+            const funnelStep = this.getAttribute('data-funnel') || 'none';
+
             fetch(API_URL + '?action=track-click', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     link: this.href,
                     text: this.textContent.trim(),
+                    cta_type: ctaType,
+                    funnel_step: funnelStep,
                     source: utmData.source,
-                    campaign: utmData.campaign
+                    campaign: utmData.campaign,
+                    page: window.location.pathname
                 })
             }).catch(err => console.log('Tracking click error:', err));
         });
