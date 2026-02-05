@@ -116,6 +116,18 @@
       display: block;
       margin: 0 auto;
     }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .rainbow-btn {
+      background: linear-gradient(270deg, #ff0000, #ff8800, #ffff00, #00cc00, #0088ff, #8800ff, #ff00ff, #ff0000);
+      background-size: 600% 600%;
+      animation: rainbow 8s ease infinite;
+      color: white !important;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
   </style>
 </head>
 <body>
@@ -176,7 +188,7 @@
     Friulcoin nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.
   </p>
   <a href="https://www.friuli.info" target="_blank" rel="noopener" data-cta="attivati" data-funnel="friuli-info">ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b></a>
-  <a href="https://www.libars.it" target="_blank" rel="noopener">Assistenza e supporto su appuntamento</a><br><br><a href="amiis.htm" target="_blank" rel="noopener"><b>RICEVI FLC</b></a><br>
+  <a href="https://www.libars.it" target="_blank" rel="noopener">Assistenza e supporto su appuntamento</a><br><br><a href="amiis.htm" target="_blank" rel="noopener" class="rainbow-btn"><b>RICEVI FLC</b></a><br>
 <iframe width="540" height="477" src="https://2ba0039a.sibforms.com/serve/MUIFAKejZWxIZkM6lKDaIAvY0h1QtuszutqCgPMHMm-BZhsItHgZvnsAs0nQUm7Z0uv2RYjE96o1NVPRnu8bv6mr5_1EUsBVXAVYeuAn1jBA4ZKanh9G0XALYqDsQ-VgLYO1GM0cZcGH3Sgwhzb0IEha_vBfDlItvv1P1-DGec-yZKLs4pomhfM7bTvoc5a-W37EkErhgBdh-SJocw==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
 </section>
 
