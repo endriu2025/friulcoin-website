@@ -116,6 +116,18 @@
       display: block;
       margin: 0 auto;
     }
+    @keyframes gradientBenvenuti {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .gradient-benvenuti {
+      background: linear-gradient(90deg, #8B00FF, #FF00FF, #FF1493, #8B00FF, #FF00FF, #FF1493, #8B00FF);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientBenvenuti 1.5s linear infinite;
+    }
     @keyframes rainbow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -133,7 +145,7 @@
 <body>
 
 <header>
-<img src="logo.png" alt="logo" width="155" height="155" />  <p><i> <span style="background: linear-gradient(135deg, #8E44AD, #3498DB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Benvenuti</span>
+<img src="logo.png" alt="logo" width="155" height="155" />  <p><i> <span class="gradient-benvenuti">Benvenuti</span>
   </i></p><p>Un semplicissimo strumento di scambio tra persone,<br>pensato per rafforzare le comunità locali e l'economia del territorio.</p> <br><i><font color="#FFFF00">
   I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>
   Friulcoin al po essi un biel affar par lis fameis e pal to teritori.</i> </font><br>
