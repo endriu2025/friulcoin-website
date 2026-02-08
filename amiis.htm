@@ -126,77 +126,120 @@
     font-size: 20px;
     font-weight: bold;
   }
+
+  /* Pulsanti lingua fissi */
+  .lang-buttons {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .lang-buttons button {
+    width: 38px;
+    height: 38px;
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    line-height: 1;
+  }
+  .lang-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  #btn-it {
+    background: #90EE90;
+  }
+  #btn-fr {
+    background: #FFFACD;
+  }
+  .lang-buttons button.active {
+    border-color: #333;
+    box-shadow: 0 0 8px rgba(0,0,0,0.35);
+  }
 </style>
 
 </head>
 <body>
+
+<!-- Pulsanti cambio lingua -->
+<div class="lang-buttons">
+  <button id="btn-it" class="active" onclick="switchLang('it')" title="Italiano">It</button>
+  <button id="btn-fr" onclick="switchLang('fr')" title="Furlan">Fr</button>
+</div>
 
   <div class="container">
     <!-- Logo Friulcoin -->
     <img src="ico.png" alt="Logo Friulcoin" class="logo">
 
     <!-- Titolo -->
-    <h1>COME RICEVERE FLC:</h1>
+    <h1 data-tr="title">COME RICEVERE FLC:</h1>
 
     <!-- Testo istituzionale -->
-    <p>Friulcoin (FLC) non e' uno strumento finanziario, non e' acquistabile e non costituisce una forma di investimento o di promessa di rendimento economico.</p>
+    <p data-tr="p1">Friulcoin (FLC) non e' uno strumento finanziario, non e' acquistabile e non costituisce una forma di investimento o di promessa di rendimento economico.</p>
 
-    <p>I gettoni FLC vengono distribuiti esclusivamente nell'ambito di un sistema partecipativo basato sul contributo concreto alla comunita'.</p>
+    <p data-tr="p2">I gettoni FLC vengono distribuiti esclusivamente nell'ambito di un sistema partecipativo basato sul contributo concreto alla comunita'.</p>
 
-    <p>La ricezione di gettoni FLC e' subordinata alla partecipazione attiva e verificabile alle attivita' del progetto, quali, a titolo esemplificativo e non esaustivo, la messa a disposizione di tempo, competenze, risorse tecniche o organizzative, la collaborazione ai processi decisionali e il rispetto degli impegni assunti.
+    <p data-tr="p3">La ricezione di gettoni FLC e' subordinata alla partecipazione attiva e verificabile alle attivita' del progetto, quali, a titolo esemplificativo e non esaustivo, la messa a disposizione di tempo, competenze, risorse tecniche o organizzative, la collaborazione ai processi decisionali e il rispetto degli impegni assunti.
 	I criteri di assegnazione sono pubblici, trasparenti e orientati alla continuita', all'affidabilita' e all'utilita' sociale del contributo fornito.<a target="_blank" href="verifica.png"><b>PREMI QUI</b></a> per prendere visione di un esempio di verifica, dove il cittadino ha aiutato 2+1 cittadini a conoscere Friulcoin.</p>
 
     <img src="oki.png" alt="esempio scambio flc" class="img-medium"><BR>
 	<p align="center">
-<a target="_blank" href="regolamento_tavolo10.pdf">
+<a target="_blank" href="regolamento_tavolo10.pdf" data-tr="regolamento">
 REGOLAMENTO</a></p>
 
-    <h2>In cambio di cosa, ricevi gettoni FLC?</h2>
+    <h2 data-tr="h2-cambio">In cambio di cosa, ricevi gettoni FLC?</h2>
 
-    <h3>1 - <strong>Tempo e presenza</strong></h3>
-    <p>I gettoni FLC vanno a chi <strong>ci mette tempo vero</strong>, non like.</p>
-    <ul>
+    <h3 data-tr="h3-s1">1 - <strong>Tempo e presenza</strong></h3>
+    <p data-tr="s1-desc">I gettoni FLC vanno a chi <strong>ci mette tempo vero</strong>, non like.</p>
+    <ul data-tr="s1-list">
       <li>partecipa a incontri (online o fisici)</li>
       <li>segue il progetto nel tempo</li>
       <li>aiuta a far crescere la comunita'</li>
     </ul>
-    <p class="highlight">Il tempo e' la moneta che oggi nessuno paga. Noi qui si'.</p>
+    <p class="highlight" data-tr="s1-quote">Il tempo e' la moneta che oggi nessuno paga. Noi qui si'.</p>
     <hr>
 
-    <h3>2 - <strong>Competenze (anche minime)</strong></h3>
-    <p>Non servono geni.</p>
-    <ul>
+    <h3 data-tr="h3-s2">2 - <strong>Competenze (anche minime)</strong></h3>
+    <p data-tr="s2-desc">Non servono geni.</p>
+    <ul data-tr="s2-list">
       <li>chi sa scrivere</li>
       <li>chi sa parlare con la gente</li>
       <li>chi sa usare (anche poco) un PC</li>
       <li>chi sa (anche poco) organizzare</li>
     </ul>
-    <p><img src="ddd.png" alt="" class="img-icon"> Ogni competenza utile alla comunita' genera FLC.</p>
+    <p data-tr="s2-note"><img src="ddd.png" alt="" class="img-icon"> Ogni competenza utile alla comunita' genera FLC.</p>
     <hr>
 
-    <h3>3 - <strong>Condivisione di risorse inutilizzate</strong></h3>
-    <p>Qui Friulcoin e' potente:</p>
-    <ul>
+    <h3 data-tr="h3-s3">3 - <strong>Condivisione di risorse inutilizzate</strong></h3>
+    <p data-tr="s3-desc">Qui Friulcoin e' potente:</p>
+    <ul data-tr="s3-list">
       <li>PC accesi ma sprecati</li>
       <li>spazi inutilizzati</li>
       <li>connessioni, contatti, reti locali</li>
     </ul>
-    <p><img src="ddd.png" alt="" class="img-icon"> Trasformi spreco in valore condiviso.</p>
+    <p data-tr="s3-note"><img src="ddd.png" alt="" class="img-icon"> Trasformi spreco in valore condiviso.</p>
     <hr>
 
-    <h3>4 - <strong>Responsabilita' civica</strong></h3>
-    <p>I gettoni FLC a chi:</p>
-    <ul>
+    <h3 data-tr="h3-s4">4 - <strong>Responsabilita' civica</strong></h3>
+    <p data-tr="s4-desc">I gettoni FLC a chi:</p>
+    <ul data-tr="s4-list">
       <li>partecipa a decisioni</li>
       <li>vota</li>
       <li>si prende il merito del cambiamento (<a target="_blank" href="https://amiis.byethost18.com/tavolo10/insegnante.html"><b>fondatori</b></a>)</li>
     </ul>
-    <p><img src="ddd.png" alt="" class="img-icon"> Non utenti. Cittadini !</p>
+    <p data-tr="s4-note"><img src="ddd.png" alt="" class="img-icon"> Non utenti. Cittadini !</p>
     <hr>
 
-    <h3>5 - <strong>Costruzione di fiducia</strong></h3>
-    <p>La fiducia oggi non vale nulla perche' non e' misurata.<br>Con FLC <strong>diventa misurabile</strong>:</p>
-    <ul>
+    <h3 data-tr="h3-s5">5 - <strong>Costruzione di fiducia</strong></h3>
+    <p data-tr="s5-desc">La fiducia oggi non vale nulla perche' non e' misurata.<br>Con FLC <strong>diventa misurabile</strong>:</p>
+    <ul data-tr="s5-list">
       <li>chi mantiene la parola</li>
       <li>chi non sparisce</li>
       <li>chi costruisce invece di lamentarsi</li>
@@ -205,14 +248,144 @@ REGOLAMENTO</a></p>
   </div>
 
   <div class="bottom-section">
-    <p><strong>INIZIA DA:</strong></p>
+    <p data-tr="bottom-inizia"><strong>INIZIA DA:</strong></p>
     <p>
       <a target="_blank" href="https://amiis.byethost18.com/database.php">
         <img src="https://amiis.byethost18.com/amici.gif" alt="amici" class="img-small">
       </a>
     </p>
     <p><a target="_blank" href="https://amiis.byethost18.com/database.php" class="cta-link">amiis</a></p>
-    <p>Invita a casa tua i tuoi amici: dai loro lo strumento e i primi gettoni FLC per iniziare!<br>Serve un pc portatile anche vetusto oppure un pc desktop e monitor.</p>
+    <p data-tr="bottom-desc">Invita a casa tua i tuoi amici: dai loro lo strumento e i primi gettoni FLC per iniziare!<br>Serve un pc portatile anche vetusto oppure un pc desktop e monitor.</p>
   </div>
+
+<!-- SCRIPT TRADUZIONI -->
+<script>
+var currentLang = 'it';
+
+var translations = {
+  'title': {
+    it: 'COME RICEVERE FLC:',
+    fr: 'CEMÛT RICEVI FLC:'
+  },
+  'p1': {
+    it: 'Friulcoin (FLC) non e\' uno strumento finanziario, non e\' acquistabile e non costituisce una forma di investimento o di promessa di rendimento economico.',
+    fr: 'Friulcoin (FLC) nol è un strument finanziari, no si pues comprâlu e nol costituìs une forme di investiment o di promesse di rendiment economic.'
+  },
+  'p2': {
+    it: 'I gettoni FLC vengono distribuiti esclusivamente nell\'ambito di un sistema partecipativo basato sul contributo concreto alla comunita\'.',
+    fr: 'I getôns FLC a vegnin distribuîts dome dentri di un sisteme partecipatiîf fondât sul contribut concret ae comunitât.'
+  },
+  'p3': {
+    it: 'La ricezione di gettoni FLC e\' subordinata alla partecipazione attiva e verificabile alle attivita\' del progetto, quali, a titolo esemplificativo e non esaustivo, la messa a disposizione di tempo, competenze, risorse tecniche o organizzative, la collaborazione ai processi decisionali e il rispetto degli impegni assunti. I criteri di assegnazione sono pubblici, trasparenti e orientati alla continuita\', all\'affidabilita\' e all\'utilita\' sociale del contributo fornito.<a target="_blank" href="verifica.png"><b>PREMI QUI</b></a> per prendere visione di un esempio di verifica, dove il cittadino ha aiutato 2+1 cittadini a conoscere Friulcoin.',
+    fr: 'La ricezion dai getôns FLC e je subordinade ae partecipazion ative e verificabile aes ativitâts dal progjet, come, a titul esemplificatiîf e no esaustiîf, la messe a disposizion di timp, competencis, risorsis tecnichis o organizativis, la colaborazion ai procès decisionâi e il rispiet dai impegns cjapâts sù. I criteris di assegnazion a son publics, trasparents e orientâts ae continuitât, ae afidabilitât e ae utilitât sociâl dal contribut dât.<a target="_blank" href="verifica.png"><b>FRACHE ACHÌ</b></a> par viodi un esempli di verifiche, dulà che il citadin al à judât 2+1 citadins a cognossi Friulcoin.'
+  },
+  'regolamento': {
+    it: '\nREGOLAMENTO',
+    fr: '\nREGOLAMENT'
+  },
+  'h2-cambio': {
+    it: 'In cambio di cosa, ricevi gettoni FLC?',
+    fr: 'In cambi di ce, riceviso getôns FLC?'
+  },
+  'h3-s1': {
+    it: '1 - <strong>Tempo e presenza</strong>',
+    fr: '1 - <strong>Timp e presince</strong>'
+  },
+  's1-desc': {
+    it: 'I gettoni FLC vanno a chi <strong>ci mette tempo vero</strong>, non like.',
+    fr: 'I getôns FLC a van a cui che <strong>al met timp vêr</strong>, no like.'
+  },
+  's1-list': {
+    it: '<li>partecipa a incontri (online o fisici)</li><li>segue il progetto nel tempo</li><li>aiuta a far crescere la comunita\'</li>',
+    fr: '<li>al partecipe a incuintris (online o fisics)</li><li>al sêt il progjet tal timp</li><li>al jude a fâ cressi la comunitât</li>'
+  },
+  's1-quote': {
+    it: 'Il tempo e\' la moneta che oggi nessuno paga. Noi qui si\'.',
+    fr: 'Il timp al è la monede che vuê nissun al paie. Nô achì sì.'
+  },
+  'h3-s2': {
+    it: '2 - <strong>Competenze (anche minime)</strong>',
+    fr: '2 - <strong>Competencis (ancje minimis)</strong>'
+  },
+  's2-desc': {
+    it: 'Non servono geni.',
+    fr: 'No coventin genis.'
+  },
+  's2-list': {
+    it: '<li>chi sa scrivere</li><li>chi sa parlare con la gente</li><li>chi sa usare (anche poco) un PC</li><li>chi sa (anche poco) organizzare</li>',
+    fr: '<li>cui che al sa scrivi</li><li>cui che al sa fevelâ cu la int</li><li>cui che al sa doprâ (ancje pôc) un PC</li><li>cui che al sa (ancje pôc) organizâ</li>'
+  },
+  's2-note': {
+    it: '<img src="ddd.png" alt="" class="img-icon"> Ogni competenza utile alla comunita\' genera FLC.',
+    fr: '<img src="ddd.png" alt="" class="img-icon"> Ogni competence utile ae comunitât e gjene FLC.'
+  },
+  'h3-s3': {
+    it: '3 - <strong>Condivisione di risorse inutilizzate</strong>',
+    fr: '3 - <strong>Condivision di risorsis no dopradis</strong>'
+  },
+  's3-desc': {
+    it: 'Qui Friulcoin e\' potente:',
+    fr: 'Achì Friulcoin al è potent:'
+  },
+  's3-list': {
+    it: '<li>PC accesi ma sprecati</li><li>spazi inutilizzati</li><li>connessioni, contatti, reti locali</li>',
+    fr: '<li>PC impîts ma sprecâts</li><li>spazis no doprats</li><li>conessions, contats, rêts locâls</li>'
+  },
+  's3-note': {
+    it: '<img src="ddd.png" alt="" class="img-icon"> Trasformi spreco in valore condiviso.',
+    fr: '<img src="ddd.png" alt="" class="img-icon"> Tu trasformis sprec in valôr condividût.'
+  },
+  'h3-s4': {
+    it: '4 - <strong>Responsabilita\' civica</strong>',
+    fr: '4 - <strong>Responsabilitât civiche</strong>'
+  },
+  's4-desc': {
+    it: 'I gettoni FLC a chi:',
+    fr: 'I getôns FLC a cui che:'
+  },
+  's4-list': {
+    it: '<li>partecipa a decisioni</li><li>vota</li><li>si prende il merito del cambiamento (<a target="_blank" href="https://amiis.byethost18.com/tavolo10/insegnante.html"><b>fondatori</b></a>)</li>',
+    fr: '<li>al partecipe a decisions</li><li>al vote</li><li>si cjape il merit dal cambiament (<a target="_blank" href="https://amiis.byethost18.com/tavolo10/insegnante.html"><b>fondadôrs</b></a>)</li>'
+  },
+  's4-note': {
+    it: '<img src="ddd.png" alt="" class="img-icon"> Non utenti. Cittadini !',
+    fr: '<img src="ddd.png" alt="" class="img-icon"> No utents. Citadins!'
+  },
+  'h3-s5': {
+    it: '5 - <strong>Costruzione di fiducia</strong>',
+    fr: '5 - <strong>Costruzion di fiducie</strong>'
+  },
+  's5-desc': {
+    it: 'La fiducia oggi non vale nulla perche\' non e\' misurata.<br>Con FLC <strong>diventa misurabile</strong>:',
+    fr: 'La fiducie vuê no vâl nuie parcè che no je misurade.<br>Cun FLC <strong>e devente misurabile</strong>:'
+  },
+  's5-list': {
+    it: '<li>chi mantiene la parola</li><li>chi non sparisce</li><li>chi costruisce invece di lamentarsi</li>',
+    fr: '<li>cui che al manten la peraule</li><li>cui che nol sparìs</li><li>cui che al costruìs invezit di lamentâsi</li>'
+  },
+  'bottom-inizia': {
+    it: '<strong>INIZIA DA:</strong>',
+    fr: '<strong>SCOMENCE DI:</strong>'
+  },
+  'bottom-desc': {
+    it: 'Invita a casa tua i tuoi amici: dai loro lo strumento e i primi gettoni FLC per iniziare!<br>Serve un pc portatile anche vetusto oppure un pc desktop e monitor.',
+    fr: 'Invide cjase tô i tiei amîs: daur il strument e i prins getôns FLC par scomençâ!<br>Al covente un pc portatil ancje vieri o un pc desktop e monitor.'
+  }
+};
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-tr]').forEach(function(el) {
+    var key = el.getAttribute('data-tr');
+    if (translations[key] && translations[key][lang]) {
+      el.innerHTML = translations[key][lang];
+    }
+  });
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.documentElement.lang = (lang === 'it') ? 'it' : 'fur';
+}
+</script>
+
 </body>
 </html>

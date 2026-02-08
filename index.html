@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Friulcoin (FLC) – Moneta civica open source per l’economia locale</title>
+<title>Friulcoin (FLC) – Moneta civica open source per l'economia locale</title>
 <meta name="description" content="Friulcoin è una moneta civica open source pensata per sostenere economia locale, partecipazione e tecnologia decentralizzata. Scopri come funziona.">
 
   <link rel="icon" type="image/png" href="ico.png">
@@ -12,7 +12,7 @@
   "@context": "https://www.friulcoin.it",
   "@type": "Organization",
   "name": "Friulcoin",
-  "description": "Progetto di moneta civica open source per l’economia locale",
+  "description": "Progetto di moneta civica open source per l'economia locale",
   "url": "https://www.friulcoin.it"
 }
 </script>
@@ -127,6 +127,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: gradientBenvenuti 1.5s linear infinite;
+      font-size: 125%;
     }
     @keyframes rainbow {
       0% { background-position: 0% 50%; }
@@ -140,20 +141,63 @@
       color: white !important;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
+
+    /* Pulsanti lingua fissi */
+    .lang-buttons {
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .lang-buttons button {
+      width: 38px;
+      height: 38px;
+      border: 2px solid #aaa;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      line-height: 1;
+    }
+    .lang-buttons button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    #btn-it {
+      background: #90EE90;
+    }
+    #btn-fr {
+      background: #FFFACD;
+    }
+    .lang-buttons button.active {
+      border-color: #333;
+      box-shadow: 0 0 8px rgba(0,0,0,0.35);
+    }
   </style>
 </head>
 <body>
 
+<!-- Pulsanti cambio lingua -->
+<div class="lang-buttons">
+  <button id="btn-it" class="active" onclick="switchLang('it')" title="Italiano">It</button>
+  <button id="btn-fr" onclick="switchLang('fr')" title="Furlan">Fr</button>
+</div>
+
 <header>
-<img src="logo.png" alt="logo" width="155" height="155" />  <p><i> <span class="gradient-benvenuti">Benvenuti</span>
-  </i></p><p>Un semplicissimo strumento di scambio tra persone,<br>pensato per rafforzare le comunità locali e l'economia del territorio.</p> <br><i><font color="#FFFF00">
-  I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>
-  Friulcoin al po essi un biel affar par lis fameis e pal to teritori.</i> </font><br>
+<img src="logo.png" alt="logo" width="155" height="155" />  <p><i> <span class="gradient-benvenuti" data-tr="benvenuti">Benvenuti</span>
+  </i></p><p data-tr="header-desc">Un semplicissimo strumento di scambio tra persone,<br>pensato per rafforzare le comunità locali e l'economia del territorio.</p> <br><i><font color="#FFFF00">
+  <span data-tr="header-motto">I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>
+  Friulcoin al po essi un biel affar par lis fameis e pal to teritori.</span></i> </font><br>
 </header>
 
 <section>
   <div class="intro">
-    <p>
+    <p data-tr="intro">
       Friulcoin non è una banca, non è speculazione e non è finanza complessa.
       È un <strong>mezzo di scambio comunitario</strong> che permette a due persone di riconoscere valore al proprio lavoro,
       ai propri beni e al proprio tempo, in modo semplice e diretto.
@@ -164,12 +208,12 @@
     <div class="scene">
       <img src="scambio1.jpg" alt="Scambio Friulcoin tra due persone al mercato locale" />
       <div class="scene-content">
-        <h3>Scena 1 – Lo scambio quotidiano</h3>
-        <p>
+        <h3 data-tr="scene1-title">Scena 1 – Lo scambio quotidiano</h3>
+        <p data-tr="scene1-p1">
           Maria offre un servizio o un prodotto locale. Luca lo riceve e,
           invece di usare circuiti bancari (servizio inutile e parassita/dannoso per l'economia del territorio), lo riconosce tramite Friulcoin.
         </p>
-        <p>
+        <p data-tr="scene1-p2">
           Lo scambio è immediato, trasparente e basato sulla fiducia reciproca.
         </p>
       </div>
@@ -178,12 +222,12 @@
     <div class="scene">
       <img src="scambio2.jpg" alt="Scambio Friulcoin tra artigiano e cittadino" />
       <div class="scene-content">
-        <h3>Scena 2 – Il valore resta nel territorio</h3>
-        <p>
+        <h3 data-tr="scene2-title">Scena 2 – Il valore resta nel territorio</h3>
+        <p data-tr="scene2-p1">
           L'artigiano puo' certamente utilizzare i Friulcoin ricevuti per altri scambi locali:
-          beni, servizi o collaborazioni all'interno della comunità.  
+          beni, servizi o collaborazioni all'interno della comunità.
         </p>
-        <p>
+        <p data-tr="scene2-p2">
          E' la stessa pratica offerta dalle "banche del tempo", con unica seria diversità che, in questo modo il "valore" non fugge, ma <strong>circola e rafforza il territorio</strong>.
         </p>
       </div>
@@ -192,23 +236,114 @@
 </section>
 
 <section class="cta">
-  <h2><span style="background: linear-gradient(135deg, #8E44AD, #3498DB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+  <h2><span style="background: linear-gradient(135deg, #8E44AD, #3498DB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-tr="cta-title">
   Vuoi anche tu uno strumento efficace e semplice per il territorio in difficolta' e prossimo all'estinzione ?</span></h2>
 <div align="center"><img src="footer1.jpg" alt="Scambio Friulcoin" />
-  <p>
+  <p data-tr="cta-desc">
     Informati, approfondisci e chiedi supporto.
     Friulcoin nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.
   </p>
-  <a href="https://www.friuli.info" target="_blank" rel="noopener" data-cta="attivati" data-funnel="friuli-info">ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b></a>
-  <a href="https://www.libars.it" target="_blank" rel="noopener">Assistenza e supporto su appuntamento</a><br><br><a href="amiis.htm" target="_blank" rel="noopener" class="rainbow-btn"><b>RICEVI FLC</b></a><br>
+  <a href="https://www.friuli.info" target="_blank" rel="noopener" data-cta="attivati" data-funnel="friuli-info" data-tr="cta-link1">ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b></a>
+  <a href="https://www.libars.it" target="_blank" rel="noopener" data-tr="cta-link2">Assistenza e supporto su appuntamento</a><br><br><a href="amiis.htm" target="_blank" rel="noopener" class="rainbow-btn" data-tr="cta-link3"><b>RICEVI FLC</b></a><br>
 <iframe width="540" height="522" src="https://2ba0039a.sibforms.com/serve/MUIFAKejZWxIZkM6lKDaIAvY0h1QtuszutqCgPMHMm-BZhsItHgZvnsAs0nQUm7Z0uv2RYjE96o1NVPRnu8bv6mr5_1EUsBVXAVYeuAn1jBA4ZKanh9G0XALYqDsQ-VgLYO1GM0cZcGH3Sgwhzb0IEha_vBfDlItvv1P1-DGec-yZKLs4pomhfM7bTvoc5a-W37EkErhgBdh-SJocw==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
 </section>
 
 <footer><div align="center"><img src="footer2.png" alt="Scambio Friulcoin" />
 
-  <p><img src="ico.png" alt="logo" width="145" height="155" />Friulcoin – Progetto comunitario per lo scambio locale - <a target="_blank" href="as.htm"><b>PROTEZIONE</b></a>
+  <p><img src="ico.png" alt="logo" width="145" height="155" /><span data-tr="footer-text">Friulcoin – Progetto comunitario per lo scambio locale</span> - <a target="_blank" href="as.htm"><span data-tr="footer-link"><b>PROTEZIONE</b></span></a>
 </p></div>
 </footer>
+
+<!-- SCRIPT TRADUZIONI -->
+<script>
+var currentLang = 'it';
+
+var translations = {
+  benvenuti: {
+    it: 'Benvenuti',
+    fr: 'Benvignûts'
+  },
+  'header-desc': {
+    it: 'Un semplicissimo strumento di scambio tra persone,<br>pensato per rafforzare le comunità locali e l\'economia del territorio.',
+    fr: 'Un strument semplicissim di scambi tra personis,<br>pensât par rinfuarçâ lis comunitâts locâls e la economie dal teritori.'
+  },
+  'header-motto': {
+    it: 'I territori restano vivi solo se le persone hanno gli strumenti per restare e senza strumenti concreti, anche le migliori parole restano vuote.<br>Friulcoin può essere un bell\'affare per le famiglie e per il tuo territorio.',
+    fr: 'I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>Friulcoin al po essi un biel affar par lis fameis e pal to teritori.'
+  },
+  intro: {
+    it: 'Friulcoin non è una banca, non è speculazione e non è finanza complessa. È un <strong>mezzo di scambio comunitario</strong> che permette a due persone di riconoscere valore al proprio lavoro, ai propri beni e al proprio tempo, in modo semplice e diretto.',
+    fr: 'Friulcoin nol è une banche, nol è speculazion e nol è finance complesse. Al è un <strong>mieç di scambi comunitari</strong> che al permet a dôs personis di ricognossi valôr al propri lavôr, ai propris bêns e al propri timp, in mût sempliç e diret.'
+  },
+  'scene1-title': {
+    it: 'Scena 1 – Lo scambio quotidiano',
+    fr: 'Scene 1 – Il scambi di ogni dì'
+  },
+  'scene1-p1': {
+    it: 'Maria offre un servizio o un prodotto locale. Luca lo riceve e, invece di usare circuiti bancari (servizio inutile e parassita/dannoso per l\'economia del territorio), lo riconosce tramite Friulcoin.',
+    fr: 'Marie e ufrìs un servizi o un prodot locâl. Luca lu ricêf e, invezit di doprâ circûts bancaris (servizi inutîl e parassit/danôs pe economie dal teritori), lu ricognòs cun Friulcoin.'
+  },
+  'scene1-p2': {
+    it: 'Lo scambio è immediato, trasparente e basato sulla fiducia reciproca.',
+    fr: 'Il scambi al è immediât, trasparent e fondât su la fiducie reciproche.'
+  },
+  'scene2-title': {
+    it: 'Scena 2 – Il valore resta nel territorio',
+    fr: 'Scene 2 – Il valôr al reste tal teritori'
+  },
+  'scene2-p1': {
+    it: 'L\'artigiano puo\' certamente utilizzare i Friulcoin ricevuti per altri scambi locali: beni, servizi o collaborazioni all\'interno della comunità.',
+    fr: 'L\'artisan al pues siguramentri doprâ i Friulcoin ricevûts par altris scambis locâls: bêns, servizis o colaborazions dentri de comunitât.'
+  },
+  'scene2-p2': {
+    it: 'E\' la stessa pratica offerta dalle "banche del tempo", con unica seria diversità che, in questo modo il "valore" non fugge, ma <strong>circola e rafforza il territorio</strong>.',
+    fr: 'E je la stesse pratiche ufierte des "banchiis dal timp", cu la uniche serie diversitât che, in chest mût il "valôr" nol scjampe, ma <strong>al zire e al rinfuarce il teritori</strong>.'
+  },
+  'cta-title': {
+    it: 'Vuoi anche tu uno strumento efficace e semplice per il territorio in difficolta\' e prossimo all\'estinzione ?',
+    fr: 'Vûstu ancje tu un strument eficaç e sempliç pal teritori in dificoltât e dongje de estinzion?'
+  },
+  'cta-desc': {
+    it: 'Informati, approfondisci e chiedi supporto. Friulcoin nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.',
+    fr: 'Informiti, aprofondìs e domande jutòri. Friulcoin al nas par jessi capît e doprât des personis, al ven spiegât no cun tecnicisims ma cuntune presentazion reâl dal vîf.'
+  },
+  'cta-link1': {
+    it: 'ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b>',
+    fr: 'ATIVITI (<i>di anonim</i>) su <b>Friuli.info</b>'
+  },
+  'cta-link2': {
+    it: 'Assistenza e supporto su appuntamento',
+    fr: 'Assistence e supuart su apuntament'
+  },
+  'cta-link3': {
+    it: '<b>RICEVI FLC</b>',
+    fr: '<b>RICÊF FLC</b>'
+  },
+  'footer-text': {
+    it: 'Friulcoin – Progetto comunitario per lo scambio locale',
+    fr: 'Friulcoin – Progjet comunitari pal scambi locâl'
+  },
+  'footer-link': {
+    it: '<b>PROTEZIONE</b>',
+    fr: '<b>PROTEZION</b>'
+  }
+};
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-tr]').forEach(function(el) {
+    var key = el.getAttribute('data-tr');
+    if (translations[key] && translations[key][lang]) {
+      el.innerHTML = translations[key][lang];
+    }
+  });
+  // Aggiorna stato pulsanti
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  // Aggiorna attributo lang della pagina
+  document.documentElement.lang = (lang === 'it') ? 'it' : 'fur';
+}
+</script>
 
 <!-- SCRIPT TRACKING UTM -->
 <script>
