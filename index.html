@@ -260,42 +260,45 @@
 <script>
 var currentLang = 'it';
 
+var FL = 'https://amiis.byethost18.com/team_flc/index.html';
+var flink = function(t) { return '<a target="_blank" href="' + FL + '">' + t + '</a>'; };
+
 var translations = {
   benvenuti: {
     it: 'Benvenuti',
     fr: 'Benvignûts'
   },
   'header-desc': {
-    it: 'Un semplicissimo strumento di scambio tra persone,<br>pensato per rafforzare le comunità locali e l\'economia del territorio.',
-    fr: 'Un strument semplicissim di scambi tra personis,<br>pensât par rinfuarçâ lis comunitâts locâls e la economie dal teritori.'
+    it: 'Un semplicissimo strumento di ' + flink('scambio') + ' tra persone,<br>pensato per rafforzare le comunità locali e l\'economia del territorio.',
+    fr: 'Un strument semplicissim di ' + flink('scambi') + ' tra personis,<br>pensât par rinfuarçâ lis comunitâts locâls e la economie dal teritori.'
   },
   'header-motto': {
-    it: 'I territori restano vivi solo se le persone hanno gli strumenti per restare e senza strumenti concreti, anche le migliori parole restano vuote.<br>Friulcoin può essere un bell\'affare per le famiglie e per il tuo territorio.',
-    fr: 'I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>Friulcoin al po essi un biel affar par lis fameis e pal to teritori.'
+    it: 'I territori restano vivi solo se le persone hanno gli strumenti per restare e senza strumenti concreti, anche le migliori parole restano vuote.<br>' + flink('Friulcoin') + ' può essere un bell\'affare per le famiglie e per il tuo territorio.',
+    fr: 'I teritoris a restin vîfs dome se lis personis a àn i struments par restâ e cence struments concrez, ancje lis miors peraulis a restin vuêdis.<br>' + flink('Friulcoin') + ' al po essi un biel affar par lis fameis e pal to teritori.'
   },
   intro: {
-    it: 'Friulcoin non è una banca, non è speculazione e non è finanza complessa. È un <strong>mezzo di scambio comunitario</strong> che permette a due persone di riconoscere valore al proprio lavoro, ai propri beni e al proprio tempo, in modo semplice e diretto.',
-    fr: 'Friulcoin nol è une banche, nol è speculazion e nol è finance complesse. Al è un <strong>mieç di scambi comunitari</strong> che al permet a dôs personis di ricognossi valôr al propri lavôr, ai propris bêns e al propri timp, in mût sempliç e diret.'
+    it: flink('Friulcoin') + ' non è una banca, non è speculazione e non è finanza complessa. È un <strong>mezzo di ' + flink('scambio') + ' comunitario</strong> che permette a due persone di riconoscere valore al proprio lavoro, ai propri beni e al proprio tempo, in modo semplice e diretto.',
+    fr: flink('Friulcoin') + ' nol è une banche, nol è speculazion e nol è finance complesse. Al è un <strong>mieç di ' + flink('scambi') + ' comunitari</strong> che al permet a dôs personis di ricognossi valôr al propri lavôr, ai propris bêns e al propri timp, in mût sempliç e diret.'
   },
   'scene1-title': {
-    it: 'Scena 1 – Lo scambio quotidiano',
-    fr: 'Scene 1 – Il scambi di ogni dì'
+    it: 'Scena 1 – Lo ' + flink('scambio') + ' quotidiano',
+    fr: 'Scene 1 – Il ' + flink('scambi') + ' di ogni dì'
   },
   'scene1-p1': {
-    it: 'Maria offre un servizio o un prodotto locale. Luca lo riceve e, invece di usare circuiti bancari (servizio inutile e parassita/dannoso per l\'economia del territorio), lo riconosce tramite Friulcoin.',
-    fr: 'Marie e ufrìs un servizi o un prodot locâl. Luca lu ricêf e, invezit di doprâ circûts bancaris (servizi inutîl e parassit/danôs pe economie dal teritori), lu ricognòs cun Friulcoin.'
+    it: 'Maria offre un servizio o un prodotto locale. Luca lo riceve e, invece di usare circuiti bancari (servizio inutile e parassita/dannoso per l\'economia del territorio), lo riconosce tramite ' + flink('Friulcoin') + '.',
+    fr: 'Marie e ufrìs un servizi o un prodot locâl. Luca lu ricêf e, invezit di doprâ circûts bancaris (servizi inutîl e parassit/danôs pe economie dal teritori), lu ricognòs cun ' + flink('Friulcoin') + '.'
   },
   'scene1-p2': {
-    it: 'Lo scambio è immediato, trasparente e basato sulla fiducia reciproca.',
-    fr: 'Il scambi al è immediât, trasparent e fondât su la fiducie reciproche.'
+    it: 'Lo ' + flink('scambio') + ' è immediato, trasparente e basato sulla fiducia reciproca.',
+    fr: 'Il ' + flink('scambi') + ' al è immediât, trasparent e fondât su la fiducie reciproche.'
   },
   'scene2-title': {
     it: 'Scena 2 – Il valore resta nel territorio',
     fr: 'Scene 2 – Il valôr al reste tal teritori'
   },
   'scene2-p1': {
-    it: 'L\'artigiano puo\' certamente utilizzare i Friulcoin ricevuti per altri scambi locali: beni, servizi o collaborazioni all\'interno della comunità.',
-    fr: 'L\'artisan al pues siguramentri doprâ i Friulcoin ricevûts par altris scambis locâls: bêns, servizis o colaborazions dentri de comunitât.'
+    it: 'L\'artigiano puo\' certamente utilizzare i ' + flink('Friulcoin') + ' ricevuti per altri ' + flink('scambi') + ' locali: beni, servizi o collaborazioni all\'interno della comunità.',
+    fr: 'L\'artisan al pues siguramentri doprâ i ' + flink('Friulcoin') + ' ricevûts par altris ' + flink('scambis') + ' locâls: bêns, servizis o colaborazions dentri de comunitât.'
   },
   'scene2-p2': {
     it: 'E\' la stessa pratica offerta dalle "banche del tempo", con unica seria diversità che, in questo modo il "valore" non fugge, ma <strong>circola e rafforza il territorio</strong>.',
@@ -306,8 +309,8 @@ var translations = {
     fr: 'Vûstu ancje tu un strument eficaç e sempliç pal teritori in dificoltât e dongje de estinzion?'
   },
   'cta-desc': {
-    it: 'Informati, approfondisci e chiedi supporto. Friulcoin nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.',
-    fr: 'Informiti, aprofondìs e domande jutòri. Friulcoin al nas par jessi capît e doprât des personis, al ven spiegât no cun tecnicisims ma cuntune presentazion reâl dal vîf.'
+    it: 'Informati, approfondisci e chiedi supporto. ' + flink('Friulcoin') + ' nasce per essere compreso ed usato dalle persone, viene spiegato non con tecnicismi ma con una presentazione reale dal vivo.',
+    fr: 'Informiti, aprofondìs e domande jutòri. ' + flink('Friulcoin') + ' al nas par jessi capît e doprât des personis, al ven spiegât no cun tecnicisims ma cuntune presentazion reâl dal vîf.'
   },
   'cta-link1': {
     it: 'ATTIVATI (<i>da anonimo</i>) su <b>Friuli.info</b>',
@@ -322,8 +325,8 @@ var translations = {
     fr: '<b>RICÊF FLC</b>'
   },
   'footer-text': {
-    it: 'Friulcoin – Progetto comunitario per lo scambio locale. Scarica il nostro MANIFESTO IDENTITARIO <a target="_blank" href="MANIFESTO-IDENTITARIO.pdf">PREMI QUI</a>',
-    fr: 'Friulcoin – Progjet comunitari pal scambi locâl. Discjame il nestri MANIFESTO IDENTITARI <a target="_blank" href="MANIFESTO-IDENTITARIO.pdf">FRUCJE ACÎ</a>'
+    it: flink('Friulcoin') + ' – Progetto comunitario per lo ' + flink('scambio') + ' locale. Scarica il nostro MANIFESTO IDENTITARIO <a target="_blank" href="MANIFESTO-IDENTITARIO.pdf">PREMI QUI</a>',
+    fr: flink('Friulcoin') + ' – Progjet comunitari pal ' + flink('scambi') + ' locâl. Discjame il nestri MANIFESTO IDENTITARI <a target="_blank" href="MANIFESTO-IDENTITARIO.pdf">FRUCJE ACÎ</a>'
   },
   'footer-link': {
     it: '<b>PROTEZIONE</b>',
