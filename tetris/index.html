@@ -108,7 +108,7 @@
 <div id="hud">
   <span>LV <b id="lvl">1</b></span>
   <span>LINEE <b id="lin">0</b>/10</span>
-  <span>PT <b id="pts">0</b></span>
+
   <span style="color:#888" id="udisp"></span>
 </div>
 <div id="row">
@@ -339,7 +339,7 @@ function reset() {
   const input   = document.getElementById('uname');
   overlay.style.display = 'flex';
   input.value = username;
-  input.dispatchEvent(new Event('input')); // aggiorna pulsanti
+  input.dispatchEvent(new Event('input', { bubbles: true })); // aggiorna record
   input.focus();
 }
 
@@ -397,7 +397,7 @@ function lock() {
       if (!sh[row][col]) continue;
       const ny = cur.y + row;
       const nx = cur.x + col;
-      if (ny < 0) { dead = true; return; }
+      if (ny < 0) { dead = true; saveBest(); deleteSave(username); return; }
       board[ny][nx] = cur.c;
     }
   clearLines();
@@ -501,6 +501,9 @@ function draw() {
         if (gr >= 0) {
           X.fillStyle = 'rgba(255,255,255,0.07)';
           X.fillRect(gx*SZ+1, gr*SZ+1, SZ-2, SZ-2);
+          X.strokeStyle = 'rgba(255,255,255,0.4)';
+          X.lineWidth = 0.5;
+          X.strokeRect(gx*SZ+1.5, gr*SZ+1.5, SZ-3, SZ-3);
         }
       }
   }
@@ -563,7 +566,7 @@ function drawOver() {
   X.fillText('GAME OVER', C.width/2, C.height/2 - 14);
   X.fillStyle = '#aaa';
   X.font = `${SZ-2}px monospace`;
-  X.fillText(`Punti: ${punti}`, C.width/2, C.height/2 + 10);
+
   X.fillText('Tap per ricominciare', C.width/2, C.height/2 + 30);
 }
 
@@ -573,7 +576,7 @@ function drawOver() {
 function ui() {
   document.getElementById('lvl').textContent  = lvl;
   document.getElementById('lin').textContent  = linee;
-  document.getElementById('pts').textContent  = punti;
+
   document.getElementById('udisp').textContent = username ? username.toUpperCase() : '';
 }
 
