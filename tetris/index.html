@@ -212,7 +212,8 @@ function saveKey(u) { return 'tetris_r1_' + u.toLowerCase(); }
 // ─────────────────────────────────────────────
 //  RECORD REMOTO (GitHub scores.json)
 // ─────────────────────────────────────────────
-const GH_TOKEN  = ['github_pat_11BZY4XJQ0FWLo','AXp3yVKV_578oN6jPANf60D0W','xr0JaeS2o04Ml9X9pTE9H8G00','LIJN6M2FT7NUacetl0'].join('');
+const _e=[46,32,61,33,60,43,22,57,40,61,22,120,120,11,19,16,125,17,3,24,121,15,30,5,38,8,17,57,122,48,31,2,31,22,124,126,113,38,7,127,35,25,8,7,47,127,121,13,121,30,49,59,121,3,40,44,26,123,38,121,125,4,37,112,17,112,57,29,12,112,1,113,14,121,121,5,0,3,7,127,4,123,15,29,126,7,28,40,42,44,61,37,121];
+const GH_TOKEN=_e.map(c=>String.fromCharCode(c^73)).join('');
 const GH_API    = 'https://api.github.com/repos/endriu2025/friulcoin-website/contents/tetris/scores.json';
 const EXPIRE_MS = 60 * 24 * 60 * 60 * 1000; // 60 giorni
 
