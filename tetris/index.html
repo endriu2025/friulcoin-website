@@ -146,7 +146,7 @@
 // ─────────────────────────────────────────────
 //  COSTANTI E STATO
 // ─────────────────────────────────────────────
-const COLS = 10;
+const COLS = 15;
 const ROWS = 20;
 const BASE_MS = 800;   // ms step livello 1
 const FAST_DIV = 20;   // divisore velocità swipe giù
@@ -457,7 +457,7 @@ function init() {
 function resize() {
   const mh = window.innerHeight - 50;
   const mw = window.innerWidth - 4;
-  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.75 * 1.40);
+  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.60);
   C.width  = COLS * SZ;
   C.height = ROWS * SZ;
 }
