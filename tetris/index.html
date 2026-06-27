@@ -23,7 +23,6 @@
       display: flex;
       justify-content: space-around;
       width: 100%;
-      max-width: 360px;
       padding: 4px 8px 2px;
       font-size: 11px;
       letter-spacing: 1px;
@@ -460,6 +459,9 @@ function resize() {
   SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.60);
   C.width  = COLS * SZ;
   C.height = ROWS * SZ;
+  const hud = document.getElementById('hud');
+  if (hud) hud.style.width = C.width + 'px';
+  if (typeof draw === 'function') draw();
 }
 
 function resetBase() {
