@@ -80,8 +80,6 @@
       font-size: 13px; font-weight: bold;
       cursor: pointer; letter-spacing: 1px;
       width: 220px;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
     }
     .btn.sec {
       background: #1a1a1a; color: #888;
@@ -393,7 +391,7 @@ function initLogin() {
     if (e.key === 'Enter') btnPlay.click();
   });
 
-  function doPlay() {
+  btnPlay.addEventListener('click', () => {
     const u = input.value.trim();
     if (!u) { input.focus(); return; }
     username = u;
@@ -402,11 +400,9 @@ function initLogin() {
     if (saved) applyLoad(saved);
     ui();
     overlay.style.display = 'none';
-  }
-  btnPlay.addEventListener('click', doPlay);
-  btnPlay.addEventListener('touchend', e => { e.preventDefault(); doPlay(); });
+  });
 
-  function doNew() {
+  btnNew.addEventListener('click', () => {
     const u = input.value.trim();
     if (!u) return;
     username = u;
@@ -414,9 +410,7 @@ function initLogin() {
     resetBase();
     ui();
     overlay.style.display = 'none';
-  }
-  btnNew.addEventListener('click', doNew);
-  btnNew.addEventListener('touchend', e => { e.preventDefault(); doNew(); });
+  });
 
   input.focus();
 }
