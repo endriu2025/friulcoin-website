@@ -97,8 +97,8 @@
   <p>INSERISCI IL TUO NOME</p>
   <input id="uname" type="text" maxlength="16" placeholder="nome utente" autocomplete="off" />
   <div id="login-saved" style="display:none" class="user-info"></div>
-  <button class="btn" id="btn-play">GIOCA</button>
-  <button class="btn sec" id="btn-new" style="display:none">NUOVA PARTITA</button>
+  <button class="btn" id="btn-play" onclick="doPlay()">GIOCA</button>
+  <button class="btn sec" id="btn-new" style="display:none" onclick="doNew()">NUOVA PARTITA</button>
   <p style="font-size:10px; color:#555; text-align:center; margin-top:6px; letter-spacing:0.5px;">
     Vuoi altri giochi e guadagnare?<BR><a href="https://tunnel.libars.it" target="_blank" style="color:#0ff; text-decoration:none; font-weight:bold; pointer-events:auto;">
 	PREMI QUI</a>
@@ -357,6 +357,31 @@ function makePiece(k, r, x, y) {
 // ─────────────────────────────────────────────
 //  SCHERMATA LOGIN
 // ─────────────────────────────────────────────
+// funzioni globali per i bottoni login (compatibilità massima)
+function doPlay() {
+  const overlay = document.getElementById('login');
+  const u = document.getElementById('uname').value.trim();
+  if (!u) { document.getElementById('uname').focus(); return; }
+  username = u;
+  const saved = loadGame(u);
+  resetBase();
+  if (saved) applyLoad(saved);
+  ui();
+  overlay.style.display = 'none';
+  try { fetchRemoteScores(); } catch(e) {}
+}
+function doNew() {
+  const overlay = document.getElementById('login');
+  const u = document.getElementById('uname').value.trim();
+  if (!u) return;
+  username = u;
+  deleteSave(u);
+  resetBase();
+  ui();
+  overlay.style.display = 'none';
+  try { fetchRemoteScores(); } catch(e) {}
+}
+
 function initLogin() {
   const overlay  = document.getElementById('login');
   const input    = document.getElementById('uname');
@@ -423,11 +448,7 @@ function init() {
   touch();
   keyboard();
   initLogin();
-  fetchRemoteScores().then(() => {
-    // aggiorna display se utente già noto
-    const inp = document.getElementById('uname');
-    if (inp.value.trim()) inp.dispatchEvent(new Event('input', { bubbles: true }));
-  });
+  // fetch remoto avviene dopo login (in doPlay/doNew)
   requestAnimationFrame(loop);
 }
 
