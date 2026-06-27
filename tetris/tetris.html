@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<script>
+// DEBUG - script indipendente
+window.onerror = function(m,s,l){ showDbg('ERR:'+m+' L'+l); return true; };
+function showDbg(msg){
+  var d = document.getElementById('dbg');
+  if(!d){ d=document.createElement('div');
+    d.id='dbg';
+    d.style.cssText='position:fixed;bottom:0;left:0;right:0;background:red;color:#fff;font-size:12px;padding:6px;z-index:9999;font-family:monospace;';
+    document.body ? document.body.appendChild(d) : document.addEventListener('DOMContentLoaded',function(){ document.body.appendChild(d); });
+  }
+  d.textContent = msg;
+}
+document.addEventListener('DOMContentLoaded', function(){
+  showDbg('JS OK - tocca GIOCA');
+  var btn = document.getElementById('btn-play');
+  if(btn){
+    btn.addEventListener('touchstart', function(e){ showDbg('TOUCHSTART su GIOCA'); });
+    btn.addEventListener('touchend', function(e){ e.preventDefault(); showDbg('TOUCHEND - avvio...'); if(window.doPlay) doPlay(); });
+    btn.addEventListener('click', function(){ showDbg('CLICK su GIOCA'); if(window.doPlay) doPlay(); });
+  } else { showDbg('ERRORE: btn-play non trovato'); }
+});
+</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Friulcoin Tetris</title>
@@ -86,6 +109,13 @@
       border: 1px solid #333;
     }
     #login .user-info { font-size: 12px; color: #ff0; }
+
+    #dbg {
+      position:fixed; bottom:0; left:0; right:0;
+      background:#f00; color:#fff; font-size:11px;
+      padding:4px 8px; z-index:999; display:none;
+      font-family:monospace; word-break:break-all;
+    }
   </style>
 </head>
 <body>
@@ -106,8 +136,7 @@
 	
 	
 	
-	
-	
+  
   
   
   
@@ -350,17 +379,29 @@ function makePiece(k, r, x, y) {
 //  SCHERMATA LOGIN
 // ─────────────────────────────────────────────
 // funzioni globali per i bottoni login (compatibilità massima)
+function dbg(msg) {
+  var el = document.getElementById('dbg');
+  if(el){ el.style.display='block'; el.textContent = msg; }
+}
+window.onerror = function(m,s,l,c,e){ dbg('ERR: '+m+' L'+l); return true; };
+
 function doPlay() {
-  const overlay = document.getElementById('login');
-  const u = document.getElementById('uname').value.trim();
+  dbg('doPlay chiamato');
+  var overlay = document.getElementById('login');
+  var u = document.getElementById('uname').value.trim();
+  dbg('nome: ['+u+']');
   if (!u) { document.getElementById('uname').focus(); return; }
   username = u;
-  const saved = loadGame(u);
+  dbg('resetBase...');
+  var saved = loadGame(u);
   resetBase();
   if (saved) applyLoad(saved);
+  dbg('ui...');
   ui();
+  dbg('nascondo overlay...');
   overlay.style.display = 'none';
-  try { fetchRemoteScores(); } catch(e) {}
+  dbg('OK - gioco avviato');
+  try { fetchRemoteScores(); } catch(e) { dbg('fetch err: '+e); }
 }
 function doNew() {
   const overlay = document.getElementById('login');
