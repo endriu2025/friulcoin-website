@@ -135,6 +135,8 @@ let lvl, linee, punti;
 let lastT, fast;
 let dead;
 let username = '';
+let lastPieceKey = '';   // tipo ultimo pezzo sceso
+let sameCount    = 0;    // quante volte di fila stesso tipo
 
 // ─────────────────────────────────────────────
 //  TETROMINI  [rotazione][riga][col]
@@ -182,6 +184,29 @@ const KEYS = Object.keys(T);
 //  SALVATAGGIO / CARICAMENTO
 // ─────────────────────────────────────────────
 function saveKey(u) { return 'tetris_r1_' + u.toLowerCase(); }
+
+// ── MIGLIOR RISULTATO ─────────────────────────────────
+function bestKey(u) { return 'tetris_r1_best_' + u.toLowerCase(); }
+
+function saveBest() {
+  if (!username) return;
+  const prev = loadBest(username);
+  // confronta: prima per livello, poi per linee
+  if (!prev || lvl > prev.lvl || (lvl === prev.lvl && linee > prev.linee)) {
+    localStorage.setItem(bestKey(username), JSON.stringify({ lvl, linee }));
+  }
+}
+
+function loadBest(u) {
+  const raw = localStorage.getItem(bestKey(u));
+  return raw ? JSON.parse(raw) : null;
+}
+
+function bestLabel(u) {
+  const b = loadBest(u);
+  return b ? `${b.lvl}-${b.linee}` : null;
+}
+// ──────────────────────────────────────────────────────
 
 function saveGame() {
   if (!username) return;
@@ -231,11 +256,18 @@ function initLogin() {
   input.addEventListener('input', () => {
     const u = input.value.trim();
     const saved = u.length > 0 ? loadGame(u) : null;
+    const best  = u.length > 0 ? bestLabel(u) : null;
     if (saved) {
       savedDiv.style.display = 'block';
-      savedDiv.textContent   = `Partita salvata → LV ${saved.lvl} · PT ${saved.punti}`;
+      savedDiv.textContent   = `Partita salvata → LV ${saved.lvl} · PT ${saved.punti}` +
+                               (best ? `  |  Record: ${best}` : '');
       btnPlay.textContent    = 'CONTINUA';
       btnNew.style.display   = 'block';
+    } else if (best) {
+      savedDiv.style.display = 'block';
+      savedDiv.textContent   = `Miglior risultato: ${best}`;
+      btnPlay.textContent    = 'GIOCA';
+      btnNew.style.display   = 'none';
     } else {
       savedDiv.style.display = 'none';
       btnPlay.textContent    = 'GIOCA';
@@ -295,6 +327,7 @@ function resetBase() {
   board = Array.from({length: ROWS}, () => Array(COLS).fill(null));
   lvl = 1; linee = 0; punti = 0;
   fast = false; dead = false;
+  lastPieceKey = ''; sameCount = 0;
   lastT = performance.now();
   nxt = newPiece();
   cur = spawn();
@@ -314,7 +347,17 @@ function reset() {
 //  PEZZI
 // ─────────────────────────────────────────────
 function newPiece() {
-  const k = KEYS[Math.random() * KEYS.length | 0];
+  let k;
+  const others = KEYS.filter(x => x !== lastPieceKey);
+  if (sameCount >= 2) {
+    // forza un pezzo diverso
+    k = others[Math.random() * others.length | 0];
+  } else {
+    k = KEYS[Math.random() * KEYS.length | 0];
+  }
+  // aggiorna contatore consecutivi
+  if (k === lastPieceKey) { sameCount++; }
+  else { lastPieceKey = k; sameCount = 1; }
   return { k, c: T[k].c, s: T[k].s, r: 0, x: (COLS/2|0) - 2, y: 0 };
 }
 
@@ -361,7 +404,8 @@ function lock() {
   cur = spawn();
   if (hit(cur, 0, 0)) {
     dead = true;
-    deleteSave(username); // partita finita → cancella salvataggio
+    saveBest();            // salva miglior risultato
+    deleteSave(username);  // partita finita → cancella salvataggio
   } else {
     saveGame();
   }
