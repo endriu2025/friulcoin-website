@@ -457,7 +457,7 @@ function init() {
 function resize() {
   const mh = window.innerHeight - 50;
   const mw = window.innerWidth - 4;
-  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS));
+  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.75);
   C.width  = COLS * SZ;
   C.height = ROWS * SZ;
 }
@@ -571,7 +571,7 @@ function clearLines() {
     // avanzamento livello
     while (linee >= 10) {
       linee -= 10;
-      if (lvl >= 10) { punti++; lvl = 1; }
+      if (lvl >= 10) { punti++; lvl = 3; }
       else            lvl++;
     }
     ui();
@@ -582,8 +582,9 @@ function clearLines() {
 //  VELOCITÀ
 // ─────────────────────────────────────────────
 function stepMs() {
-  // livello 1 → 800ms, livello 10 → ~88ms
-  const ms = Math.max(80, BASE_MS - (lvl - 1) * 80);
+  // livello 1→800ms … livello 9=160ms (cap), livello 10=stesso del 9
+  const effLvl = Math.min(lvl, 9);
+  const ms = BASE_MS - (effLvl - 1) * 80;
   return fast ? ms / FAST_DIV : ms;
 }
 
@@ -706,7 +707,7 @@ function drawOver() {
   X.fillStyle = '#aaa';
   X.font = `${SZ-2}px monospace`;
 
-  X.fillText('Tap x partita', C.width/2, C.height/2 + 30);
+  X.fillText('Tap per ricominciare', C.width/2, C.height/2 + 30);
 }
 
 // ─────────────────────────────────────────────
