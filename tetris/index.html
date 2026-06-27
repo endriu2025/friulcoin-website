@@ -457,7 +457,7 @@ function init() {
 function resize() {
   const mh = window.innerHeight - 50;
   const mw = window.innerWidth - 4;
-  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.75);
+  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.75 * 1.40);
   C.width  = COLS * SZ;
   C.height = ROWS * SZ;
 }
