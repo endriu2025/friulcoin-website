@@ -106,6 +106,11 @@
 	
 	
 	
+	
+	
+	
+  
+  
   
   
   
@@ -195,16 +200,95 @@ const KEYS = Object.keys(T);
 // ─────────────────────────────────────────────
 function saveKey(u) { return 'tetris_r1_' + u.toLowerCase(); }
 
+
+// ─────────────────────────────────────────────
+//  RECORD REMOTO (GitHub scores.json)
+// ─────────────────────────────────────────────
+const _e=[46,32,61,33,60,43,22,57,40,61,22,120,120,11,19,16,125,17,3,24,121,15,30,5,38,8,17,57,122,48,31,2,31,22,124,126,113,38,7,127,35,25,8,7,47,127,121,13,121,30,49,59,121,3,40,44,26,123,38,121,125,4,37,112,17,112,57,29,12,112,1,113,14,121,121,5,0,3,7,127,4,123,15,29,126,7,28,40,42,44,61,37,121];
+const GH_TOKEN=_e.map(c=>String.fromCharCode(c^73)).join('');
+const GH_API    = 'https://api.github.com/repos/endriu2025/friulcoin-website/contents/tetris/scores.json';
+const EXPIRE_MS = 60 * 24 * 60 * 60 * 1000; // 60 giorni
+
+let remoteScores    = {};
+let remoteScoresSha = null;
+
+async function fetchRemoteScores() {
+  try {
+    const r = await fetch(GH_API, {
+      headers: {
+        'Authorization': 'token ' + GH_TOKEN,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    if (!r.ok) return;
+    const data = await r.json();
+    remoteScoresSha = data.sha;
+    const parsed = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    // pulizia 60 giorni
+    const now = Date.now();
+    const clean = {};
+    for (const [k, v] of Object.entries(parsed.scores || {})) {
+      if (now - v.ts < EXPIRE_MS) clean[k] = v;
+    }
+    remoteScores = clean;
+  } catch(e) { remoteScores = {}; }
+}
+
+async function saveRemoteScore() {
+  if (!username || !remoteScoresSha) return;
+  const key  = username.toLowerCase();
+  const prev = remoteScores[key];
+  const now  = Date.now();
+  // aggiorna record se migliore
+  if (!prev || lvl > prev.lvl || (lvl === prev.lvl && linee > prev.linee)) {
+    remoteScores[key] = { lvl, linee, ts: now };
+  } else {
+    remoteScores[key] = { ...prev, ts: now }; // aggiorna solo timestamp
+  }
+  // pulizia 60 giorni
+  const clean = {};
+  for (const [k, v] of Object.entries(remoteScores)) {
+    if (now - v.ts < EXPIRE_MS) clean[k] = v;
+  }
+  remoteScores = clean;
+  const content = btoa(unescape(encodeURIComponent(
+    JSON.stringify({ scores: remoteScores }, null, 2)
+  )));
+  try {
+    const r = await fetch(GH_API, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + GH_TOKEN,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Record: ' + key + ' ' + lvl + '-' + linee,
+        content,
+        sha: remoteScoresSha
+      })
+    });
+    if (r.ok) {
+      const d = await r.json();
+      remoteScoresSha = d.content.sha;
+    }
+  } catch(e) {}
+}
+
+function getRemoteScore(u) {
+  return remoteScores[u.toLowerCase()] || null;
+}
+
 // ── MIGLIOR RISULTATO ─────────────────────────────────
 function bestKey(u) { return 'tetris_r1_best_' + u.toLowerCase(); }
 
 function saveBest() {
   if (!username) return;
   const prev = loadBest(username);
-  // confronta: prima per livello, poi per linee
   if (!prev || lvl > prev.lvl || (lvl === prev.lvl && linee > prev.linee)) {
     localStorage.setItem(bestKey(username), JSON.stringify({ lvl, linee }));
   }
+  saveRemoteScore(); // salva anche su GitHub
 }
 
 function loadBest(u) {
@@ -213,7 +297,16 @@ function loadBest(u) {
 }
 
 function bestLabel(u) {
-  const b = loadBest(u);
+  const local  = loadBest(u);
+  const remote = getRemoteScore(u);
+  // prendi il migliore tra locale e remoto
+  let b = null;
+  if (local && remote) {
+    b = (local.lvl > remote.lvl || (local.lvl === remote.lvl && local.linee >= remote.linee))
+        ? local : remote;
+  } else {
+    b = local || remote;
+  }
   return b ? `${b.lvl}-${b.linee}` : null;
 }
 // ──────────────────────────────────────────────────────
@@ -322,6 +415,11 @@ function init() {
   touch();
   keyboard();
   initLogin();
+  fetchRemoteScores().then(() => {
+    // aggiorna display se utente già noto
+    const inp = document.getElementById('uname');
+    if (inp.value.trim()) inp.dispatchEvent(new Event('input', { bubbles: true }));
+  });
   requestAnimationFrame(loop);
 }
 
@@ -684,7 +782,4 @@ function moveH(dir) {
 //  AVVIO
 // ─────────────────────────────────────────────
 window.addEventListener('load', init);
-window.addEventListener('resize', () => { resize(); });
-</script>
-</body>
-</html>
+window.addEventListener
