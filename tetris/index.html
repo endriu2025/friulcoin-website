@@ -474,9 +474,13 @@ function init() {
 }
 
 function resize() {
-  const mh = window.innerHeight - 50;
-  const mw = window.innerWidth - 4;
-  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS) * 0.60);
+  // usa il 95% dell'altezza disponibile e il 92% della larghezza (meno testi laterali)
+  const hudH = 36;
+  const hintH = 20;
+  const mh = window.innerHeight - hudH - hintH;
+  const mw = window.innerWidth * 0.72; // lascia spazio ai testi laterali
+  SZ = Math.floor(Math.min(mh / ROWS, mw / COLS));
+  if (SZ < 8) SZ = 8;
   C.width  = COLS * SZ;
   C.height = ROWS * SZ;
   const hud = document.getElementById('hud');
