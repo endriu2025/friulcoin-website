@@ -787,7 +787,8 @@ function touch() {
       const dxFromLast = t.clientX - txLast;
       const steps = Math.trunc(dxFromLast / SZ);
       if (steps !== 0) {
-        moveH(steps);
+        const dir = steps > 0 ? 1 : -1;
+        for (let i = 0; i < Math.abs(steps); i++) moveH(dir);
         txLast += steps * SZ;
         moved = true;
       }
