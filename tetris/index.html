@@ -170,6 +170,7 @@ let dead;
 let username = '';
 let lastPieceKey = '';   // tipo ultimo pezzo sceso
 let sameCount    = 0;    // quante volte di fila stesso tipo
+let pieceCount   = 0;    // contatore pezzi usciti (ogni 5° esce barra I)
 
 // ─────────────────────────────────────────────
 //  TETROMINI  [rotazione][riga][col]
@@ -492,7 +493,7 @@ function resetBase() {
   board = Array.from({length: ROWS}, () => Array(COLS).fill(null));
   lvl = 1; linee = 0; punti = 0;
   fast = false; dead = false;
-  lastPieceKey = ''; sameCount = 0;
+  lastPieceKey = ''; sameCount = 0; pieceCount = 0;
   lastT = performance.now();
   nxt = newPiece();
   cur = spawn();
@@ -512,18 +513,25 @@ function reset() {
 //  PEZZI
 // ─────────────────────────────────────────────
 function newPiece() {
+  pieceCount++;
   let k;
-  const others = KEYS.filter(x => x !== lastPieceKey);
-  if (sameCount >= 2) {
-    // forza un pezzo diverso
-    k = others[Math.random() * others.length | 0];
+  // ogni 5° pezzo forza la barra I (verticale o orizzontale a caso)
+  if (pieceCount % 5 === 0) {
+    k = 'I';
   } else {
-    k = KEYS[Math.random() * KEYS.length | 0];
+    const others = KEYS.filter(x => x !== lastPieceKey);
+    if (sameCount >= 2) {
+      k = others[Math.random() * others.length | 0];
+    } else {
+      k = KEYS[Math.random() * KEYS.length | 0];
+    }
   }
+  // rotazione casuale 0 o 1 per barra I (orizzontale/verticale)
+  const startR = (k === 'I' && Math.random() < 0.5) ? 1 : 0;
   // aggiorna contatore consecutivi
   if (k === lastPieceKey) { sameCount++; }
   else { lastPieceKey = k; sameCount = 1; }
-  return { k, c: T[k].c, s: T[k].s, r: 0, x: (COLS/2|0) - 2, y: 0 };
+  return { k, c: T[k].c, s: T[k].s, r: startR, x: (COLS/2|0) - 2, y: 0 };
 }
 
 function spawn() {
@@ -751,11 +759,13 @@ function ui() {
 // ─────────────────────────────────────────────
 let tx0, ty0, tt0, moved;
 
+let txLast = 0; // posizione x dell'ultimo spostamento colonna
+
 function touch() {
   C.addEventListener('touchstart', e => {
     e.preventDefault();
     const t = e.changedTouches[0];
-    tx0 = t.clientX; ty0 = t.clientY;
+    tx0 = t.clientX; ty0 = t.clientY; txLast = t.clientX;
     tt0 = performance.now(); moved = false;
     fast = false;
   }, {passive: false});
@@ -765,8 +775,22 @@ function touch() {
     const t = e.changedTouches[0];
     const dy = t.clientY - ty0;
     const dx = t.clientX - tx0;
+
+    // swipe giù → velocità
     if (dy > 25 && Math.abs(dy) > Math.abs(dx)) {
       fast = true; moved = true;
+      return;
+    }
+
+    // movimento orizzontale proporzionale: 1 colonna per ogni SZ pixel
+    if (Math.abs(dx) > Math.abs(dy) && SZ > 0) {
+      const dxFromLast = t.clientX - txLast;
+      const steps = Math.trunc(dxFromLast / SZ);
+      if (steps !== 0) {
+        moveH(steps);
+        txLast += steps * SZ;
+        moved = true;
+      }
     }
   }, {passive: false});
 
@@ -784,15 +808,11 @@ function touch() {
     if (dist < 18 && dt < 300 && !moved) {
       // TAP → ruota
       rotate();
-    } else if (Math.abs(dy) > Math.abs(dx) && dy > 30) {
-      // SWIPE GIÙ → hard drop
+    } else if (Math.abs(dy) > Math.abs(dx) && dy > 30 && !moved) {
+      // SWIPE GIÙ → hard drop (se non già in velocità)
       while (!hit(cur, 0, 1)) cur.y++;
       lock();
       lastT = performance.now();
-    } else if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy)) {
-      // SWIPE SX/DX → muovi
-      if (dx < 0) moveH(-1);
-      else         moveH(1);
     }
   }, {passive: false});
 }
