@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I problemi della Carnia</title>
+<style>
+  :root{
+    --oro:#d4a017;
+    --oro-chiaro:#f2c94c;
+    --scuro:#1c1c1c;
+    --testo:#2b2b2b;
+    --grigio:#6b6b6b;
+    --bordo:#e6e6e6;
+    --sfondo:#faf9f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--sfondo);
+    color:var(--testo);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:40px 20px 80px}
+
+  header{text-align:center}
+  .logo{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 24px;
+  }
+  h1{
+    font-size:clamp(1.9rem,5vw,3rem);
+    letter-spacing:.06em;
+    font-weight:800;
+    color:var(--scuro);
+    text-transform:uppercase;
+  }
+  .sottotitolo{
+    color:var(--grigio);
+    font-size:1rem;
+    margin-top:10px;
+  }
+  .riga{
+    width:80px;height:4px;
+    background:linear-gradient(90deg,var(--oro),var(--oro-chiaro));
+    border-radius:2px;
+    margin:24px auto 50px;
+  }
+
+  .lista{list-style:none;display:flex;flex-direction:column;gap:20px}
+  .voce{
+    background:#fff;
+    border:1px solid var(--bordo);
+    border-left:5px solid var(--oro);
+    border-radius:10px;
+    padding:22px 24px;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .voce:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07)}
+  .num{
+    flex:0 0 42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--oro),var(--oro-chiaro));
+    color:#fff;
+    font-weight:700;
+    font-size:1.05rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .voce h2{
+    font-size:1.2rem;
+    color:var(--scuro);
+    margin-bottom:6px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .voce p{color:var(--grigio);font-size:.98rem}
+  .fonte{
+    display:inline-block;
+    margin-top:8px;
+    font-size:.8rem;
+    color:var(--oro);
+    font-weight:600;
+    letter-spacing:.04em;
+  }
+
+  footer{
+    margin-top:60px;
+    text-align:center;
+    font-size:.85rem;
+    color:var(--grigio);
+    border-top:1px solid var(--bordo);
+    padding-top:24px;
+  }
+
+  @media (max-width:600px){
+    .wrap{padding:28px 16px 60px}
+    .voce{flex-direction:column;gap:12px;padding:18px}
+    .num{flex:0 0 auto;width:38px;height:38px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="libero.png" alt="Logo" class="logo">
+    <h1>I problemi....</h1>
+    <p class="sottotitolo">Le criticità della Carnia, in ordine di importanza sociale</p>
+    <div class="riga"></div>
+  </header>
+
+  <ol class="lista">
+
+    <li class="voce">
+      <div class="num">1</div>
+      <div>
+        <h2>Spopolamento</h2>
+        <p>Perdiamo 400 persone ogni anno. Meno residenti significa meno servizi, meno scuole, meno negozi e un territorio che si svuota progressivamente.</p>
+        <span class="fonte">Dati ISTAT</span>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">2</div>
+      <div>
+        <h2>La sanità</h2>
+        <p>Tra i peggiori dei peggiori per liste d'attesa. Visite ed esami con tempi inaccettabili, presidi ospedalieri sempre più deboli e cittadini costretti a spostarsi lontano per curarsi.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">3</div>
+      <div>
+        <h2>Servizio trasporti</h2>
+        <p>Collegamenti insufficienti tra le valli e con il fondovalle, corse ridotte, orari incompatibili con lavoro e scuola. Senza auto propria molte zone sono di fatto isolate.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">4</div>
+      <div>
+        <h2>Lavoro e opportunità per i giovani</h2>
+        <p>Poche prospettive occupazionali qualificate: i giovani se ne vanno e non tornano, alimentando lo spopolamento e impoverendo il tessuto sociale.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">5</div>
+      <div>
+        <h2>Scuola e servizi educativi</h2>
+        <p>Pluriclassi, accorpamenti e chiusure di plessi. Le famiglie con figli faticano a restare dove l'offerta scolastica si riduce anno dopo anno.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">6</div>
+      <div>
+        <h2>Viabilità e infrastrutture</h2>
+        <p>Strade di montagna da manutenere, ponti e tratti a rischio, interventi lenti. La mobilità quotidiana diventa costosa e insicura.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">7</div>
+      <div>
+        <h2>Connettività digitale</h2>
+        <p>Banda larga e copertura mobile a macchia di leopardo. Senza rete non ci sono telelavoro, telemedicina, didattica a distanza né nuove imprese.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">8</div>
+      <div>
+        <h2>Casa e patrimonio edilizio</h2>
+        <p>Migliaia di immobili vuoti o inutilizzati accanto a una reale difficoltà di trovare affitti dignitosi per chi vorrebbe venire ad abitare qui.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">9</div>
+      <div>
+        <h2>Servizi di prossimità</h2>
+        <p>Negozi, sportelli bancari, uffici postali e farmacie che chiudono nei paesi più piccoli, con forte disagio soprattutto per gli anziani.</p>
+      </div>
+    </li>
+
+    <li class="voce">
+      <div class="num">10</div>
+      <div>
+        <h2>Anziani e assistenza</h2>
+        <p>Popolazione tra le più anziane della regione, con crescente bisogno di assistenza domiciliare e strutture che il territorio non riesce a garantire ovunque.</p>
+      </div>
+    </li>
+
+  </ol>
+
+  <footer>
+    <p>Pagina informativa &middot; Carnia</p>
+  </footer>
+
+</div>
+</body>
+</html>
